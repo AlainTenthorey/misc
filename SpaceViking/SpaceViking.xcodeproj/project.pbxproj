@@ -167,6 +167,14 @@
 		1DF42B91143A19CC00E0FCCF /* Viking.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42B8C143A19CB00E0FCCF /* Viking.plist */; };
 		1DF42B9D143A1D6700E0FCCF /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF42B9C143A1D6700E0FCCF /* GameObject.m */; };
 		1DF42BA0143A223D00E0FCCF /* GameCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF42B9F143A223C00E0FCCF /* GameCharacter.m */; };
+		1DF42BA3143A24EA00E0FCCF /* RadarDish.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF42BA2143A24EA00E0FCCF /* RadarDish.m */; };
+		1DF42BA6143A8A8800E0FCCF /* Viking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF42BA5143A8A8800E0FCCF /* Viking.m */; };
+		1DF42BB2143E6CB200E0FCCF /* scene1atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42BAC143E6CB200E0FCCF /* scene1atlas.plist */; };
+		1DF42BB3143E6CB200E0FCCF /* scene1atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42BAD143E6CB200E0FCCF /* scene1atlas.png */; };
+		1DF42BB4143E6CB200E0FCCF /* scene1atlasiPhone-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42BAE143E6CB200E0FCCF /* scene1atlasiPhone-hd.plist */; };
+		1DF42BB5143E6CB200E0FCCF /* scene1atlasiPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42BAF143E6CB200E0FCCF /* scene1atlasiPhone-hd.png */; };
+		1DF42BB6143E6CB200E0FCCF /* scene1atlasiPhone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42BB0143E6CB200E0FCCF /* scene1atlasiPhone.plist */; };
+		1DF42BB7143E6CB200E0FCCF /* scene1atlasiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42BB1143E6CB200E0FCCF /* scene1atlasiPhone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -462,6 +470,16 @@
 		1DF42B9C143A1D6700E0FCCF /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		1DF42B9E143A223C00E0FCCF /* GameCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCharacter.h; sourceTree = "<group>"; };
 		1DF42B9F143A223C00E0FCCF /* GameCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCharacter.m; sourceTree = "<group>"; };
+		1DF42BA1143A24EA00E0FCCF /* RadarDish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarDish.h; sourceTree = "<group>"; };
+		1DF42BA2143A24EA00E0FCCF /* RadarDish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarDish.m; sourceTree = "<group>"; };
+		1DF42BA4143A8A8800E0FCCF /* Viking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Viking.h; sourceTree = "<group>"; };
+		1DF42BA5143A8A8800E0FCCF /* Viking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Viking.m; sourceTree = "<group>"; };
+		1DF42BAC143E6CB200E0FCCF /* scene1atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene1atlas.plist; sourceTree = "<group>"; };
+		1DF42BAD143E6CB200E0FCCF /* scene1atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene1atlas.png; sourceTree = "<group>"; };
+		1DF42BAE143E6CB200E0FCCF /* scene1atlasiPhone-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "scene1atlasiPhone-hd.plist"; sourceTree = "<group>"; };
+		1DF42BAF143E6CB200E0FCCF /* scene1atlasiPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene1atlasiPhone-hd.png"; sourceTree = "<group>"; };
+		1DF42BB0143E6CB200E0FCCF /* scene1atlasiPhone.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene1atlasiPhone.plist; sourceTree = "<group>"; };
+		1DF42BB1143E6CB200E0FCCF /* scene1atlasiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene1atlasiPhone.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -856,6 +874,7 @@
 		1DF42B0D142F7EA300E0FCCF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1DF42BAB143E6CB200E0FCCF /* Texture Atlases */,
 				1DF42B0E142F7EA300E0FCCF /* App Launch Images */,
 				1DF42B16142F7EA300E0FCCF /* Backgrounds */,
 				1DF42B1D142F7EA300E0FCCF /* Icons */,
@@ -1042,6 +1061,8 @@
 				1DF42B9C143A1D6700E0FCCF /* GameObject.m */,
 				1DF42B9E143A223C00E0FCCF /* GameCharacter.h */,
 				1DF42B9F143A223C00E0FCCF /* GameCharacter.m */,
+				1DF42BA4143A8A8800E0FCCF /* Viking.h */,
+				1DF42BA5143A8A8800E0FCCF /* Viking.m */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -1049,6 +1070,8 @@
 		1DF42B96143A1A5E00E0FCCF /* EnemyObjects */ = {
 			isa = PBXGroup;
 			children = (
+				1DF42BA1143A24EA00E0FCCF /* RadarDish.h */,
+				1DF42BA2143A24EA00E0FCCF /* RadarDish.m */,
 			);
 			name = EnemyObjects;
 			sourceTree = "<group>";
@@ -1067,6 +1090,20 @@
 			children = (
 			);
 			name = PowerUps;
+			sourceTree = "<group>";
+		};
+		1DF42BAB143E6CB200E0FCCF /* Texture Atlases */ = {
+			isa = PBXGroup;
+			children = (
+				1DF42BAC143E6CB200E0FCCF /* scene1atlas.plist */,
+				1DF42BAD143E6CB200E0FCCF /* scene1atlas.png */,
+				1DF42BAE143E6CB200E0FCCF /* scene1atlasiPhone-hd.plist */,
+				1DF42BAF143E6CB200E0FCCF /* scene1atlasiPhone-hd.png */,
+				1DF42BB0143E6CB200E0FCCF /* scene1atlasiPhone.plist */,
+				1DF42BB1143E6CB200E0FCCF /* scene1atlasiPhone.png */,
+			);
+			name = "Texture Atlases";
+			path = CompletedTextureAtlases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1160,6 +1197,12 @@
 				1DF42B8F143A19CC00E0FCCF /* Mallet.plist in Resources */,
 				1DF42B90143A19CC00E0FCCF /* RadarDish.plist in Resources */,
 				1DF42B91143A19CC00E0FCCF /* Viking.plist in Resources */,
+				1DF42BB2143E6CB200E0FCCF /* scene1atlas.plist in Resources */,
+				1DF42BB3143E6CB200E0FCCF /* scene1atlas.png in Resources */,
+				1DF42BB4143E6CB200E0FCCF /* scene1atlasiPhone-hd.plist in Resources */,
+				1DF42BB5143E6CB200E0FCCF /* scene1atlasiPhone-hd.png in Resources */,
+				1DF42BB6143E6CB200E0FCCF /* scene1atlasiPhone.plist in Resources */,
+				1DF42BB7143E6CB200E0FCCF /* scene1atlasiPhone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1278,6 +1321,8 @@
 				1DF42B861430D71700E0FCCF /* GameScene.m in Sources */,
 				1DF42B9D143A1D6700E0FCCF /* GameObject.m in Sources */,
 				1DF42BA0143A223D00E0FCCF /* GameCharacter.m in Sources */,
+				1DF42BA3143A24EA00E0FCCF /* RadarDish.m in Sources */,
+				1DF42BA6143A8A8800E0FCCF /* Viking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

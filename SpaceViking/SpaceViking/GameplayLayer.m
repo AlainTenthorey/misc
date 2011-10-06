@@ -10,6 +10,13 @@
 
 @implementation GameplayLayer
 
+- (void) dealloc {
+    [leftJoystick release];
+    [jumpButton release];
+    [attackButton release];
+    [super dealloc];
+}
+
 -(void)initJoystickAndButtons {
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     CGRect joystickBaseDimensions   = CGRectMake(0, 0, 128.0f, 128.0f);
@@ -63,49 +70,81 @@
     [self addChild:attackButtonBase];
 }
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        CGSize screenSize = [CCDirector sharedDirector].winSize;
-        // enable touches
-        self.isTouchEnabled = YES;                               
-        vikingSprite = [CCSprite spriteWithFile:@"sv_anim_1.png"];
-        [vikingSprite setPosition:
-                    CGPointMake(screenSize.width/2,  screenSize.height*0.17f)];                
-        [self addChild:vikingSprite];
-        [self initJoystickAndButtons];
-        [self scheduleUpdate];
-        
-        if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) { // If NOT on the iPad, scale down Ole
-            // In your games, use this to load art sized for the device
-            [vikingSprite setScaleX:screenSize.width/1024.0f];
-            [vikingSprite setScaleY:screenSize.height/768.0f];
-        }
-    }
-    return self;
-}
-
--(void)applyJoystick:(SneakyJoystick *)aJoystick toNode:(CCNode*)tempNode forTimeDelta:(float)deltaTime
-{
-    CGPoint scaledVelocity = ccpMult(aJoystick.velocity, 1024.0f);
-    CGPoint newPosition = ccp(tempNode.position.x + scaledVelocity.x * deltaTime,
-                               tempNode.position.y + scaledVelocity.y * deltaTime);
-    [tempNode setPosition:newPosition];
-    if (jumpButton.active == YES) {
-        CCLOG(@"Jump button is pressed.");
-    }
-    if (attackButton.active == YES) {
-        CCLOG(@"Attack button is pressed.");
-    }
-}
-
 #pragma mark -
 #pragma mark Update Method
 -(void) update:(ccTime)deltaTime
 {
-    [self applyJoystick:leftJoystick toNode:vikingSprite
-           forTimeDelta:deltaTime];
+    CCArray *listOfGameObjects = [sceneSpriteBatchNode children];
+    for (GameCharacter *tempChar in listOfGameObjects) {
+        [tempChar updateStateWithDeltaTime:deltaTime 
+                      andListOfGameObjects: listOfGameObjects];
+    }
 }
 
+#pragma mark -
+-(void)createObjectOfType:(GameObjectType)objectType
+               withHealth:(int)initialHealth
+               atLocation:(CGPoint)spawnLocation
+               withZValue:(int)ZValue 
+{
+    if (objectType == kEnemyTypeRadarDish) {
+        CCLOG(@"Creating the Radar Enemy");
+        RadarDish *radarDish = [[RadarDish alloc] initWithSpriteFrameName:@"radar_1.png"];
+        [radarDish setCharacterHealth:initialHealth];
+        [radarDish setPosition:spawnLocation];
+        [sceneSpriteBatchNode addChild:radarDish
+                                     z:ZValue
+                                   tag:kRadarDishTagValue];
+        [radarDish release];
+    }
+}
+
+-(void)createPhaserWithDirection:(PhaserDirection)phaserDirection
+                     andPosition:(CGPoint)spawnPosition {
+    CCLOG(@"Placeholder for Chapter 5, see below");
+    return;
+}
+
+-(id)init {
+    self = [super init];
+    if (self != nil) {
+        CGSize screenSize = [CCDirector sharedDirector].winSize;
+        // enable touches
+        self.isTouchEnabled = YES;
+        srandom(time(NULL)); // Seeds the random number generator
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            [[CCSpriteFrameCache sharedSpriteFrameCache]
+             addSpriteFramesWithFile:@"scene1atlas.plist"];
+            sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"scene1atlas.png"];
+        } else {
+            [[CCSpriteFrameCache sharedSpriteFrameCache]
+             addSpriteFramesWithFile:@"scene1atlasiPhone.plist"];
+            sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"scene1atlasiPhone.png"];
+        }
+        
+        [self addChild:sceneSpriteBatchNode z:0];
+        [self initJoystickAndButtons];
+        Viking *viking = [[Viking alloc]
+                          initWithSpriteFrame:[[CCSpriteFrameCache
+                                                sharedSpriteFrameCache]
+                                               spriteFrameByName:@"sv_anim_1.png"]];
+        [viking setJoystick:leftJoystick];
+        [viking setJumpButton:jumpButton];
+        [viking setAttackButton:attackButton];
+        [viking setPosition:ccp(screenSize.width * 0.35f,
+                                screenSize.height * 0.14f)];
+        [viking setCharacterHealth:100];
+        [sceneSpriteBatchNode addChild:viking
+                                     z:kVikingSpriteZValue
+         tag:kVikingSpriteTagValue];
+        [self createObjectOfType:kEnemyTypeRadarDish
+                      withHealth:100
+                      atLocation:ccp(screenSize.width * 0.878f,
+                                     screenSize.height * 0.13f)
+                      withZValue:10];
+        [self scheduleUpdate];
+    }
+    return self;
+}
 @end
