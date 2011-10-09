@@ -175,6 +175,12 @@
 		1DF42BB5143E6CB200E0FCCF /* scene1atlasiPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42BAF143E6CB200E0FCCF /* scene1atlasiPhone-hd.png */; };
 		1DF42BB6143E6CB200E0FCCF /* scene1atlasiPhone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42BB0143E6CB200E0FCCF /* scene1atlasiPhone.plist */; };
 		1DF42BB7143E6CB200E0FCCF /* scene1atlasiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42BB1143E6CB200E0FCCF /* scene1atlasiPhone.png */; };
+		1DF42BBB143E725400E0FCCF /* Mallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF42BBA143E725400E0FCCF /* Mallet.m */; };
+		1DF42BBE143E743000E0FCCF /* Health.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF42BBD143E743000E0FCCF /* Health.m */; };
+		1DF42BC1143E758B00E0FCCF /* SpaceCargoShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF42BC0143E758B00E0FCCF /* SpaceCargoShip.m */; };
+		1DF42BC414414DBE00E0FCCF /* EnemyRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF42BC314414DBD00E0FCCF /* EnemyRobot.m */; };
+		1DF42BC61441AA9200E0FCCF /* PhaserBullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42BC51441AA9200E0FCCF /* PhaserBullet.plist */; };
+		1DF42BC91441AAB300E0FCCF /* PhaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF42BC81441AAB300E0FCCF /* PhaserBullet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -480,6 +486,17 @@
 		1DF42BAF143E6CB200E0FCCF /* scene1atlasiPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene1atlasiPhone-hd.png"; sourceTree = "<group>"; };
 		1DF42BB0143E6CB200E0FCCF /* scene1atlasiPhone.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene1atlasiPhone.plist; sourceTree = "<group>"; };
 		1DF42BB1143E6CB200E0FCCF /* scene1atlasiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene1atlasiPhone.png; sourceTree = "<group>"; };
+		1DF42BB9143E725400E0FCCF /* Mallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mallet.h; sourceTree = "<group>"; };
+		1DF42BBA143E725400E0FCCF /* Mallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mallet.m; sourceTree = "<group>"; };
+		1DF42BBC143E743000E0FCCF /* Health.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Health.h; sourceTree = "<group>"; };
+		1DF42BBD143E743000E0FCCF /* Health.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Health.m; sourceTree = "<group>"; };
+		1DF42BBF143E758B00E0FCCF /* SpaceCargoShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceCargoShip.h; sourceTree = "<group>"; };
+		1DF42BC0143E758B00E0FCCF /* SpaceCargoShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceCargoShip.m; sourceTree = "<group>"; };
+		1DF42BC214414DBD00E0FCCF /* EnemyRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyRobot.h; sourceTree = "<group>"; };
+		1DF42BC314414DBD00E0FCCF /* EnemyRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyRobot.m; sourceTree = "<group>"; };
+		1DF42BC51441AA9200E0FCCF /* PhaserBullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PhaserBullet.plist; sourceTree = "<group>"; };
+		1DF42BC71441AAB300E0FCCF /* PhaserBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhaserBullet.h; sourceTree = "<group>"; };
+		1DF42BC81441AAB300E0FCCF /* PhaserBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhaserBullet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1016,6 +1033,7 @@
 		1DF42B87143A18E700E0FCCF /* Plists */ = {
 			isa = PBXGroup;
 			children = (
+				1DF42BC51441AA9200E0FCCF /* PhaserBullet.plist */,
 				1DF42B88143A19CB00E0FCCF /* EnemyRobot.plist */,
 				1DF42B89143A19CB00E0FCCF /* Health.plist */,
 				1DF42B8A143A19CB00E0FCCF /* Mallet.plist */,
@@ -1063,6 +1081,8 @@
 				1DF42B9F143A223C00E0FCCF /* GameCharacter.m */,
 				1DF42BA4143A8A8800E0FCCF /* Viking.h */,
 				1DF42BA5143A8A8800E0FCCF /* Viking.m */,
+				1DF42BBF143E758B00E0FCCF /* SpaceCargoShip.h */,
+				1DF42BC0143E758B00E0FCCF /* SpaceCargoShip.m */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -1072,6 +1092,10 @@
 			children = (
 				1DF42BA1143A24EA00E0FCCF /* RadarDish.h */,
 				1DF42BA2143A24EA00E0FCCF /* RadarDish.m */,
+				1DF42BC214414DBD00E0FCCF /* EnemyRobot.h */,
+				1DF42BC314414DBD00E0FCCF /* EnemyRobot.m */,
+				1DF42BC71441AAB300E0FCCF /* PhaserBullet.h */,
+				1DF42BC81441AAB300E0FCCF /* PhaserBullet.m */,
 			);
 			name = EnemyObjects;
 			sourceTree = "<group>";
@@ -1088,6 +1112,10 @@
 		1DF42B98143A1A8000E0FCCF /* PowerUps */ = {
 			isa = PBXGroup;
 			children = (
+				1DF42BB9143E725400E0FCCF /* Mallet.h */,
+				1DF42BBA143E725400E0FCCF /* Mallet.m */,
+				1DF42BBC143E743000E0FCCF /* Health.h */,
+				1DF42BBD143E743000E0FCCF /* Health.m */,
 			);
 			name = PowerUps;
 			sourceTree = "<group>";
@@ -1203,6 +1231,7 @@
 				1DF42BB5143E6CB200E0FCCF /* scene1atlasiPhone-hd.png in Resources */,
 				1DF42BB6143E6CB200E0FCCF /* scene1atlasiPhone.plist in Resources */,
 				1DF42BB7143E6CB200E0FCCF /* scene1atlasiPhone.png in Resources */,
+				1DF42BC61441AA9200E0FCCF /* PhaserBullet.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1323,6 +1352,11 @@
 				1DF42BA0143A223D00E0FCCF /* GameCharacter.m in Sources */,
 				1DF42BA3143A24EA00E0FCCF /* RadarDish.m in Sources */,
 				1DF42BA6143A8A8800E0FCCF /* Viking.m in Sources */,
+				1DF42BBB143E725400E0FCCF /* Mallet.m in Sources */,
+				1DF42BBE143E743000E0FCCF /* Health.m in Sources */,
+				1DF42BC1143E758B00E0FCCF /* SpaceCargoShip.m in Sources */,
+				1DF42BC414414DBE00E0FCCF /* EnemyRobot.m in Sources */,
+				1DF42BC91441AAB300E0FCCF /* PhaserBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

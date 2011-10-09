@@ -23,6 +23,13 @@
         }
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         [backgroundImage setPosition: CGPointMake(screenSize.width/2, screenSize.height/2)];
+        
+        /* Wave Action on background image
+         id wavesAction = [CCWaves actionWithWaves:5 amplitude:20
+                                       horizontal:NO vertical:YES
+                                             grid:ccg(15,10) duration:20];
+        [backgroundImage runAction: [CCRepeatForever actionWithAction:wavesAction]]; */
+        
         [self addChild:backgroundImage z:0 tag:0];
     }
     return self;
