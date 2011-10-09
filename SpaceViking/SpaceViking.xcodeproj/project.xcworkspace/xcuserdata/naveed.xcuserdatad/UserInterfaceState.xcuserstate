@@ -2896,10 +2896,10 @@
 				</dict>
 			</array>
 		</dict>
-		<real>339864261.80675203</real>
-		<string>{7762, 1733}</string>
-		<string>{8840, 0}</string>
-		<string>-init</string>
+		<real>339872679.70149702</real>
+		<string>{3821, 1748}</string>
+		<string>{4824, 0}</string>
+		<string>-createObjectOfType:withHealth:atLocation:withZValue:</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -2932,7 +2932,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>{{0, 0}, {661, 498}}</string>
+		<string>{{0, 0}, {661, 507}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -3001,7 +3001,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>520</real>
+		<real>529</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -3031,7 +3031,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>115</real>
+		<real>106</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -3463,7 +3463,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>{{0, 61}, {238, 591}}</string>
+		<string>{{0, 62}, {238, 591}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -3539,7 +3539,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>283</integer>
+					<integer>282</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3569,7 +3569,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>GameObjects</string>
+		<string>PowerUps</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -3655,11 +3655,10 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>282</integer>
+					<integer>102</integer>
 				</dict>
 			</array>
 		</dict>
-		<string>PowerUps</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -3682,10 +3681,11 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>102</integer>
+					<integer>283</integer>
 				</dict>
 			</array>
 		</dict>
+		<string>GameObjects</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7328,9 +7328,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>339864261.80455297</real>
-		<string>{7762, 1733}</string>
-		<string>{8840, 0}</string>
+		<real>339872679.69870698</real>
+		<string>{3821, 1748}</string>
+		<string>{4824, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7807,9 +7807,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>339849986.74824297</real>
-		<string>{6825, 1929}</string>
-		<string>{8154, 0}</string>
+		<real>339872423.47155398</real>
+		<string>{0, 830}</string>
+		<string>{750, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7855,9 +7855,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>339850368.90924603</real>
-		<string>{0, 1157}</string>
-		<string>{603, 41}</string>
+		<real>339871787.823309</real>
+		<string>{20, 1227}</string>
+		<string>{1223, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9214,7 +9214,7 @@
 				<integer>707</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>339862992.576235</real>
+			<real>339872592.44059497</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -9225,7 +9225,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 10:23 PM</string>
+		<string>Today at 1:03 AM</string>
 		<integer>234</integer>
 		<dict>
 			<key>$class</key>
@@ -9627,7 +9627,7 @@
 				<integer>744</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/SpaceViking/BackgroundLayer.m</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/SpaceViking/EnemyRobot.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9645,7 +9645,7 @@
 				<integer>746</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/SpaceViking/GameplayLayer.h</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/SpaceViking/EnemyRobot.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9663,7 +9663,7 @@
 				<integer>748</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/SpaceViking/BackgroundLayer.h</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/SpaceViking/BackgroundLayer.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9681,7 +9681,7 @@
 				<integer>750</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/SpaceViking/SpaceCargoShip.h</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/SpaceViking/GameplayLayer.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9699,7 +9699,7 @@
 				<integer>752</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/SpaceViking/EnemyRobot.h</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/SpaceViking/BackgroundLayer.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9717,7 +9717,7 @@
 				<integer>754</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/SpaceViking/EnemyRobot.m</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/SpaceViking/SpaceCargoShip.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>

@@ -24,6 +24,8 @@
     GameCharacter *vikingCharacter;
     
     id <GameplayLayerDelegate> delegate;
+    
+    CCLabelBMFont *myDebugLabel;
 }
 
 @property (nonatomic, assign) id <GameplayLayerDelegate> delegate;
@@ -34,6 +36,7 @@
 @property (nonatomic, retain) CCAnimation *torsoHitAnim;
 @property (nonatomic, retain) CCAnimation *headHitAnim;
 @property (nonatomic, retain) CCAnimation *robotDeathAnim;
+@property (nonatomic,assign) CCLabelBMFont *myDebugLabel;
 
 -(void)initAnimations;
 

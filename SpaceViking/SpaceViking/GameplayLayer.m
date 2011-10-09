@@ -104,6 +104,14 @@
         [enemyRobot changeState:kStateSpawning];
         [sceneSpriteBatchNode addChild:enemyRobot z:ZValue];
         [enemyRobot setDelegate:self.self];
+        
+        //Creating the debug label
+        CCLabelBMFont *debugLabel = [CCLabelBMFont
+                                     labelWithString:@"NoneNone"
+                                     fntFile:@"SpaceVikingFont.fnt"];
+        [self addChild:debugLabel];
+        [enemyRobot setMyDebugLabel:debugLabel];
+        
         [enemyRobot release];
     } 
     else if (kEnemyTypeSpaceCargoShip == objectType) {
@@ -195,6 +203,31 @@
                       atLocation:ccp(screenSize.width * 0.878f,
                                      screenSize.height * 0.13f)
                       withZValue:10];
+        
+        //Printing out list of available fonts
+        /*NSMutableArray *fontNames = [[NSMutableArray alloc] init];
+        NSArray *fontFamilyNames = [UIFont familyNames];
+        for (NSString *familyName in fontFamilyNames) {
+            NSLog(@"Font Family Name = %@", familyName);
+            NSArray *names = [UIFont fontNamesForFamilyName:familyName];
+            rrNSLog(@"Font Names = %@", fontNames);
+            [fontNames addObjectsFromArray:names];
+        }
+        [fontNames release];*/
+        
+        //Text Label
+        /*CCLabelTTF *gameBeginLabel = [CCLabelTTF labelWithString:@"Game Start" fontName:@"Helvetica"
+                                                        fontSize:64];*/
+        CCLabelBMFont *gameBeginLabel = [CCLabelBMFont labelWithString:@"Game Start"
+                                                               fntFile:@"SpaceVikingFont.fnt"];
+        [gameBeginLabel setPosition:ccp(screenSize.width/2,screenSize.height/2)];
+        [self addChild:gameBeginLabel];
+        id labelAction = [CCSpawn actions:
+                          [CCScaleBy actionWithDuration:2.0f scale:4],
+                          [CCFadeOut actionWithDuration:2.0f],
+                          nil];
+        [gameBeginLabel runAction:labelAction];
+        
         [self scheduleUpdate];
         
         /* Wave Action on sprite batch node

@@ -11,6 +11,7 @@
 @implementation EnemyRobot
 
 @synthesize delegate;
+@synthesize myDebugLabel;
 @synthesize robotWalkingAnim;
 @synthesize raisePhaserAnim;
 @synthesize shootPhaserAnim;
@@ -28,6 +29,8 @@
     [torsoHitAnim release];
     [headHitAnim release];
     [robotDeathAnim release];
+    [myDebugLabel release];
+    myDebugLabel = nil;
     [super dealloc];
 }
 
@@ -173,9 +176,50 @@
         [self runAction:action];
 }
 
+-(void)setDebugLabelTextAndPosition {
+    CGPoint newPosition = [self position];
+    NSString *labelString = [NSString stringWithFormat:@"X: %.2f \n Y:%.2f \n", newPosition.x, newPosition.y];
+    
+    switch (characterState) {
+        case kStateSpawning:
+            [myDebugLabel setString:
+             [labelString stringByAppendingString:@" Spawning"]];
+            break;
+        case kStateIdle:
+            [myDebugLabel setString:
+             [labelString stringByAppendingString:@" Idle"]];
+            break;
+        case kStateWalking:
+            [myDebugLabel setString:
+             [labelString stringByAppendingString:@" Walking"]];
+            break;
+        case kStateAttacking:
+            [myDebugLabel setString:
+             [labelString stringByAppendingString:@" Attacking"]];
+            break;
+        case kStateTakingDamage:
+            [myDebugLabel setString:
+             [labelString stringByAppendingString:@" Taking Damage"]];
+            break;
+        case kStateDead:
+            [myDebugLabel setString:
+             [labelString stringByAppendingString:@" Dead"]];
+            break;
+        default:
+            [myDebugLabel setString:
+             [labelString stringByAppendingString:@" Unknown State"]];
+            break;
+    }
+    
+    float yOffset = screenSize.height * 0.195f;
+    newPosition = ccp(newPosition.x, newPosition.y+yOffset);
+    [myDebugLabel setPosition:newPosition];
+}
+
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime
            andListOfGameObjects:(CCArray*)listOfGameObjects {
     [self checkAndClampSpritePosition];
+    [self setDebugLabelTextAndPosition];
     
     if ((characterState != kStateDead) && (characterHealth <= 0)) {
         [self changeState:kStateDead];

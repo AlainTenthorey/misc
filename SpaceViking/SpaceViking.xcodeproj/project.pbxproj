@@ -181,6 +181,8 @@
 		1DF42BC414414DBE00E0FCCF /* EnemyRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF42BC314414DBD00E0FCCF /* EnemyRobot.m */; };
 		1DF42BC61441AA9200E0FCCF /* PhaserBullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42BC51441AA9200E0FCCF /* PhaserBullet.plist */; };
 		1DF42BC91441AAB300E0FCCF /* PhaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF42BC81441AAB300E0FCCF /* PhaserBullet.m */; };
+		1DF42C1D144204D100E0FCCF /* SpaceVikingFont.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42C1B144204D100E0FCCF /* SpaceVikingFont.png */; };
+		1DF42C1E144204D100E0FCCF /* SpaceVikingFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 1DF42C1C144204D100E0FCCF /* SpaceVikingFont.fnt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -497,6 +499,8 @@
 		1DF42BC51441AA9200E0FCCF /* PhaserBullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PhaserBullet.plist; sourceTree = "<group>"; };
 		1DF42BC71441AAB300E0FCCF /* PhaserBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhaserBullet.h; sourceTree = "<group>"; };
 		1DF42BC81441AAB300E0FCCF /* PhaserBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhaserBullet.m; sourceTree = "<group>"; };
+		1DF42C1B144204D100E0FCCF /* SpaceVikingFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpaceVikingFont.png; sourceTree = "<group>"; };
+		1DF42C1C144204D100E0FCCF /* SpaceVikingFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SpaceVikingFont.fnt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -891,6 +895,8 @@
 		1DF42B0D142F7EA300E0FCCF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1DF42C1B144204D100E0FCCF /* SpaceVikingFont.png */,
+				1DF42C1C144204D100E0FCCF /* SpaceVikingFont.fnt */,
 				1DF42BAB143E6CB200E0FCCF /* Texture Atlases */,
 				1DF42B0E142F7EA300E0FCCF /* App Launch Images */,
 				1DF42B16142F7EA300E0FCCF /* Backgrounds */,
@@ -1232,6 +1238,8 @@
 				1DF42BB6143E6CB200E0FCCF /* scene1atlasiPhone.plist in Resources */,
 				1DF42BB7143E6CB200E0FCCF /* scene1atlasiPhone.png in Resources */,
 				1DF42BC61441AA9200E0FCCF /* PhaserBullet.plist in Resources */,
+				1DF42C1D144204D100E0FCCF /* SpaceVikingFont.png in Resources */,
+				1DF42C1E144204D100E0FCCF /* SpaceVikingFont.fnt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
