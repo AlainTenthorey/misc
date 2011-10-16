@@ -22,6 +22,7 @@
 #import "PhaserBullet.h"
 #import "Mallet.h"
 #import "Health.h"
+#import "GameManager.h"
 
 @interface GameplayLayer : CCLayer {
     CCSprite *vikingSprite;
