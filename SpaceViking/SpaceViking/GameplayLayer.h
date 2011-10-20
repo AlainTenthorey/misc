@@ -23,6 +23,7 @@
 #import "Mallet.h"
 #import "Health.h"
 #import "GameManager.h"
+#import "SimpleAudioEngine.h"
 
 @interface GameplayLayer : CCLayer {
     CCSprite *vikingSprite;
@@ -30,6 +31,7 @@
     SneakyButton *jumpButton; 
     SneakyButton *attackButton;
     CCSpriteBatchNode *sceneSpriteBatchNode;
+    SimpleAudioEngine *soundEngine;
 }
 
 @end

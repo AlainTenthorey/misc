@@ -44,6 +44,7 @@
             if (characterHealth <= 0.0f) {
                 [self changeState:kStateDead];
             } else {
+                PLAYSOUNDEFFECT(VIKING_HAMMERHIT1);
                 action = [CCAnimate actionWithAnimation:takingAHitAnim
                                    restoreOriginalFrame:NO];
             } 

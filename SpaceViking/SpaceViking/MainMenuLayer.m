@@ -134,6 +134,8 @@
 
 -(id)init {
     if ((self = [super init])) {
+        [[GameManager sharedGameManager] playBackgroundTrack:BACKGROUND_TRACK_MAIN_MENU];
+        
         CGSize screenSize = [CCDirector sharedDirector].winSize;
         CCSprite *background = [CCSprite spriteWithFile:@"MainMenuBackground.png"];
         [background setPosition:ccp(screenSize.width/2,

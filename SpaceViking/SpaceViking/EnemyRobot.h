@@ -26,6 +26,7 @@
     id <GameplayLayerDelegate> delegate;
     
     CCLabelBMFont *myDebugLabel;
+    ALuint walkingSound;
 }
 
 @property (nonatomic, assign) id <GameplayLayerDelegate> delegate;

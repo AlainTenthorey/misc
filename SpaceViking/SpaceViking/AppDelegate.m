@@ -109,6 +109,8 @@
 	// Removes the startup flicker
 	[self removeStartupFlicker];
 	
+    [[GameManager sharedGameManager] setupAudioEngine];
+    
 	// Run the intro Scene
 	//[[CCDirector sharedDirector] runWithScene: [HelloWorldLayer scene]];
     //[[CCDirector sharedDirector] runWithScene: [GameScene node]];

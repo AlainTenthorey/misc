@@ -184,9 +184,25 @@
     [phaserBullet release];
 }
 
+-(void)loadAudio {
+    // Loading Sounds Synchronously
+    [CDSoundEngine setMixerSampleRate:CD_SAMPLE_RATE_MID];
+    [[CDAudioManager sharedManager] setResignBehavior:kAMRBStopPlay
+                                           autoHandle:YES];
+    soundEngine = [SimpleAudioEngine sharedEngine];
+    [soundEngine preloadBackgroundMusic:BACKGROUND_TRACK_OLE_AWAKES];
+    [soundEngine playBackgroundMusic:BACKGROUND_TRACK_OLE_AWAKES];
+    
+    [soundEngine preloadEffect: @"22k_viking_cursingV1.wav"];
+    [soundEngine playEffect: @"22k_viking_cursingV1.wav"];
+}
+
 -(id)init {
     self = [super init];
     if (self != nil) {
+        //[self loadAudio];
+        [[GameManager sharedGameManager] playBackgroundTrack:BACKGROUND_TRACK_OLE_AWAKES];
+        
         CGSize screenSize = [CCDirector sharedDirector].winSize;
         // enable touches
         self.isTouchEnabled = YES;
