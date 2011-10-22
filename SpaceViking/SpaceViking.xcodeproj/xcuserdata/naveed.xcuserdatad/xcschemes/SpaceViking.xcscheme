@@ -13,7 +13,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1DF4298F142F6DB900E0FCCF"
+               BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
                BuildableName = "SpaceViking.app"
                BlueprintName = "SpaceViking"
                ReferencedContainer = "container:SpaceViking.xcodeproj">
@@ -38,7 +38,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1DF4298F142F6DB900E0FCCF"
+            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
             BuildableName = "SpaceViking.app"
             BlueprintName = "SpaceViking"
             ReferencedContainer = "container:SpaceViking.xcodeproj">
@@ -55,7 +55,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1DF4298F142F6DB900E0FCCF"
+            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
             BuildableName = "SpaceViking.app"
             BlueprintName = "SpaceViking"
             ReferencedContainer = "container:SpaceViking.xcodeproj">
