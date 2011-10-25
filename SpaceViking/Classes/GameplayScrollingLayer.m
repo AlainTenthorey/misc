@@ -66,9 +66,67 @@
     [self addChild:parallaxNode z:10];
 }
 
+// Scrolling with TileMap Layers inside of a Parallax Node
+-(void)addScrollingBackgroundWithTileMapInsideParallax {
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    CGSize levelSize = [[GameManager sharedGameManager]
+                        getDimensionsOfCurrentScene];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"Level2TileMap.tmx"];
+    } else {
+        tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"Level2TileMapiPhone.tmx"];
+    }
+    
+    CCTMXLayer *groundLayer = [tileMapNode layerNamed:@"GroundLayer"];
+    CCTMXLayer *rockColumnsLayer = [tileMapNode layerNamed:@"RockColumnsLayer"];
+    CCTMXLayer *rockBoulderLayer = [tileMapNode layerNamed:@"RockBoulderLayer"];
+    
+    parallaxNode = [CCParallaxNode node];
+    [parallaxNode setPosition:ccp(levelSize.width/2,screenSize.height/2)];
+    float xOffset = 0.0f;
+    
+    xOffset = (levelSize.width/2);
+    [groundLayer retain];
+    [groundLayer removeFromParentAndCleanup:NO];
+    [groundLayer setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+    [parallaxNode addChild:groundLayer z:30 parallaxRatio:ccp(1,1)
+            positionOffset:ccp(0,0)];
+    [groundLayer release];
+    
+    xOffset = (levelSize.width/2) * 0.8f;
+    [rockColumnsLayer retain];
+    [rockColumnsLayer removeFromParentAndCleanup:NO];
+    [rockColumnsLayer setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+    [parallaxNode addChild:rockColumnsLayer z:20
+             parallaxRatio:ccp(0.2,1)
+            positionOffset:ccp(xOffset, 0.0f)];
+    [rockColumnsLayer release];
+    
+    xOffset = (levelSize.width/2) * 0.3f;
+    [rockBoulderLayer retain];
+    [rockBoulderLayer removeFromParentAndCleanup:NO];
+    [rockBoulderLayer setAnchorPoint:CGPointMake(0.5f, 0.5f)];
+    [parallaxNode addChild:rockBoulderLayer z:30
+             parallaxRatio:ccp(0.7,1)
+            positionOffset:ccp(xOffset, 0.0f)];
+    [rockBoulderLayer release];
+    
+    [self addChild:parallaxNode z:1];
+}
+
+// Scrolling with all TileMap Layers together
+-(void)addScrollingBackgroundWithTileMap {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"Level2TileMap.tmx"];
+    } else {
+        tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"Level2TileMapiPhone.tmx"];
+    }
+    [self addChild:tileMapNode];
+}
+
 -(id)init {
-    self = [super init];
-    if (self != nil) {
+    if (( self = [super init] )) {
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             [[CCSpriteFrameCache sharedSpriteFrameCache]
@@ -94,7 +152,9 @@
                                      z:1000 tag:kVikingSpriteTagValue];
         
         //[self addScrollingBackground];
-        [self addScrollingBackgroundWithParallax];
+        //[self addScrollingBackgroundWithParallax];
+        //[self addScrollingBackgroundWithTileMap];
+        [self addScrollingBackgroundWithTileMapInsideParallax];
         
         [self scheduleUpdate];
     }
