@@ -22,9 +22,17 @@
     if ([itemPassedIn tag] == 1) {
         CCLOG(@"Tag 1 found, Scene 1");
         [[GameManager sharedGameManager] runSceneWithID:kIntroScene];
+    } else if ([itemPassedIn tag] == 2) {
+        [[GameManager sharedGameManager] runSceneWithID:kCutSceneForLevel2];
+        //[[GameManager sharedGameManager] runSceneWithID:kGameLevel2];
+    } else if ([itemPassedIn tag] == 3) {
+        [[GameManager sharedGameManager] runSceneWithID:kGameLevel3];
+    } else if ([itemPassedIn tag] == 4) {
+        [[GameManager sharedGameManager] runSceneWithID:kGameLevel4];
+    } else if ([itemPassedIn tag] == 5) {
+        [[GameManager sharedGameManager] runSceneWithID:kGameLevel5];
     } else {
-        CCLOG(@"Tag was: %d", [itemPassedIn tag]);
-        CCLOG(@"Placeholder for next chapters");
+        CCLOG(@"Unexpected item.  Tag was: %d", [itemPassedIn tag]);
     }
 }
 
@@ -178,9 +186,6 @@
          [CCRepeatForever actionWithAction:rotateAction]];
         
         [[GameManager sharedGameManager] playBackgroundTrack:BACKGROUND_TRACK_MAIN_MENU];
-        
-        
-        
         
     }
     return self;

@@ -8,9 +8,11 @@
 #import "CreditsScene.h"
 #import "IntroScene.h"
 #import "LevelCompleteScene.h"
+#import "GameScene2.h"
+#import "PlatformScene.h"
 
 @implementation GameManager
-static GameManager* _sharedGameManager = nil;                      // 1
+static GameManager* _sharedGameManager = nil;                      
 @synthesize isMusicON;
 @synthesize isSoundEffectsON;
 @synthesize hasPlayerDied;
@@ -19,23 +21,23 @@ static GameManager* _sharedGameManager = nil;                      // 1
 @synthesize soundEffectsState;
 
 +(GameManager*)sharedGameManager {
-    @synchronized([GameManager class])                             // 2
+    @synchronized([GameManager class])                            
     {
-        if(!_sharedGameManager)                                    // 3
+        if(!_sharedGameManager)                                    
             [[self alloc] init]; 
-        return _sharedGameManager;                                 // 4
+        return _sharedGameManager;                                 
     }
     return nil; 
 }
 
 +(id)alloc 
 {
-    @synchronized ([GameManager class])                            // 5
+    @synchronized ([GameManager class])                            
     {
         NSAssert(_sharedGameManager == nil,
-                 @"Attempted to allocated a second instance of the Game Manager singleton");                                          // 6
+                 @"Attempted to allocated a second instance of the Game Manager singleton");
         _sharedGameManager = [super alloc];
-        return _sharedGameManager;                                 // 7
+        return _sharedGameManager;                                 
     }
     return nil;  
 }
@@ -195,7 +197,7 @@ static GameManager* _sharedGameManager = nil;                      // 1
     NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
 
     SceneTypes sceneID = (SceneTypes) [sceneIDNumber intValue];
-    // 1
+
     if (managerSoundState == kAudioManagerInitializing) {
             int waitCycles = 0;
             while (waitCycles < AUDIO_MAX_WAITTIME) {
@@ -214,18 +216,17 @@ static GameManager* _sharedGameManager = nil;                      // 1
 
     NSDictionary *soundEffectsToLoad = 
     [self getSoundEffectsListForSceneWithID:sceneID];
-    if (soundEffectsToLoad == nil) { // 2
+    if (soundEffectsToLoad == nil) { 
         CCLOG(@"Error reading SoundEffects.plist");
         return;
     }
-    // Get all of the entries and PreLoad // 3
+    // Get all of the entries and PreLoad 
     for( NSString *keyString in soundEffectsToLoad )
     {
         CCLOG(@"\nLoading Audio Key:%@ File:%@", 
               keyString,[soundEffectsToLoad objectForKey:keyString]);
         [soundEngine preloadEffect:
-         [soundEffectsToLoad objectForKey:keyString]]; // 3
-        // 4
+         [soundEffectsToLoad objectForKey:keyString]]; 
         [soundEffectsState setObject:[NSNumber numberWithBool:SFX_LOADED] forKey:keyString];
         
     }
@@ -312,7 +313,7 @@ static GameManager* _sharedGameManager = nil;                      // 1
     }
 }
 
--(id)init {                                                        // 8
+-(id)init {                                                       
     self = [super init];
     if (self != nil) {
         // Game Manager initialized
@@ -351,9 +352,8 @@ static GameManager* _sharedGameManager = nil;                      // 1
         case kGameLevel1: 
             sceneToRun = [GameScene node];
             break;
-            
         case kGameLevel2:
-            // Placeholder for Level 2
+            sceneToRun = [GameScene2 node];
             break;
         case kGameLevel3:
             // Placeholder for Level 3
@@ -365,7 +365,7 @@ static GameManager* _sharedGameManager = nil;                      // 1
             // Placeholder for Level 5
             break;
         case kCutSceneForLevel2:
-            // Placeholder for Platform Level
+            sceneToRun = [PlatformScene node];
             break;
             
         default:
@@ -412,6 +412,7 @@ static GameManager* _sharedGameManager = nil;                      // 1
     [self performSelectorInBackground:@selector(unloadAudioForSceneWithID:) withObject:[NSNumber numberWithInt:oldScene]];
      currentScene = sceneID;
 }
+
 -(void)openSiteWithLinkType:(LinkTypes)linkTypeToOpen {
     NSURL *urlToOpen = nil;
     if (linkTypeToOpen == kLinkTypeBookSite) {
@@ -443,6 +444,30 @@ static GameManager* _sharedGameManager = nil;                      // 1
         CCLOG(@"%@%@",@"Failed to open url:",[urlToOpen description]);
         [self runSceneWithID:kMainMenuScene];
     }    
+}
+
+-(CGSize)getDimensionsOfCurrentScene {
+    CGSize screenSize = [[CCDirector sharedDirector] winSize];
+    CGSize levelSize;
+    switch (currentScene) {
+        case kMainMenuScene:
+        case kOptionsScene:
+        case kCreditsScene:
+        case kIntroScene:
+        case kLevelCompleteScene:
+        case kGameLevel1:
+            levelSize = screenSize;
+            break;
+        case kGameLevel2:
+            levelSize = CGSizeMake(screenSize.width * 2.0f,
+                                   screenSize.height);
+            break;
+        default:
+            CCLOG(@"Unknown Scene ID, returning default size");
+            levelSize = screenSize;
+            break;
+    }
+    return levelSize;
 }
 
 @end

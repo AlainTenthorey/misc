@@ -8,6 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D6D574F145333E300A2A3CA /* chap9_scrolling1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */; };
+		1D6D5750145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */; };
+		1D6D5751145333E300A2A3CA /* chap9_scrolling1iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5737145333E300A2A3CA /* chap9_scrolling1iPhone.png */; };
+		1D6D5752145333E300A2A3CA /* chap9_scrolling2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5738145333E300A2A3CA /* chap9_scrolling2.png */; };
+		1D6D5753145333E300A2A3CA /* chap9_scrolling2iPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5739145333E300A2A3CA /* chap9_scrolling2iPhone-hd.png */; };
+		1D6D5754145333E300A2A3CA /* chap9_scrolling2iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D573A145333E300A2A3CA /* chap9_scrolling2iPhone.png */; };
+		1D6D5755145333E300A2A3CA /* chap9_scrolling3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D573B145333E300A2A3CA /* chap9_scrolling3.png */; };
+		1D6D5756145333E300A2A3CA /* chap9_scrolling3iPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D573C145333E300A2A3CA /* chap9_scrolling3iPhone-hd.png */; };
+		1D6D5757145333E300A2A3CA /* chap9_scrolling3iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D573D145333E300A2A3CA /* chap9_scrolling3iPhone.png */; };
+		1D6D5758145333E300A2A3CA /* chap9_scrolling4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D573E145333E300A2A3CA /* chap9_scrolling4.png */; };
+		1D6D5759145333E300A2A3CA /* chap9_scrolling4iPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D573F145333E300A2A3CA /* chap9_scrolling4iPhone-hd.png */; };
+		1D6D575A145333E300A2A3CA /* chap9_scrolling4iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5740145333E300A2A3CA /* chap9_scrolling4iPhone.png */; };
+		1D6D575B145333E300A2A3CA /* FlatScrollingLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5741145333E300A2A3CA /* FlatScrollingLayer.png */; };
+		1D6D575C145333E300A2A3CA /* FlatScrollingLayeriPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5742145333E300A2A3CA /* FlatScrollingLayeriPhone-hd.png */; };
+		1D6D575D145333E300A2A3CA /* FlatScrollingLayeriPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5743145333E300A2A3CA /* FlatScrollingLayeriPhone.png */; };
+		1D6D575E145333E300A2A3CA /* tiles_grad_bkgrnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5745145333E300A2A3CA /* tiles_grad_bkgrnd.png */; };
+		1D6D575F145333E300A2A3CA /* tiles_grad_bkgrndiPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5746145333E300A2A3CA /* tiles_grad_bkgrndiPhone-hd.png */; };
+		1D6D5760145333E300A2A3CA /* tiles_grad_bkgrndiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5747145333E300A2A3CA /* tiles_grad_bkgrndiPhone.png */; };
+		1D6D5761145333E300A2A3CA /* ScrollingCloudsTextureAtlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5749145333E300A2A3CA /* ScrollingCloudsTextureAtlas.plist */; };
+		1D6D5762145333E300A2A3CA /* ScrollingCloudsTextureAtlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D574A145333E300A2A3CA /* ScrollingCloudsTextureAtlas.png */; };
+		1D6D5763145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D574B145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone-hd.plist */; };
+		1D6D5764145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D574C145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone-hd.png */; };
+		1D6D5765145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D574D145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone.plist */; };
+		1D6D5766145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D574E145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone.png */; };
+		1D6D576A1453346C00A2A3CA /* GameScene2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D57691453346C00A2A3CA /* GameScene2.m */; };
+		1D6D576D1453375F00A2A3CA /* StaticBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D576C1453375F00A2A3CA /* StaticBackgroundLayer.m */; };
+		1D6D5770145338ED00A2A3CA /* GameControlLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D576F145338ED00A2A3CA /* GameControlLayer.m */; };
+		1D6D577314533A8400A2A3CA /* GameplayScrollingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D577214533A8400A2A3CA /* GameplayScrollingLayer.m */; };
+		1D6D578014541CA200A2A3CA /* PlatformScrollingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D577F14541CA200A2A3CA /* PlatformScrollingLayer.m */; };
+		1D6D5783145703A000A2A3CA /* PlatformScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D5782145703A000A2A3CA /* PlatformScene.m */; };
+		1D6D57891457446100A2A3CA /* Level2TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D57851457446100A2A3CA /* Level2TileMap.tmx */; };
+		1D6D578A1457446100A2A3CA /* Level2TileMapiPhone-hd.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D57861457446100A2A3CA /* Level2TileMapiPhone-hd.tmx */; };
+		1D6D578B1457446100A2A3CA /* Level2TileMapiPhone.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D57871457446100A2A3CA /* Level2TileMapiPhone.tmx */; };
+		1D6D578C1457446100A2A3CA /* TilesTextureAtlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D57881457446100A2A3CA /* TilesTextureAtlas.png */; };
 		1F3B9A2D0EF2145700286867 /* SpaceVikingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* SpaceVikingAppDelegate.m */; };
 		504DFBCE10AF12E9006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */; };
 		504DFBCF10AF12E9006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFBC910AF12E9006D82FE /* CLScoreServerPost.m */; };
@@ -424,6 +458,46 @@
 
 /* Begin PBXFileReference section */
 		1D6058910D05DD3D006BFB54 /* SpaceViking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceViking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling1.png; sourceTree = "<group>"; };
+		1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chap9_scrolling1iPhone-hd.png"; sourceTree = "<group>"; };
+		1D6D5737145333E300A2A3CA /* chap9_scrolling1iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling1iPhone.png; sourceTree = "<group>"; };
+		1D6D5738145333E300A2A3CA /* chap9_scrolling2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling2.png; sourceTree = "<group>"; };
+		1D6D5739145333E300A2A3CA /* chap9_scrolling2iPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chap9_scrolling2iPhone-hd.png"; sourceTree = "<group>"; };
+		1D6D573A145333E300A2A3CA /* chap9_scrolling2iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling2iPhone.png; sourceTree = "<group>"; };
+		1D6D573B145333E300A2A3CA /* chap9_scrolling3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling3.png; sourceTree = "<group>"; };
+		1D6D573C145333E300A2A3CA /* chap9_scrolling3iPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chap9_scrolling3iPhone-hd.png"; sourceTree = "<group>"; };
+		1D6D573D145333E300A2A3CA /* chap9_scrolling3iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling3iPhone.png; sourceTree = "<group>"; };
+		1D6D573E145333E300A2A3CA /* chap9_scrolling4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling4.png; sourceTree = "<group>"; };
+		1D6D573F145333E300A2A3CA /* chap9_scrolling4iPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chap9_scrolling4iPhone-hd.png"; sourceTree = "<group>"; };
+		1D6D5740145333E300A2A3CA /* chap9_scrolling4iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling4iPhone.png; sourceTree = "<group>"; };
+		1D6D5741145333E300A2A3CA /* FlatScrollingLayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlatScrollingLayer.png; sourceTree = "<group>"; };
+		1D6D5742145333E300A2A3CA /* FlatScrollingLayeriPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlatScrollingLayeriPhone-hd.png"; sourceTree = "<group>"; };
+		1D6D5743145333E300A2A3CA /* FlatScrollingLayeriPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlatScrollingLayeriPhone.png; sourceTree = "<group>"; };
+		1D6D5745145333E300A2A3CA /* tiles_grad_bkgrnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiles_grad_bkgrnd.png; sourceTree = "<group>"; };
+		1D6D5746145333E300A2A3CA /* tiles_grad_bkgrndiPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tiles_grad_bkgrndiPhone-hd.png"; sourceTree = "<group>"; };
+		1D6D5747145333E300A2A3CA /* tiles_grad_bkgrndiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiles_grad_bkgrndiPhone.png; sourceTree = "<group>"; };
+		1D6D5749145333E300A2A3CA /* ScrollingCloudsTextureAtlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ScrollingCloudsTextureAtlas.plist; sourceTree = "<group>"; };
+		1D6D574A145333E300A2A3CA /* ScrollingCloudsTextureAtlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScrollingCloudsTextureAtlas.png; sourceTree = "<group>"; };
+		1D6D574B145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ScrollingCloudsTextureAtlasiPhone-hd.plist"; sourceTree = "<group>"; };
+		1D6D574C145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ScrollingCloudsTextureAtlasiPhone-hd.png"; sourceTree = "<group>"; };
+		1D6D574D145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ScrollingCloudsTextureAtlasiPhone.plist; sourceTree = "<group>"; };
+		1D6D574E145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScrollingCloudsTextureAtlasiPhone.png; sourceTree = "<group>"; };
+		1D6D57681453346C00A2A3CA /* GameScene2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene2.h; sourceTree = "<group>"; };
+		1D6D57691453346C00A2A3CA /* GameScene2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene2.m; sourceTree = "<group>"; };
+		1D6D576B1453375F00A2A3CA /* StaticBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticBackgroundLayer.h; sourceTree = "<group>"; };
+		1D6D576C1453375F00A2A3CA /* StaticBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticBackgroundLayer.m; sourceTree = "<group>"; };
+		1D6D576E145338ED00A2A3CA /* GameControlLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameControlLayer.h; sourceTree = "<group>"; };
+		1D6D576F145338ED00A2A3CA /* GameControlLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameControlLayer.m; sourceTree = "<group>"; };
+		1D6D577114533A8300A2A3CA /* GameplayScrollingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameplayScrollingLayer.h; sourceTree = "<group>"; };
+		1D6D577214533A8400A2A3CA /* GameplayScrollingLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayScrollingLayer.m; sourceTree = "<group>"; };
+		1D6D577E14541CA200A2A3CA /* PlatformScrollingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformScrollingLayer.h; sourceTree = "<group>"; };
+		1D6D577F14541CA200A2A3CA /* PlatformScrollingLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlatformScrollingLayer.m; sourceTree = "<group>"; };
+		1D6D5781145703A000A2A3CA /* PlatformScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformScene.h; sourceTree = "<group>"; };
+		1D6D5782145703A000A2A3CA /* PlatformScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlatformScene.m; sourceTree = "<group>"; };
+		1D6D57851457446100A2A3CA /* Level2TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Level2TileMap.tmx; sourceTree = "<group>"; };
+		1D6D57861457446100A2A3CA /* Level2TileMapiPhone-hd.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Level2TileMapiPhone-hd.tmx"; sourceTree = "<group>"; };
+		1D6D57871457446100A2A3CA /* Level2TileMapiPhone.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Level2TileMapiPhone.tmx; sourceTree = "<group>"; };
+		1D6D57881457446100A2A3CA /* TilesTextureAtlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TilesTextureAtlas.png; sourceTree = "<group>"; };
 		1F3B9A2B0EF2145700286867 /* SpaceVikingAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpaceVikingAppDelegate.m; path = Classes/SpaceVikingAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		1F3B9A2C0EF2145700286867 /* SpaceVikingAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpaceVikingAppDelegate.h; path = Classes/SpaceVikingAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		1F3B9A820EF2151B00286867 /* SpaceViking_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceViking_Prefix.pch; sourceTree = SOURCE_ROOT; };
@@ -917,6 +991,90 @@
 			name = Scene1;
 			sourceTree = "<group>";
 		};
+		1D6D5734145333E300A2A3CA /* ParallaxBackgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */,
+				1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */,
+				1D6D5737145333E300A2A3CA /* chap9_scrolling1iPhone.png */,
+				1D6D5738145333E300A2A3CA /* chap9_scrolling2.png */,
+				1D6D5739145333E300A2A3CA /* chap9_scrolling2iPhone-hd.png */,
+				1D6D573A145333E300A2A3CA /* chap9_scrolling2iPhone.png */,
+				1D6D573B145333E300A2A3CA /* chap9_scrolling3.png */,
+				1D6D573C145333E300A2A3CA /* chap9_scrolling3iPhone-hd.png */,
+				1D6D573D145333E300A2A3CA /* chap9_scrolling3iPhone.png */,
+				1D6D573E145333E300A2A3CA /* chap9_scrolling4.png */,
+				1D6D573F145333E300A2A3CA /* chap9_scrolling4iPhone-hd.png */,
+				1D6D5740145333E300A2A3CA /* chap9_scrolling4iPhone.png */,
+				1D6D5741145333E300A2A3CA /* FlatScrollingLayer.png */,
+				1D6D5742145333E300A2A3CA /* FlatScrollingLayeriPhone-hd.png */,
+				1D6D5743145333E300A2A3CA /* FlatScrollingLayeriPhone.png */,
+				1D6D5744145333E300A2A3CA /* ScrollingCloudsBackgrounds */,
+				1D6D5748145333E300A2A3CA /* ScrollingCloudsTextureAtlases */,
+			);
+			path = ParallaxBackgrounds;
+			sourceTree = "<group>";
+		};
+		1D6D5744145333E300A2A3CA /* ScrollingCloudsBackgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				1D6D5745145333E300A2A3CA /* tiles_grad_bkgrnd.png */,
+				1D6D5746145333E300A2A3CA /* tiles_grad_bkgrndiPhone-hd.png */,
+				1D6D5747145333E300A2A3CA /* tiles_grad_bkgrndiPhone.png */,
+			);
+			path = ScrollingCloudsBackgrounds;
+			sourceTree = "<group>";
+		};
+		1D6D5748145333E300A2A3CA /* ScrollingCloudsTextureAtlases */ = {
+			isa = PBXGroup;
+			children = (
+				1D6D5749145333E300A2A3CA /* ScrollingCloudsTextureAtlas.plist */,
+				1D6D574A145333E300A2A3CA /* ScrollingCloudsTextureAtlas.png */,
+				1D6D574B145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone-hd.plist */,
+				1D6D574C145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone-hd.png */,
+				1D6D574D145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone.plist */,
+				1D6D574E145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone.png */,
+			);
+			path = ScrollingCloudsTextureAtlases;
+			sourceTree = "<group>";
+		};
+		1D6D57671453341F00A2A3CA /* Scene2 */ = {
+			isa = PBXGroup;
+			children = (
+				1D6D57681453346C00A2A3CA /* GameScene2.h */,
+				1D6D57691453346C00A2A3CA /* GameScene2.m */,
+				1D6D576B1453375F00A2A3CA /* StaticBackgroundLayer.h */,
+				1D6D576C1453375F00A2A3CA /* StaticBackgroundLayer.m */,
+				1D6D576E145338ED00A2A3CA /* GameControlLayer.h */,
+				1D6D576F145338ED00A2A3CA /* GameControlLayer.m */,
+				1D6D577114533A8300A2A3CA /* GameplayScrollingLayer.h */,
+				1D6D577214533A8400A2A3CA /* GameplayScrollingLayer.m */,
+			);
+			name = Scene2;
+			sourceTree = "<group>";
+		};
+		1D6D577C14541B4900A2A3CA /* CutSceneForLevel2 */ = {
+			isa = PBXGroup;
+			children = (
+				1D6D577E14541CA200A2A3CA /* PlatformScrollingLayer.h */,
+				1D6D577F14541CA200A2A3CA /* PlatformScrollingLayer.m */,
+				1D6D5781145703A000A2A3CA /* PlatformScene.h */,
+				1D6D5782145703A000A2A3CA /* PlatformScene.m */,
+			);
+			name = CutSceneForLevel2;
+			sourceTree = "<group>";
+		};
+		1D6D57841457446000A2A3CA /* TileMaps */ = {
+			isa = PBXGroup;
+			children = (
+				1D6D57851457446100A2A3CA /* Level2TileMap.tmx */,
+				1D6D57861457446100A2A3CA /* Level2TileMapiPhone-hd.tmx */,
+				1D6D57871457446100A2A3CA /* Level2TileMapiPhone.tmx */,
+				1D6D57881457446100A2A3CA /* TilesTextureAtlas.png */,
+			);
+			path = TileMaps;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
@@ -966,7 +1124,6 @@
 			children = (
 				DC532A8B131EEAAF002B5ABD /* Constants */,
 				DC532A8A131EEAA8002B5ABD /* Scenes */,
-				DC532A89131EEAA1002B5ABD /* Layers */,
 				DC532A88131EEA9A002B5ABD /* GameObjects */,
 				DC9C9BCF131EF8BE002A63A5 /* EnemyObjects */,
 				DC532A87131EEA90002B5ABD /* PowerUps */,
@@ -1093,6 +1250,7 @@
 		DC0FB3C6131F7933001B6142 /* Scene1 */ = {
 			isa = PBXGroup;
 			children = (
+				DC532A89131EEAA1002B5ABD /* Layers */,
 				DC65EF47131E65FB0052C9AA /* GameScene.h */,
 				DC65EF48131E65FB0052C9AA /* GameScene.m */,
 			);
@@ -1219,6 +1377,8 @@
 		DC532A8A131EEAA8002B5ABD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1D6D577C14541B4900A2A3CA /* CutSceneForLevel2 */,
+				1D6D57671453341F00A2A3CA /* Scene2 */,
 				DC0FB3CB131F7972001B6142 /* Intro */,
 				DC0FB3CA131F7968001B6142 /* MainMenu */,
 				DC0FB3C9131F7960001B6142 /* Options */,
@@ -1241,6 +1401,8 @@
 		DC65EEFB131E5C910052C9AA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1D6D57841457446000A2A3CA /* TileMaps */,
+				1D6D5734145333E300A2A3CA /* ParallaxBackgrounds */,
 				DCAB0795131F7ED100BD990B /* Menus */,
 				1D6D57331452A05500A2A3CA /* Scene1 */,
 				DCAB07DB131F87B300BD990B /* Fonts */,
@@ -2081,6 +2243,34 @@
 				DC99C402132128BE00DBBBCB /* SpaceDesertV2.mp3 in Resources */,
 				DC99C403132128BE00DBBBCB /* VikingPreludeV1.mp3 in Resources */,
 				DCFEBA82132923B800AA172E /* SoundEffects.plist in Resources */,
+				1D6D574F145333E300A2A3CA /* chap9_scrolling1.png in Resources */,
+				1D6D5750145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png in Resources */,
+				1D6D5751145333E300A2A3CA /* chap9_scrolling1iPhone.png in Resources */,
+				1D6D5752145333E300A2A3CA /* chap9_scrolling2.png in Resources */,
+				1D6D5753145333E300A2A3CA /* chap9_scrolling2iPhone-hd.png in Resources */,
+				1D6D5754145333E300A2A3CA /* chap9_scrolling2iPhone.png in Resources */,
+				1D6D5755145333E300A2A3CA /* chap9_scrolling3.png in Resources */,
+				1D6D5756145333E300A2A3CA /* chap9_scrolling3iPhone-hd.png in Resources */,
+				1D6D5757145333E300A2A3CA /* chap9_scrolling3iPhone.png in Resources */,
+				1D6D5758145333E300A2A3CA /* chap9_scrolling4.png in Resources */,
+				1D6D5759145333E300A2A3CA /* chap9_scrolling4iPhone-hd.png in Resources */,
+				1D6D575A145333E300A2A3CA /* chap9_scrolling4iPhone.png in Resources */,
+				1D6D575B145333E300A2A3CA /* FlatScrollingLayer.png in Resources */,
+				1D6D575C145333E300A2A3CA /* FlatScrollingLayeriPhone-hd.png in Resources */,
+				1D6D575D145333E300A2A3CA /* FlatScrollingLayeriPhone.png in Resources */,
+				1D6D575E145333E300A2A3CA /* tiles_grad_bkgrnd.png in Resources */,
+				1D6D575F145333E300A2A3CA /* tiles_grad_bkgrndiPhone-hd.png in Resources */,
+				1D6D5760145333E300A2A3CA /* tiles_grad_bkgrndiPhone.png in Resources */,
+				1D6D5761145333E300A2A3CA /* ScrollingCloudsTextureAtlas.plist in Resources */,
+				1D6D5762145333E300A2A3CA /* ScrollingCloudsTextureAtlas.png in Resources */,
+				1D6D5763145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone-hd.plist in Resources */,
+				1D6D5764145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone-hd.png in Resources */,
+				1D6D5765145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone.plist in Resources */,
+				1D6D5766145333E300A2A3CA /* ScrollingCloudsTextureAtlasiPhone.png in Resources */,
+				1D6D57891457446100A2A3CA /* Level2TileMap.tmx in Resources */,
+				1D6D578A1457446100A2A3CA /* Level2TileMapiPhone-hd.tmx in Resources */,
+				1D6D578B1457446100A2A3CA /* Level2TileMapiPhone.tmx in Resources */,
+				1D6D578C1457446100A2A3CA /* TilesTextureAtlas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2123,6 +2313,12 @@
 				DCAB07D4131F854D00BD990B /* CreditsScene.m in Sources */,
 				DCAB07D9131F855D00BD990B /* LevelCompleteLayer.m in Sources */,
 				DCAB07DA131F855D00BD990B /* LevelCompleteScene.m in Sources */,
+				1D6D576A1453346C00A2A3CA /* GameScene2.m in Sources */,
+				1D6D576D1453375F00A2A3CA /* StaticBackgroundLayer.m in Sources */,
+				1D6D5770145338ED00A2A3CA /* GameControlLayer.m in Sources */,
+				1D6D577314533A8400A2A3CA /* GameplayScrollingLayer.m in Sources */,
+				1D6D578014541CA200A2A3CA /* PlatformScrollingLayer.m in Sources */,
+				1D6D5783145703A000A2A3CA /* PlatformScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

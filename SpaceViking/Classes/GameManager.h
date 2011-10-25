@@ -27,12 +27,13 @@
 @property (nonatomic, retain) NSMutableDictionary *listOfSoundEffectFiles;
 @property (nonatomic, retain) NSMutableDictionary *soundEffectsState;
 
-+(GameManager*)sharedGameManager;                                  // 1
--(void)runSceneWithID:(SceneTypes)sceneID;                         // 2
--(void)openSiteWithLinkType:(LinkTypes)linkTypeToOpen ;            // 3
++(GameManager*)sharedGameManager;                                  
+-(void)runSceneWithID:(SceneTypes)sceneID;                         
+-(void)openSiteWithLinkType:(LinkTypes)linkTypeToOpen ;            
 -(void)setupAudioEngine;
 -(ALuint)playSoundEffect:(NSString*)soundEffectKey;
 -(void)stopSoundEffect:(ALuint)soundEffectID;
 -(void)playBackgroundTrack:(NSString*)trackFileName;
+-(CGSize)getDimensionsOfCurrentScene;
 
 @end

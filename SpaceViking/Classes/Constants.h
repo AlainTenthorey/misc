@@ -77,3 +77,6 @@ typedef enum {
 // Physics Escape Level
 #define BACKGROUND_TRACK_ESCAPE @"EscapeTheFutureV3.mp3"
 
+// Defines for Cloud Scrolling Scene
+#define kMaxCloudMoveDuration 10
+#define kMinCloudMoveDuration 1
