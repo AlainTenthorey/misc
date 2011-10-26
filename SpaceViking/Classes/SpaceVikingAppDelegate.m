@@ -118,7 +118,8 @@
     [[GameManager sharedGameManager] setupAudioEngine];
     
     // Chapter 7
-    [[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
+    //[[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
+    [[GameManager sharedGameManager] runSceneWithID:kGameLevel3];
 }
 
 

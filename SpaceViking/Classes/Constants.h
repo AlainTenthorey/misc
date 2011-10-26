@@ -80,3 +80,5 @@ typedef enum {
 // Defines for Cloud Scrolling Scene
 #define kMaxCloudMoveDuration 10
 #define kMinCloudMoveDuration 1
+
+#define PTM_RATIO ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 100.0 : 50.0)
