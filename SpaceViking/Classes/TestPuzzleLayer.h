@@ -4,14 +4,11 @@
 #import "GLES-Render.h"
 #import "Constants.h"
 
-@interface PuzzleLayer : CCLayer {
+@interface TestPuzzleLayer : CCLayer {
     b2World * world;
     b2Body *groundBody;
     GLESDebugDraw * debugDraw;
     b2MouseJoint *mouseJoint;
-    
-    CCSpriteBatchNode *sceneSpriteBatchNode;
-    b2Body *frozenVikingBody;
 }
 
 + (id)scene;

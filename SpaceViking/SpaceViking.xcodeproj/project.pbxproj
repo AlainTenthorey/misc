@@ -79,6 +79,15 @@
 		1D6D58051457CE7A00A2A3CA /* b2RevoluteJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D57E01457CE7A00A2A3CA /* b2RevoluteJoint.cpp */; };
 		1D6D58061457CE7A00A2A3CA /* b2WeldJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D57E21457CE7A00A2A3CA /* b2WeldJoint.cpp */; };
 		1D6D580B1457D0FB00A2A3CA /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D58091457D0FB00A2A3CA /* GLES-Render.mm */; };
+		1D6D583514582D9600A2A3CA /* scene3atlas-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D582E14582D9600A2A3CA /* scene3atlas-hd.plist */; };
+		1D6D583614582D9600A2A3CA /* scene3atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D582F14582D9600A2A3CA /* scene3atlas.plist */; };
+		1D6D583714582D9600A2A3CA /* puzzle_level_bkgrnd-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D583014582D9600A2A3CA /* puzzle_level_bkgrnd-hd.png */; };
+		1D6D583814582D9600A2A3CA /* puzzle_level_bkgrnd-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D583114582D9600A2A3CA /* puzzle_level_bkgrnd-ipad.png */; };
+		1D6D583914582D9600A2A3CA /* puzzle_level_bkgrnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D583214582D9600A2A3CA /* puzzle_level_bkgrnd.png */; };
+		1D6D583A14582D9600A2A3CA /* scene3atlas-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D583314582D9600A2A3CA /* scene3atlas-hd.png */; };
+		1D6D583B14582D9600A2A3CA /* scene3atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D583414582D9600A2A3CA /* scene3atlas.png */; };
+		1D6D583E14582E6B00A2A3CA /* TestPuzzleLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D583C14582E6B00A2A3CA /* TestPuzzleLayer.mm */; };
+		1D6D58421458312700A2A3CA /* Box2DSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D58401458312700A2A3CA /* Box2DSprite.mm */; };
 		1F3B9A2D0EF2145700286867 /* SpaceVikingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* SpaceVikingAppDelegate.m */; };
 		504DFBCE10AF12E9006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */; };
 		504DFBCF10AF12E9006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFBC910AF12E9006D82FE /* CLScoreServerPost.m */; };
@@ -612,6 +621,17 @@
 		1D6D58091457D0FB00A2A3CA /* GLES-Render.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
 		1D6D580A1457D0FB00A2A3CA /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
 		1D6D581114580D8300A2A3CA /* SimpleQueryCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleQueryCallback.h; sourceTree = "<group>"; };
+		1D6D582E14582D9600A2A3CA /* scene3atlas-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "scene3atlas-hd.plist"; sourceTree = "<group>"; };
+		1D6D582F14582D9600A2A3CA /* scene3atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene3atlas.plist; sourceTree = "<group>"; };
+		1D6D583014582D9600A2A3CA /* puzzle_level_bkgrnd-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "puzzle_level_bkgrnd-hd.png"; sourceTree = "<group>"; };
+		1D6D583114582D9600A2A3CA /* puzzle_level_bkgrnd-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "puzzle_level_bkgrnd-ipad.png"; sourceTree = "<group>"; };
+		1D6D583214582D9600A2A3CA /* puzzle_level_bkgrnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = puzzle_level_bkgrnd.png; sourceTree = "<group>"; };
+		1D6D583314582D9600A2A3CA /* scene3atlas-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene3atlas-hd.png"; sourceTree = "<group>"; };
+		1D6D583414582D9600A2A3CA /* scene3atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene3atlas.png; sourceTree = "<group>"; };
+		1D6D583C14582E6B00A2A3CA /* TestPuzzleLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TestPuzzleLayer.mm; sourceTree = "<group>"; };
+		1D6D583D14582E6B00A2A3CA /* TestPuzzleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPuzzleLayer.h; sourceTree = "<group>"; };
+		1D6D58401458312700A2A3CA /* Box2DSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Box2DSprite.mm; sourceTree = "<group>"; };
+		1D6D58411458312700A2A3CA /* Box2DSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2DSprite.h; sourceTree = "<group>"; };
 		1F3B9A2B0EF2145700286867 /* SpaceVikingAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpaceVikingAppDelegate.m; path = Classes/SpaceVikingAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		1F3B9A2C0EF2145700286867 /* SpaceVikingAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpaceVikingAppDelegate.h; path = Classes/SpaceVikingAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		1F3B9A820EF2151B00286867 /* SpaceViking_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceViking_Prefix.pch; sourceTree = SOURCE_ROOT; };
@@ -1192,6 +1212,8 @@
 		1D6D578D14574CFF00A2A3CA /* Scene3 */ = {
 			isa = PBXGroup;
 			children = (
+				1D6D583C14582E6B00A2A3CA /* TestPuzzleLayer.mm */,
+				1D6D583D14582E6B00A2A3CA /* TestPuzzleLayer.h */,
 				1D6D578E14574D3800A2A3CA /* PuzzleLayer.h */,
 				1D6D578F14574D3800A2A3CA /* PuzzleLayer.mm */,
 			);
@@ -1332,6 +1354,29 @@
 				1D6D58091457D0FB00A2A3CA /* GLES-Render.mm */,
 				1D6D580A1457D0FB00A2A3CA /* GLES-Render.h */,
 				1D6D581114580D8300A2A3CA /* SimpleQueryCallback.h */,
+			);
+			name = Box2D;
+			sourceTree = "<group>";
+		};
+		1D6D582C14582D1900A2A3CA /* Scene3 */ = {
+			isa = PBXGroup;
+			children = (
+				1D6D582E14582D9600A2A3CA /* scene3atlas-hd.plist */,
+				1D6D582F14582D9600A2A3CA /* scene3atlas.plist */,
+				1D6D583014582D9600A2A3CA /* puzzle_level_bkgrnd-hd.png */,
+				1D6D583114582D9600A2A3CA /* puzzle_level_bkgrnd-ipad.png */,
+				1D6D583214582D9600A2A3CA /* puzzle_level_bkgrnd.png */,
+				1D6D583314582D9600A2A3CA /* scene3atlas-hd.png */,
+				1D6D583414582D9600A2A3CA /* scene3atlas.png */,
+			);
+			name = Scene3;
+			sourceTree = "<group>";
+		};
+		1D6D583F145830CC00A2A3CA /* Box2D */ = {
+			isa = PBXGroup;
+			children = (
+				1D6D58401458312700A2A3CA /* Box2DSprite.mm */,
+				1D6D58411458312700A2A3CA /* Box2DSprite.h */,
 			);
 			name = Box2D;
 			sourceTree = "<group>";
@@ -1614,6 +1659,7 @@
 		DC532A88131EEA9A002B5ABD /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				1D6D583F145830CC00A2A3CA /* Box2D */,
 				DC532A8E131EEC9F002B5ABD /* GameObject.h */,
 				DC532A8F131EEC9F002B5ABD /* GameObject.m */,
 				DC532A91131EECE6002B5ABD /* GameCharacter.h */,
@@ -1665,6 +1711,7 @@
 		DC65EEFB131E5C910052C9AA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1D6D582C14582D1900A2A3CA /* Scene3 */,
 				1D6D57841457446000A2A3CA /* TileMaps */,
 				1D6D5734145333E300A2A3CA /* ParallaxBackgrounds */,
 				DCAB0795131F7ED100BD990B /* Menus */,
@@ -2535,6 +2582,13 @@
 				1D6D578A1457446100A2A3CA /* Level2TileMapiPhone-hd.tmx in Resources */,
 				1D6D578B1457446100A2A3CA /* Level2TileMapiPhone.tmx in Resources */,
 				1D6D578C1457446100A2A3CA /* TilesTextureAtlas.png in Resources */,
+				1D6D583514582D9600A2A3CA /* scene3atlas-hd.plist in Resources */,
+				1D6D583614582D9600A2A3CA /* scene3atlas.plist in Resources */,
+				1D6D583714582D9600A2A3CA /* puzzle_level_bkgrnd-hd.png in Resources */,
+				1D6D583814582D9600A2A3CA /* puzzle_level_bkgrnd-ipad.png in Resources */,
+				1D6D583914582D9600A2A3CA /* puzzle_level_bkgrnd.png in Resources */,
+				1D6D583A14582D9600A2A3CA /* scene3atlas-hd.png in Resources */,
+				1D6D583B14582D9600A2A3CA /* scene3atlas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2620,6 +2674,8 @@
 				1D6D58051457CE7A00A2A3CA /* b2RevoluteJoint.cpp in Sources */,
 				1D6D58061457CE7A00A2A3CA /* b2WeldJoint.cpp in Sources */,
 				1D6D580B1457D0FB00A2A3CA /* GLES-Render.mm in Sources */,
+				1D6D583E14582E6B00A2A3CA /* TestPuzzleLayer.mm in Sources */,
+				1D6D58421458312700A2A3CA /* Box2DSprite.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2756,6 +2812,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = SpaceViking;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = Debug;
@@ -2776,6 +2833,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = SpaceViking;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release;
@@ -2788,6 +2846,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "cocos2d libraries";
 			};
 			name = Debug;
@@ -2799,6 +2858,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "cocos2d libraries";
 				ZERO_LINK = NO;
 			};
