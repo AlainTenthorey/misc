@@ -19,6 +19,7 @@
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     bodyDef.position = b2Vec2(location.x/PTM_RATIO, location.y/PTM_RATIO);
+    bodyDef.allowSleep = false;
     b2Body *body = world->CreateBody(&bodyDef);
     
     b2PolygonShape shape;
@@ -87,13 +88,22 @@
         
         [self scheduleUpdate];
         self.isTouchEnabled = YES;
+        self.isAccelerometerEnabled = TRUE;
     }
     return self;
 }
 
+#pragma mark -
+#pragma mark event handlers
 - (void)registerWithTouchDispatcher {
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self
                                                      priority:0 swallowsTouches:YES];
+}
+
+- (void)accelerometer:(UIAccelerometer *)accelerometer
+        didAccelerate:(UIAcceleration *)acceleration {
+    b2Vec2 gravity(-acceleration.y * 15, acceleration.x *15);
+    world->SetGravity(gravity);
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -113,6 +123,7 @@
     world->Step(dt, velocityIterations, positionIterations);
 }
 
+#pragma mark -
 - (void)dealloc {
     if (world) {
         delete world;
