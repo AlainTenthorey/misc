@@ -16,7 +16,9 @@
     world = new b2World(gravity, doSleep);
 }
 
-- (void)createBoxAtLocation:(CGPoint)location withSize:(CGSize)size {
+- (void)createBoxAtLocation:(CGPoint)location    withSize:(CGSize)size 
+                   friction:(float32)friction restitution:(float32)restitution 
+                    density:(float32)density {
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     bodyDef.position = b2Vec2(location.x/PTM_RATIO, location.y/PTM_RATIO);
@@ -25,9 +27,13 @@
     
     b2PolygonShape shape;
     shape.SetAsBox(size.width/2/PTM_RATIO, size.height/2/PTM_RATIO);
+    
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &shape;
-    fixtureDef.density = 1.0;
+    fixtureDef.density = density; 
+    fixtureDef.friction = friction; 
+    fixtureDef.restitution = restitution;
+    
     body->CreateFixture(&fixtureDef);
 }
 
@@ -90,6 +96,30 @@
         [self scheduleUpdate];
         self.isTouchEnabled = YES;
         self.isAccelerometerEnabled = TRUE;
+        
+        CGPoint location1, location2, location3;
+        CGSize smallSize, medSize, largeSize;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            location1 = ccp(200, 400);
+            location2 = ccp(500, 400);
+            location3 = ccp(800, 400);
+            smallSize = CGSizeMake(50, 50);
+            medSize   = CGSizeMake(100, 100);
+            largeSize = CGSizeMake(200, 200);
+        } else {
+            location1 = ccp(100, 200);
+            location2 = ccp(250, 200);
+            location3 = ccp(400, 200);
+            smallSize = CGSizeMake(25, 25);
+            medSize   = CGSizeMake(50, 50);
+            largeSize = CGSizeMake(100, 100);
+        }
+        [self createBoxAtLocation:location1 withSize:medSize
+                         friction:1.0 restitution:0.0 density:1.0];
+        [self createBoxAtLocation:location2 withSize:medSize
+                         friction:1.0 restitution:0.5 density:1.0];
+        [self createBoxAtLocation:location3 withSize:medSize
+                         friction:1.0 restitution:1.0 density:1.0];
     }
     return self;
 }
@@ -134,8 +164,8 @@
         body->SetAwake(true);
         return YES;
     } else {
-        [self createBoxAtLocation:touchLocation
-                         withSize:CGSizeMake(50, 50)];
+        //[self createBoxAtLocation:touchLocation
+        //                 withSize:CGSizeMake(50, 50)];
     }
     
     return TRUE;
