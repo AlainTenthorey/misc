@@ -8,6 +8,7 @@
     b2World * world;
     b2Body *groundBody;
     GLESDebugDraw * debugDraw;
+    b2MouseJoint *mouseJoint;
 }
 
 + (id)scene;

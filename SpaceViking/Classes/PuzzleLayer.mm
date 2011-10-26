@@ -1,4 +1,5 @@
 #import "PuzzleLayer.h"
+#import "SimpleQueryCallback.h"
 
 @implementation PuzzleLayer
 
@@ -112,9 +113,50 @@
                      convertToGL:touchLocation];
     touchLocation = [self convertToNodeSpace:touchLocation];
     b2Vec2 locationWorld = b2Vec2(touchLocation.x/PTM_RATIO, touchLocation.y/PTM_RATIO);
-    [self createBoxAtLocation:touchLocation
-                     withSize:CGSizeMake(50, 50)];
+    
+    b2AABB aabb;
+    b2Vec2 delta = b2Vec2(1.0/PTM_RATIO, 1.0/PTM_RATIO);
+    
+    aabb.lowerBound = locationWorld - delta;
+    aabb.upperBound = locationWorld + delta;
+    SimpleQueryCallback callback(locationWorld);
+    world->QueryAABB(&callback, aabb);
+    
+    if (callback.fixtureFound) {
+        b2Body *body = callback.fixtureFound->GetBody();
+        b2MouseJointDef mouseJointDef;
+        mouseJointDef.bodyA = groundBody;
+        mouseJointDef.bodyB = body;
+        mouseJointDef.target = locationWorld;
+        mouseJointDef.maxForce = 100 * body->GetMass();
+        mouseJointDef.collideConnected = true;
+        mouseJoint = (b2MouseJoint *) world->CreateJoint(&mouseJointDef);
+        body->SetAwake(true);
+        return YES;
+    } else {
+        [self createBoxAtLocation:touchLocation
+                         withSize:CGSizeMake(50, 50)];
+    }
+    
     return TRUE;
+}
+
+-(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
+    CGPoint touchLocation = [touch locationInView:[touch view]];
+    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+    touchLocation = [self convertToNodeSpace:touchLocation];
+    b2Vec2 locationWorld = b2Vec2(touchLocation.x/PTM_RATIO, touchLocation.y/PTM_RATIO);
+    
+    if (mouseJoint) {
+        mouseJoint->SetTarget(locationWorld);
+    }
+}
+
+-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    if (mouseJoint) {
+        world->DestroyJoint(mouseJoint);
+        mouseJoint = NULL;
+    }
 }
 
 -(void)update:(ccTime)dt {
