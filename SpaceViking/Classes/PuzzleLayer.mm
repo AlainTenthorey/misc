@@ -1,6 +1,14 @@
 #import "PuzzleLayer.h"
 #import "SimpleQueryCallback.h"
 #import "Box2DSprite.h"
+#import "GameManager.h"
+#import "Meteor.h"
+#import "Skull.h"
+#import "Rock.h"
+#import "IceBlock.h"
+#import "LongBlock.h"
+#import "FrozenOle.h"
+#import "SimpleAudioEngine.h"
 
 @implementation PuzzleLayer
 
@@ -51,40 +59,35 @@
 }
 
 - (void)createMeteorAtLocation:(CGPoint)location {
-    Box2DSprite *sprite = [Box2DSprite spriteWithSpriteFrameName:@"meteor.png"];
-    sprite.gameObjectType = kMeteorType;
+    Meteor *sprite = [Meteor node];
     [self createBodyAtLocation:location forSprite:sprite friction:0.1
                    restitution:0.3 density:1.0 isBox:FALSE];
     [sceneSpriteBatchNode addChild:sprite];
 }
 
 - (void)createSkullAtLocation:(CGPoint)location {
-    Box2DSprite *sprite = [Box2DSprite spriteWithSpriteFrameName:@"skull.png"];
-    sprite.gameObjectType = kSkullType;
+    Skull *sprite = [Skull node];
     [self createBodyAtLocation:location forSprite:sprite friction:0.5
                    restitution:0.5 density:0.25 isBox:FALSE];
     [sceneSpriteBatchNode addChild:sprite];
 }
 
 - (void)createLongBlockAtLocation:(CGPoint)location {
-    Box2DSprite *sprite = [Box2DSprite spriteWithSpriteFrameName:@"long_block.png"];
-    sprite.gameObjectType = kLongBlockType;
+    LongBlock *sprite = [LongBlock node];
     [self createBodyAtLocation:location forSprite:sprite friction:0.2
                    restitution:0.0 density:1.0 isBox:TRUE];
     [sceneSpriteBatchNode addChild:sprite];
 }
 
 - (void)createIceBlockAtLocation:(CGPoint)location {
-    Box2DSprite *sprite = [Box2DSprite spriteWithSpriteFrameName:@"ice_block.png"];
-    sprite.gameObjectType = kIceType;
+    IceBlock *sprite = [IceBlock node];
     [self createBodyAtLocation:location forSprite:sprite friction:0.2
                    restitution:0.2 density:1.0 isBox:TRUE];
     [sceneSpriteBatchNode addChild:sprite];
 }
 
 - (void)createFrozenOleAtLocation:(CGPoint)location {
-    Box2DSprite *sprite = [Box2DSprite spriteWithSpriteFrameName:@"frozen_ole.png"];
-    sprite.gameObjectType = kFrozenVikingType;
+    FrozenOle *sprite = [FrozenOle node];
     [self createBodyAtLocation:location forSprite:sprite friction:0.1
                    restitution:0.2 density:1.0 isBox:TRUE];
     [sceneSpriteBatchNode addChild:sprite];
@@ -92,14 +95,35 @@
 }
 
 - (void)createRockAtLocation:(CGPoint)location {
-    Box2DSprite *sprite = [Box2DSprite spriteWithSpriteFrameName:@"rock.png"];
-    sprite.gameObjectType = kRockType;
+    Rock *sprite = [Rock node];
     [self createBodyAtLocation:location forSprite:sprite friction:3.0
                    restitution:0.0 density:1.0 isBox:TRUE];
     [sceneSpriteBatchNode addChild:sprite];
 }
 
 #pragma mark -
+- (void)createSensor {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    CGSize sensorSize = CGSizeMake(100, 50);
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        sensorSize = CGSizeMake(50, 25);
+    }
+    
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_staticBody;
+    bodyDef.position = b2Vec2((winSize.width-sensorSize.width/2)/PTM_RATIO,
+                              (sensorSize.height/2)/PTM_RATIO);
+    sensorBody = world->CreateBody(&bodyDef);
+    
+    b2PolygonShape shape;
+    shape.SetAsBox(sensorSize.width/PTM_RATIO, sensorSize.height/PTM_RATIO);
+    
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &shape;
+    fixtureDef.isSensor = true;
+    sensorBody->CreateFixture(&fixtureDef);
+}
+
 - (void)setupDebugDraw {
     debugDraw = new GLESDebugDraw(PTM_RATIO *[[CCDirector sharedDirector]
                                               contentScaleFactor]);
@@ -150,11 +174,53 @@
     groundBody->CreateFixture(&groundFixtureDef);
 }
 
+- (void)instructions {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Melt the Viking!"
+                                           fontName:@"Helvetica" fontSize:48.0];
+    label.position = ccp(winSize.width/2, winSize.height/2);
+    label.scale = 0.25;
+    [self addChild:label];
+    
+    CCScaleTo *scaleUp = [CCScaleTo actionWithDuration:1.0 scale:1.2];
+    CCScaleTo *scaleBack = [CCScaleTo actionWithDuration:1.0 scale:1.0];
+    CCDelayTime *delay = [CCDelayTime actionWithDuration:5.0];
+    CCFadeOut *fade = [CCFadeOut actionWithDuration:2.0];
+    CCSequence *sequence = [CCSequence actions:scaleUp, scaleBack, delay,
+                            fade, nil];
+    [label runAction:sequence];
+}
+
+- (void)winComplete:(id)sender {
+    [[GameManager sharedGameManager] setHasPlayerDied:NO];
+    [[GameManager sharedGameManager] runSceneWithID:kLevelCompleteScene];
+}
+
+- (void)win {
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    CCLabelTTF *label = [CCLabelTTF labelWithString:@"You Win!"
+                                           fontName:@"Helvetica" fontSize:48.0];
+    label.position = ccp(winSize.width/2, winSize.height/2);
+    label.scale = 0.25;
+    [self addChild:label];
+    
+    CCScaleTo *scaleUp = [CCScaleTo actionWithDuration:1.0 scale:1.2];
+    CCScaleTo *scaleBack = [CCScaleTo actionWithDuration:1.0 scale:1.0];
+    CCDelayTime *delay = [CCDelayTime actionWithDuration:2.0];
+    CCCallFuncN *winComplete = [CCCallFuncN actionWithTarget:self
+                                                    selector:@selector(winComplete:)];
+    CCSequence *sequence = [CCSequence actions:scaleUp, scaleBack, delay,
+                            winComplete, nil];
+    [label runAction:sequence];
+}
+
 - (id)init {
     if ((self = [super init])) {
         [self setupWorld];
-        [self setupDebugDraw];
         [self createGround];
+        [self createSensor];
+        [self instructions];
         
         [self scheduleUpdate];
         self.isTouchEnabled = YES;
@@ -203,6 +269,25 @@
             [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_Default];
             [self addChild:background z:-1];
         }
+        
+        for(int i = 0; i < 10; ++i) {
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+                [self createSkullAtLocation:ccp(200, 700)];
+            } else {
+                [self createSkullAtLocation:ccp(100, 250)];
+            }
+        }
+        for(int i = 0; i < 2; ++i) {
+            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+                [self createMeteorAtLocation:ccp(300, 600)];
+                [self createRockAtLocation:ccp(300, 600)];
+                [self createIceBlockAtLocation:ccp(300, 600)];
+            } else {
+                [self createMeteorAtLocation:ccp(100, 250)];
+                [self createRockAtLocation:ccp(100, 250)];
+                [self createIceBlockAtLocation:ccp(100, 250)];
+            } 
+        }
     }
     return self;
 }
@@ -237,6 +322,11 @@
     
     if (callback.fixtureFound) {
         b2Body *body = callback.fixtureFound->GetBody();
+        
+        Box2DSprite *sprite = (Box2DSprite *) body->GetUserData();
+        if (sprite == NULL) return FALSE;
+        if(![sprite mouseJointBegan]) return FALSE;
+        
         b2MouseJointDef mouseJointDef;
         mouseJointDef.bodyA = groundBody;
         mouseJointDef.bodyB = body;
@@ -280,6 +370,24 @@
                                   b->GetPosition().y * PTM_RATIO);
             sprite.rotation = CC_RADIANS_TO_DEGREES(b->GetAngle() * -1);
         } 
+    }
+    
+    if (!hasWon) {
+        b2ContactEdge* edge = frozenVikingBody->GetContactList();
+        while (edge)
+        {
+            b2Contact* contact = edge->contact;
+            b2Fixture* fixtureA = contact->GetFixtureA();
+            b2Fixture* fixtureB = contact->GetFixtureB();
+            b2Body *bodyA = fixtureA->GetBody();
+            b2Body *bodyB = fixtureB->GetBody();
+            if (bodyA == sensorBody || bodyB == sensorBody) {
+                hasWon = true;
+                [self win];
+                break;
+            }
+            edge = edge->next;
+        }
     }
 }
 

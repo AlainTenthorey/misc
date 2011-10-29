@@ -12,6 +12,9 @@
     
     CCSpriteBatchNode *sceneSpriteBatchNode;
     b2Body *frozenVikingBody;
+    
+    b2Body *sensorBody;
+    BOOL hasWon;
 }
 
 + (id)scene;

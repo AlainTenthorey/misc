@@ -88,6 +88,12 @@
 		1D6D583B14582D9600A2A3CA /* scene3atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D583414582D9600A2A3CA /* scene3atlas.png */; };
 		1D6D583E14582E6B00A2A3CA /* TestPuzzleLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D583C14582E6B00A2A3CA /* TestPuzzleLayer.mm */; };
 		1D6D58421458312700A2A3CA /* Box2DSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D58401458312700A2A3CA /* Box2DSprite.mm */; };
+		1D6D5845145838CE00A2A3CA /* Meteor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D5844145838CE00A2A3CA /* Meteor.mm */; };
+		1D6D5848145838E700A2A3CA /* Skull.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D5847145838E700A2A3CA /* Skull.mm */; };
+		1D6D584B145838F500A2A3CA /* Rock.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D584A145838F500A2A3CA /* Rock.mm */; };
+		1D6D584E1458391500A2A3CA /* IceBlock.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D584D1458391400A2A3CA /* IceBlock.mm */; };
+		1D6D58511458392E00A2A3CA /* LongBlock.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D58501458392E00A2A3CA /* LongBlock.mm */; };
+		1D6D58541458393F00A2A3CA /* FrozenOle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D58531458393E00A2A3CA /* FrozenOle.mm */; };
 		1F3B9A2D0EF2145700286867 /* SpaceVikingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* SpaceVikingAppDelegate.m */; };
 		504DFBCE10AF12E9006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */; };
 		504DFBCF10AF12E9006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFBC910AF12E9006D82FE /* CLScoreServerPost.m */; };
@@ -632,6 +638,18 @@
 		1D6D583D14582E6B00A2A3CA /* TestPuzzleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPuzzleLayer.h; sourceTree = "<group>"; };
 		1D6D58401458312700A2A3CA /* Box2DSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Box2DSprite.mm; sourceTree = "<group>"; };
 		1D6D58411458312700A2A3CA /* Box2DSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2DSprite.h; sourceTree = "<group>"; };
+		1D6D5843145838CE00A2A3CA /* Meteor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meteor.h; sourceTree = "<group>"; };
+		1D6D5844145838CE00A2A3CA /* Meteor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Meteor.mm; sourceTree = "<group>"; };
+		1D6D5846145838E600A2A3CA /* Skull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skull.h; sourceTree = "<group>"; };
+		1D6D5847145838E700A2A3CA /* Skull.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Skull.mm; sourceTree = "<group>"; };
+		1D6D5849145838F500A2A3CA /* Rock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rock.h; sourceTree = "<group>"; };
+		1D6D584A145838F500A2A3CA /* Rock.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Rock.mm; sourceTree = "<group>"; };
+		1D6D584C1458391400A2A3CA /* IceBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IceBlock.h; path = ../IceBlock.h; sourceTree = "<group>"; };
+		1D6D584D1458391400A2A3CA /* IceBlock.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = IceBlock.mm; path = ../IceBlock.mm; sourceTree = "<group>"; };
+		1D6D584F1458392D00A2A3CA /* LongBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongBlock.h; sourceTree = "<group>"; };
+		1D6D58501458392E00A2A3CA /* LongBlock.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LongBlock.mm; sourceTree = "<group>"; };
+		1D6D58521458393E00A2A3CA /* FrozenOle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrozenOle.h; sourceTree = "<group>"; };
+		1D6D58531458393E00A2A3CA /* FrozenOle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FrozenOle.mm; sourceTree = "<group>"; };
 		1F3B9A2B0EF2145700286867 /* SpaceVikingAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpaceVikingAppDelegate.m; path = Classes/SpaceVikingAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		1F3B9A2C0EF2145700286867 /* SpaceVikingAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpaceVikingAppDelegate.h; path = Classes/SpaceVikingAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		1F3B9A820EF2151B00286867 /* SpaceViking_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceViking_Prefix.pch; sourceTree = SOURCE_ROOT; };
@@ -1212,8 +1230,8 @@
 		1D6D578D14574CFF00A2A3CA /* Scene3 */ = {
 			isa = PBXGroup;
 			children = (
-				1D6D583C14582E6B00A2A3CA /* TestPuzzleLayer.mm */,
 				1D6D583D14582E6B00A2A3CA /* TestPuzzleLayer.h */,
+				1D6D583C14582E6B00A2A3CA /* TestPuzzleLayer.mm */,
 				1D6D578E14574D3800A2A3CA /* PuzzleLayer.h */,
 				1D6D578F14574D3800A2A3CA /* PuzzleLayer.mm */,
 			);
@@ -1375,8 +1393,20 @@
 		1D6D583F145830CC00A2A3CA /* Box2D */ = {
 			isa = PBXGroup;
 			children = (
-				1D6D58401458312700A2A3CA /* Box2DSprite.mm */,
 				1D6D58411458312700A2A3CA /* Box2DSprite.h */,
+				1D6D58401458312700A2A3CA /* Box2DSprite.mm */,
+				1D6D5843145838CE00A2A3CA /* Meteor.h */,
+				1D6D5844145838CE00A2A3CA /* Meteor.mm */,
+				1D6D5846145838E600A2A3CA /* Skull.h */,
+				1D6D5847145838E700A2A3CA /* Skull.mm */,
+				1D6D5849145838F500A2A3CA /* Rock.h */,
+				1D6D584A145838F500A2A3CA /* Rock.mm */,
+				1D6D584C1458391400A2A3CA /* IceBlock.h */,
+				1D6D584D1458391400A2A3CA /* IceBlock.mm */,
+				1D6D584F1458392D00A2A3CA /* LongBlock.h */,
+				1D6D58501458392E00A2A3CA /* LongBlock.mm */,
+				1D6D58521458393E00A2A3CA /* FrozenOle.h */,
+				1D6D58531458393E00A2A3CA /* FrozenOle.mm */,
 			);
 			name = Box2D;
 			sourceTree = "<group>";
@@ -2676,6 +2706,12 @@
 				1D6D580B1457D0FB00A2A3CA /* GLES-Render.mm in Sources */,
 				1D6D583E14582E6B00A2A3CA /* TestPuzzleLayer.mm in Sources */,
 				1D6D58421458312700A2A3CA /* Box2DSprite.mm in Sources */,
+				1D6D5845145838CE00A2A3CA /* Meteor.mm in Sources */,
+				1D6D5848145838E700A2A3CA /* Skull.mm in Sources */,
+				1D6D584B145838F500A2A3CA /* Rock.mm in Sources */,
+				1D6D584E1458391500A2A3CA /* IceBlock.mm in Sources */,
+				1D6D58511458392E00A2A3CA /* LongBlock.mm in Sources */,
+				1D6D58541458393F00A2A3CA /* FrozenOle.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
