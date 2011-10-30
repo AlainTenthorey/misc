@@ -11,6 +11,7 @@
 #import "GameScene2.h"
 #import "PlatformScene.h"
 #import "PuzzleLayer.h"
+#import "Scene4.h"
 
 @implementation GameManager
 static GameManager* _sharedGameManager = nil;                      
@@ -360,7 +361,7 @@ static GameManager* _sharedGameManager = nil;
             sceneToRun = [PuzzleLayer scene];
             break;
         case kGameLevel4:
-            // Placeholder for Level 4
+            sceneToRun = [Scene4 node];
             break;
         case kGameLevel5:
             // Placeholder for Level 5
