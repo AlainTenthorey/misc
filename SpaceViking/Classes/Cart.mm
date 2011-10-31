@@ -44,10 +44,23 @@
     
     b2RevoluteJointDef revJointDef;
     revJointDef.Initialize(body, wheelLBody, wheelLBody->GetWorldCenter());
+    revJointDef.enableMotor = true;
+    revJointDef.maxMotorTorque = 1000;
+    revJointDef.motorSpeed = 0;
     wheelLJoint = (b2RevoluteJoint *) world->CreateJoint(&revJointDef);
     
     revJointDef.Initialize(body, wheelRBody, wheelRBody->GetWorldCenter());
     wheelRJoint = (b2RevoluteJoint *) world->CreateJoint(&revJointDef);
+}
+
+- (void)setMotorSpeed:(float32)motorSpeed {
+    if (characterState != kStateTakingDamage) {
+        wheelLJoint->SetMotorSpeed(motorSpeed);
+        wheelRJoint->SetMotorSpeed(motorSpeed);
+    } else {
+        wheelLJoint->SetMotorSpeed(0.2 * motorSpeed);
+        wheelRJoint->SetMotorSpeed(0.2 * motorSpeed);
+    } 
 }
 
 - (void)createBodyAtLocation:(CGPoint)location {

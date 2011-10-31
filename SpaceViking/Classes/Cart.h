@@ -16,5 +16,6 @@
 @property (readonly) Box2DSprite * wheelR;
 
 - (id)initWithWorld:(b2World *)world atLocation:(CGPoint)location;
+- (void)setMotorSpeed:(float32)motorSpeed;
 
 @end

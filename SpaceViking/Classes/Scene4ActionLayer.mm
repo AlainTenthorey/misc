@@ -12,13 +12,6 @@
     world = new b2World(gravity, doSleep);
 }
 
-- (void)setupDebugDraw {
-    debugDraw = new GLESDebugDraw(PTM_RATIO*
-                                  [[CCDirector sharedDirector] contentScaleFactor]);
-    world->SetDebugDraw(debugDraw);
-    debugDraw->SetFlags(b2DebugDraw::e_shapeBit);
-}
-
 - (void)createGround {
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     float32 margin = 10.0f;
@@ -58,11 +51,31 @@
     [sceneSpriteBatchNode addChild:cart.wheelR];
 }
 
-- (void)registerWithTouchDispatcher {
-    [[CCTouchDispatcher sharedDispatcher]
-     addTargetedDelegate:self priority:0 swallowsTouches:YES];
+#pragma mark -
+#pragma mark Debug drawing code
+
+-(void) draw {
+    glDisable(GL_TEXTURE_2D);
+    glDisableClientState(GL_COLOR_ARRAY);
+    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+    
+    if (world) {
+        world->DrawDebugData();
+    }
+    
+    glEnable(GL_TEXTURE_2D);
+    glEnableClientState(GL_COLOR_ARRAY);
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 }
 
+- (void)setupDebugDraw {
+    debugDraw = new GLESDebugDraw(PTM_RATIO*
+                                  [[CCDirector sharedDirector] contentScaleFactor]);
+    world->SetDebugDraw(debugDraw);
+    debugDraw->SetFlags(b2DebugDraw::e_shapeBit);
+}
+
+#pragma mark -
 - (id)initWithScene4UILayer:(Scene4UILayer *)scene4UILayer {
     if ((self = [super init])) {
         CGSize winSize = [CCDirector sharedDirector].winSize;
@@ -74,7 +87,9 @@
          playBackgroundTrack:BACKGROUND_TRACK_MINECART];
         [self scheduleUpdate];
         [self createGround];
+        
         self.isTouchEnabled = YES;
+        self.isAccelerometerEnabled = YES;
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             [[CCSpriteFrameCache sharedSpriteFrameCache]
@@ -94,10 +109,13 @@
          ccp(winSize.width/4, winSize.width*0.3)];
         [uiLayer displayText:@"Go!" andOnCompleteCallTarget:nil
                     selector:nil];
+        
     }
     return self;
 }
 
+#pragma mark -
+#pragma mark Event Handlers
 -(void)update:(ccTime)dt {
     int32 velocityIterations = 3;
     int32 positionIterations = 2;
@@ -120,19 +138,11 @@
     } 
 }
 
--(void) draw {
-    glDisable(GL_TEXTURE_2D);
-    glDisableClientState(GL_COLOR_ARRAY);
-    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-    
-    if (world) {
-        world->DrawDebugData();
-    }
-    
-    glEnable(GL_TEXTURE_2D);
-    glEnableClientState(GL_COLOR_ARRAY);
-    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+- (void)registerWithTouchDispatcher {
+    [[CCTouchDispatcher sharedDispatcher]
+     addTargetedDelegate:self priority:0 swallowsTouches:YES];
 }
+
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint touchLocation = [touch locationInView:[touch view]];
@@ -181,6 +191,21 @@
         world->DestroyJoint(mouseJoint);
         mouseJoint = NULL;
     }
+}
+
+- (void)accelerometer:(UIAccelerometer *)accelerometer
+        didAccelerate:(UIAcceleration *)acceleration {
+    float32 maxRevsPerSecond = 7.0;
+    float32 accelerationFraction = acceleration.y*6;
+    
+    if (accelerationFraction < -1) {
+        accelerationFraction = -1;
+    } else if (accelerationFraction > 1) {
+        accelerationFraction = 1;
+    }
+    
+    float32 motorSpeed = (M_PI*2) * maxRevsPerSecond * accelerationFraction;
+    [cart setMotorSpeed:motorSpeed];
 }
 
 @end
