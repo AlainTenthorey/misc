@@ -23,6 +23,11 @@
     [sceneSpriteBatchNode addChild:cart z:1 tag:kVikingSpriteTagValue];
     [sceneSpriteBatchNode addChild:cart.wheelL];
     [sceneSpriteBatchNode addChild:cart.wheelR];
+    [sceneSpriteBatchNode addChild:cart.legs];
+    [sceneSpriteBatchNode addChild:cart.trunk];
+    [sceneSpriteBatchNode addChild:cart.head];
+    [sceneSpriteBatchNode addChild:cart.helm];
+    [sceneSpriteBatchNode addChild:cart.arm z:2];
 }
 
 - (void)createBackground {

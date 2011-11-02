@@ -8,6 +8,11 @@
 @synthesize wheelR;
 @synthesize wheelLBody;
 @synthesize wheelRBody;
+@synthesize legs;
+@synthesize trunk;
+@synthesize head;
+@synthesize helm;
+@synthesize arm;
 
 - (b2Body *)createWheelWithSprite:(Box2DSprite*)sprite
                            offset:(b2Vec2)offset {
@@ -26,6 +31,9 @@
     fixtureDef.friction = 1.0;
     fixtureDef.restitution = 0.2;
     fixtureDef.density = 10.0;
+    fixtureDef.filter.categoryBits = 0x2;
+    fixtureDef.filter.maskBits = 0xFFFF;
+    fixtureDef.filter.groupIndex = -1;
     wheelBody->CreateFixture(&fixtureDef);
     
     return wheelBody;
@@ -87,7 +95,9 @@
     fixtureDef.density = 1.0;
     fixtureDef.friction = 0.5;
     fixtureDef.restitution = 0.5;
-    
+    fixtureDef.filter.categoryBits = 0x2;
+    fixtureDef.filter.maskBits = 0xFFFF;
+    fixtureDef.filter.groupIndex = -1;
     body->CreateFixture(&fixtureDef);
     
     //Add sensor to bottom of cart
@@ -101,6 +111,112 @@
     body->CreateFixture(&fixtureDef);
 }
 
+-(b2Body *)createPartAtLocation:(b2Vec2)location
+                     withSprite:(Box2DSprite *)sprite {
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.position = location;
+    bodyDef.angle = body->GetAngle();
+    
+    b2Body *retval = world->CreateBody(&bodyDef);
+    retval->SetUserData(sprite);
+    sprite.body = retval;
+    
+    b2PolygonShape shape;
+    shape.SetAsBox(sprite.contentSize.width/2/PTM_RATIO,
+                   sprite.contentSize.height/2/PTM_RATIO);
+    
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &shape;
+    fixtureDef.density = 0.05;
+    fixtureDef.filter.categoryBits = 0x2;
+    fixtureDef.filter.maskBits = 0xFFFF;
+    fixtureDef.filter.groupIndex = -1;
+    
+    retval->CreateFixture(&fixtureDef);
+    return retval;
+}
+
+-(void)createOle {
+    //Creating the parts
+    legs = [Box2DSprite spriteWithSpriteFrameName:@"OleCartLegs.png"];
+    legs.gameObjectType = kCartType;
+    legsBody = [self createPartAtLocation:
+                body->GetWorldPoint(b2Vec2(-10.0/HD_PTM_RATIO, 6.0/HD_PTM_RATIO))
+                               withSprite:legs];
+    
+    trunk = [Box2DSprite spriteWithSpriteFrameName:@"OleCartBody.png"];
+    trunk.gameObjectType = kCartType;
+    trunkBody = [self createPartAtLocation:
+                 legsBody->GetWorldPoint(b2Vec2(0, 45.0/HD_PTM_RATIO))
+                                withSprite:trunk];
+    
+    head = [Box2DSprite spriteWithSpriteFrameName:@"OleCartHead.png"];
+    head.gameObjectType = kCartType;
+    headBody = [self createPartAtLocation:
+                trunkBody->GetWorldPoint(b2Vec2(18.0/HD_PTM_RATIO, 24.0/HD_PTM_RATIO)) 
+                               withSprite:head];
+    
+    helm = [Box2DSprite
+            spriteWithSpriteFrameName:@"OleCartHelmet.png"];
+    helm.gameObjectType = kCartType;
+    helmBody = [self createPartAtLocation:
+                headBody->GetWorldPoint(b2Vec2(15.0/HD_PTM_RATIO, 25.0/HD_PTM_RATIO))
+                               withSprite:helm];
+    
+    arm = [Box2DSprite spriteWithSpriteFrameName:@"OleCartArm.png"];
+    arm.gameObjectType = kCartType;
+    armBody = [self createPartAtLocation:
+               trunkBody->GetWorldPoint(b2Vec2(5.0/HD_PTM_RATIO, -15.0/HD_PTM_RATIO)) 
+                              withSprite:arm];
+    
+    //Creating the joints
+    b2Transform axisTransform;
+    axisTransform.Set(b2Vec2(0, 0), body->GetAngle());
+    b2Vec2 axis = b2Mul(axisTransform.R, b2Vec2(0,1));
+    
+    b2PrismaticJointDef prisJointDef;
+    prisJointDef.Initialize(body, legsBody,
+                            legsBody->GetWorldCenter(), axis);
+    prisJointDef.enableLimit = true;
+    prisJointDef.lowerTranslation = 0.0;
+    prisJointDef.upperTranslation = 43.0/HD_PTM_RATIO;
+    world->CreateJoint(&prisJointDef);
+    
+    b2RevoluteJointDef revJointDef;
+    revJointDef.Initialize(legsBody, trunkBody,
+                           legsBody->GetWorldPoint(b2Vec2(0, 20.0/HD_PTM_RATIO)));
+    revJointDef.lowerAngle = CC_DEGREES_TO_RADIANS(-15);
+    revJointDef.upperAngle = CC_DEGREES_TO_RADIANS(15);
+    revJointDef.enableLimit = true;
+    revJointDef.enableMotor = true;
+    revJointDef.motorSpeed = 0.5;
+    revJointDef.maxMotorTorque = 50.0;
+    world->CreateJoint(&revJointDef);
+    revJointDef.enableMotor = false;
+    
+    revJointDef.Initialize(trunkBody, armBody,
+                           armBody->GetWorldPoint(b2Vec2(-9.0/HD_PTM_RATIO, 29.0/HD_PTM_RATIO)));
+    revJointDef.lowerAngle = CC_DEGREES_TO_RADIANS(-30);
+    revJointDef.upperAngle = CC_DEGREES_TO_RADIANS(60);
+    revJointDef.enableLimit = true;
+    world->CreateJoint(&revJointDef);
+    
+    revJointDef.Initialize(trunkBody, headBody,
+                           headBody->GetWorldPoint(b2Vec2(-12.0/HD_PTM_RATIO, -9.0/HD_PTM_RATIO)));
+    revJointDef.lowerAngle = CC_DEGREES_TO_RADIANS(-5);
+    revJointDef.upperAngle = CC_DEGREES_TO_RADIANS(5);
+    revJointDef.enableLimit = true;
+    world->CreateJoint(&revJointDef);
+    
+    prisJointDef.Initialize(headBody, helmBody,
+                            helmBody->GetWorldCenter(), axis);
+    prisJointDef.enableLimit = true;
+    prisJointDef.lowerTranslation = 0.0/HD_PTM_RATIO;
+    prisJointDef.upperTranslation = 5.0/HD_PTM_RATIO;
+    world->CreateJoint(&prisJointDef);
+}
+
 - (id)initWithWorld:(b2World *)theWorld atLocation:(CGPoint)location {
     if ((self = [super init])) {
         world = theWorld;
@@ -110,6 +226,7 @@
         characterHealth = 100.0f;
         [self createBodyAtLocation:location];
         [self createWheels];
+        [self createOle];
     }
     return self;
 }
