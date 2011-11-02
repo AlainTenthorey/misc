@@ -17,5 +17,7 @@
 
 - (id)initWithWorld:(b2World *)world atLocation:(CGPoint)location;
 - (void)setMotorSpeed:(float32)motorSpeed;
+- (void)jump;
+- (float32)fullMass;
 
 @end

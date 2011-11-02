@@ -89,6 +89,16 @@
     fixtureDef.restitution = 0.5;
     
     body->CreateFixture(&fixtureDef);
+    
+    //Add sensor to bottom of cart
+    b2PolygonShape sensorShape;
+    sensorShape.SetAsBox(self.contentSize.width/2/PTM_RATIO, self.contentSize.
+                         height/2/PTM_RATIO,
+                         b2Vec2(0, -self.contentSize.height/PTM_RATIO), 0);
+    fixtureDef.shape = &sensorShape;
+    fixtureDef.density = 0.0;
+    fixtureDef.isSensor = true;
+    body->CreateFixture(&fixtureDef);
 }
 
 - (id)initWithWorld:(b2World *)theWorld atLocation:(CGPoint)location {
@@ -102,6 +112,51 @@
         [self createWheels];
     }
     return self;
+}
+
+- (void) updateStateWithDeltaTime:(ccTime)deltaTime
+             andListOfGameObjects:(CCArray *)listOfGameObjects {
+    float32 minAngle = CC_DEGREES_TO_RADIANS(-20);
+    float32 maxAngle = CC_DEGREES_TO_RADIANS(20);
+    double desiredAngle = self.body->GetAngle();
+    
+    if (self.body->GetAngle() > maxAngle) {
+        desiredAngle = maxAngle;
+    } else if (self.body->GetAngle() < minAngle) {
+        desiredAngle = minAngle;
+    }
+    
+    float32 diff = desiredAngle - self.body->GetAngle();
+    if (diff != 0) {
+        body->SetAngularVelocity(0);
+        float32 diff = desiredAngle - self.body->GetAngle();
+        float angimp = self.body->GetInertia() * diff;
+        self.body->ApplyAngularImpulse(angimp * 2);
+    } 
+}
+
+- (void)playJumpEffect {
+    int soundToPlay = random() % 4;
+    if (soundToPlay == 0) {
+        PLAYSOUNDEFFECT(VIKING_JUMPING_1);
+    } else if (soundToPlay == 1) {
+        PLAYSOUNDEFFECT(VIKING_JUMPING_2);
+    } else if (soundToPlay == 2) {
+        PLAYSOUNDEFFECT(VIKING_JUMPING_3);
+    } else {
+        PLAYSOUNDEFFECT(VIKING_JUMPING_4);
+    }
+}
+
+- (float32)fullMass {
+    return body->GetMass() + wheelLBody->GetMass() + wheelRBody->GetMass();
+}
+
+- (void)jump {
+    [self playJumpEffect];
+    b2Vec2 impulse = b2Vec2([self fullMass]*1.0, [self fullMass]*5.0);
+    b2Vec2 impulsePoint = body->GetWorldPoint(b2Vec2(5.0/HD_PTM_RATIO, -15.0/HD_PTM_RATIO));
+    body->ApplyLinearImpulse(impulse, impulsePoint);
 }
 
 @end

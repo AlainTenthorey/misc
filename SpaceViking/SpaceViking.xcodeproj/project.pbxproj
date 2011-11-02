@@ -111,6 +111,7 @@
 		1D6D5879145C30B000A2A3CA /* Cart.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D5878145C30B000A2A3CA /* Cart.mm */; };
 		1D6D587C145C31BF00A2A3CA /* Scene4ActionLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D587B145C31BF00A2A3CA /* Scene4ActionLayer.mm */; };
 		1D6D587F145C377E00A2A3CA /* Scene4.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D587E145C377E00A2A3CA /* Scene4.mm */; };
+		1DD8C5AD14619B320040CA90 /* Box2DHelpers.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DD8C5AC14619B320040CA90 /* Box2DHelpers.mm */; };
 		1F3B9A2D0EF2145700286867 /* SpaceVikingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* SpaceVikingAppDelegate.m */; };
 		504DFBCE10AF12E9006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */; };
 		504DFBCF10AF12E9006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFBC910AF12E9006D82FE /* CLScoreServerPost.m */; };
@@ -688,6 +689,8 @@
 		1D6D587B145C31BF00A2A3CA /* Scene4ActionLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scene4ActionLayer.mm; sourceTree = "<group>"; };
 		1D6D587D145C377D00A2A3CA /* Scene4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene4.h; sourceTree = "<group>"; };
 		1D6D587E145C377E00A2A3CA /* Scene4.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scene4.mm; sourceTree = "<group>"; };
+		1DD8C5AB14619B320040CA90 /* Box2DHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2DHelpers.h; sourceTree = "<group>"; };
+		1DD8C5AC14619B320040CA90 /* Box2DHelpers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Box2DHelpers.mm; sourceTree = "<group>"; };
 		1F3B9A2B0EF2145700286867 /* SpaceVikingAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpaceVikingAppDelegate.m; path = Classes/SpaceVikingAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		1F3B9A2C0EF2145700286867 /* SpaceVikingAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpaceVikingAppDelegate.h; path = Classes/SpaceVikingAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		1F3B9A820EF2151B00286867 /* SpaceViking_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceViking_Prefix.pch; sourceTree = SOURCE_ROOT; };
@@ -1410,6 +1413,8 @@
 				1D6D58091457D0FB00A2A3CA /* GLES-Render.mm */,
 				1D6D580A1457D0FB00A2A3CA /* GLES-Render.h */,
 				1D6D581114580D8300A2A3CA /* SimpleQueryCallback.h */,
+				1DD8C5AB14619B320040CA90 /* Box2DHelpers.h */,
+				1DD8C5AC14619B320040CA90 /* Box2DHelpers.mm */,
 			);
 			name = Box2D;
 			sourceTree = "<group>";
@@ -2828,6 +2833,7 @@
 				1D6D5879145C30B000A2A3CA /* Cart.mm in Sources */,
 				1D6D587C145C31BF00A2A3CA /* Scene4ActionLayer.mm in Sources */,
 				1D6D587F145C377E00A2A3CA /* Scene4.mm in Sources */,
+				1DD8C5AD14619B320040CA90 /* Box2DHelpers.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
