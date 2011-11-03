@@ -26,6 +26,11 @@
     Digger * digger;
     bool gameOver;
     b2Body *offscreenSensorBody;
+    
+    CCParticleSystem *fireOnBridge;
+    b2Body *finalBattleSensorBody;
+    bool inFinalBattle;
+    bool actionStopped;
 }
 
 - (id)initWithScene4UILayer:(Scene4UILayer *)scene4UILayer;

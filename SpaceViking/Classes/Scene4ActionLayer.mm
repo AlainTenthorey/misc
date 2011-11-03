@@ -58,8 +58,6 @@
                                  atLocation:ccp(groundMaxX - winSize.width * 0.8,
                                                 winSize.height/2)] autorelease];
     [sceneSpriteBatchNode addChild:digger];
-    //[sceneSpriteBatchNode addChild:digger.wheelLSprite];
-    //[sceneSpriteBatchNode addChild:digger.wheelRSprite];
 }
 
 - (void)createOffscreenSensorBody {
@@ -83,6 +81,41 @@
     fixtureDef.isSensor = true;
     fixtureDef.density = 0.0;
     offscreenSensorBody->CreateFixture(&fixtureDef);
+}
+
+- (void)createFinalBattleSensor {
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    float32 sensorWidth = winSize.width * 0.03;
+    float32 sensorHeight = winSize.height;
+    float32 sensorOffset = winSize.width * 0.15;
+    
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_staticBody;
+    bodyDef.position.Set(
+                         groundMaxX/PTM_RATIO + sensorOffset/PTM_RATIO + sensorWidth/2/PTM_RATIO,
+                         sensorHeight/2/PTM_RATIO);
+    finalBattleSensorBody = world->CreateBody(&bodyDef);
+    
+    b2PolygonShape shape;
+    shape.SetAsBox(sensorWidth/2/PTM_RATIO, sensorHeight/2/PTM_RATIO);
+    
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &shape;
+    fixtureDef.isSensor = true;
+    fixtureDef.density = 0.0;
+    finalBattleSensorBody->CreateFixture(&fixtureDef);
+}
+
+- (void)createParticleSystem {
+    fireOnBridge = [CCParticleSystemQuad
+                    particleWithFile:@"fire.plist"];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        fireOnBridge.position = ccp(groundMaxX - 400.0, 80);
+    } else {
+        fireOnBridge.position = ccp(groundMaxX - 200, 40);
+    }
+    [fireOnBridge stopSystem];
+    [self addChild:fireOnBridge z:10];
 }
 
 #pragma mark -
@@ -284,6 +317,8 @@
     [self createSpikesWithOffset:-1200];
     [self createSpikesWithOffset:-400];
     [self createBridge];
+    [self createParticleSystem];
+    [self createFinalBattleSensor];
     [self createGround3];
     [self createDigger];
     [self createGround3];
@@ -292,6 +327,8 @@
 }
 
 - (void)followCart {
+    if (actionStopped) return;
+    
     CGSize winSize = [CCDirector sharedDirector].winSize;
     float fixedPosition = winSize.width/4;
     float newX = fixedPosition - cart.position.x;
@@ -387,6 +424,28 @@
     return self;
 }
 
+- (void)startFire {
+    PLAYSOUNDEFFECT(FLAME_SOUND);
+    [fireOnBridge resetSystem];
+}
+
+- (void)destroyBridge {
+    [fireOnBridge stopSystem];
+    world->DestroyJoint(lastBridgeStartJoint);
+    lastBridgeStartJoint = NULL;
+    world->DestroyJoint(lastBridgeEndJoint);
+    lastBridgeEndJoint = NULL;
+}
+
+- (void)playRoar {
+    PLAYSOUNDEFFECT(ENEMYDRILL_ROAR1);
+}
+
+- (void)backToAction {
+    actionStopped = false;
+    [self followCart];
+}
+
 #pragma mark -
 #pragma mark Event Handlers
 -(void)update:(ccTime)dt {
@@ -436,6 +495,41 @@
                         selector:@selector(gameOver:)];
         }
     }
+    
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    if (!inFinalBattle &&
+        isBodyCollidingWithObjectType(finalBattleSensorBody, kCartType)) 
+    {
+        inFinalBattle = true;
+        actionStopped = true;
+        [cart setMotorSpeed:0];
+        cart.body->SetLinearVelocity(b2Vec2(0, 0));
+        [self runAction:
+         [CCSequence actions:
+          [CCDelayTime actionWithDuration:1.0],
+          [CCMoveBy actionWithDuration:0.5
+                              position:ccp(winSize.width * 0.6, 0)],
+          [CCCallFunc actionWithTarget:self
+                              selector:@selector(startFire)],
+          [CCDelayTime actionWithDuration:2.0],
+          [CCCallFunc actionWithTarget:self
+                              selector:@selector(destroyBridge)],
+          [CCDelayTime actionWithDuration:1.0],
+          [CCMoveBy actionWithDuration:2.0
+                              position:ccp(-1 * winSize.width * 1.3, 0)],
+          [CCDelayTime actionWithDuration:1.0],
+          [CCCallFunc actionWithTarget:self
+                              selector:@selector(playRoar)],
+          [CCDelayTime actionWithDuration:1.0],
+          [CCMoveBy actionWithDuration:2.0
+                              position:ccp(-1 * (winSize.width*6-winSize.width*0.7), 0)],
+          [CCDelayTime actionWithDuration:1.0],
+          [CCMoveBy actionWithDuration:2.0
+                              position:ccp(winSize.width*6, 0)],
+          [CCCallFunc actionWithTarget:self
+                              selector:@selector(backToAction)],
+          nil]]; 
+    }
 }
 
 - (void)registerWithTouchDispatcher {
@@ -453,7 +547,10 @@
 }
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer
-        didAccelerate:(UIAcceleration *)acceleration {
+        didAccelerate:(UIAcceleration *)acceleration 
+{
+    if (actionStopped) return;
+    
     float32 maxRevsPerSecond = 7.0;
     float32 accelerationFraction = acceleration.y*6;
     

@@ -1,19 +1,8 @@
-//
-//  Digger.mm
-//  SpaceViking
-//
-//  Created by Muhammad Naveed Siddiqui on 3/11/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import "Digger.h"
 #import "Cart.h"
 #import "Box2DHelpers.h"
 
 @implementation Digger
-
-//@synthesize wheelLSprite;
-//@synthesize wheelRSprite;
 
 - (void)createBodyWithWorld:(b2World *)world
                  atLocation:(CGPoint)location {
@@ -76,16 +65,6 @@
     revJointDef.Initialize(body, wheelRBody, 
                            wheelRBody->GetWorldCenter());
     wheelRJoint = (b2RevoluteJoint *) world->CreateJoint(&revJointDef);
-    
-    /*wheelLSprite = [Box2DSprite
-                    spriteWithSpriteFrameName:@"digger_wheel.png"];
-    wheelLSprite.body = wheelLBody;
-    wheelLBody->SetUserData(wheelLSprite);
-    
-    wheelRSprite = [Box2DSprite
-                    spriteWithSpriteFrameName:@"digger_wheel.png"];
-    wheelRSprite.body = wheelRBody;
-    wheelRBody->SetUserData(wheelRSprite);*/
 }
 
 - (void)createDrillWithWorld:(b2World *)world {
