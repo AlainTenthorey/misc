@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D49E215146239AF0023E91D /* Spikes.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E214146239AF0023E91D /* Spikes.mm */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D6D574F145333E300A2A3CA /* chap9_scrolling1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */; };
 		1D6D5750145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */; };
@@ -527,6 +528,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D49E213146239AF0023E91D /* Spikes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spikes.h; sourceTree = "<group>"; };
+		1D49E214146239AF0023E91D /* Spikes.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Spikes.mm; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* SpaceViking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceViking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling1.png; sourceTree = "<group>"; };
 		1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chap9_scrolling1iPhone-hd.png"; sourceTree = "<group>"; };
@@ -1508,6 +1511,8 @@
 			children = (
 				1D6D5877145C30B000A2A3CA /* Cart.h */,
 				1D6D5878145C30B000A2A3CA /* Cart.mm */,
+				1D49E213146239AF0023E91D /* Spikes.h */,
+				1D49E214146239AF0023E91D /* Spikes.mm */,
 			);
 			name = Scene4;
 			sourceTree = "<group>";
@@ -2834,6 +2839,7 @@
 				1D6D587C145C31BF00A2A3CA /* Scene4ActionLayer.mm in Sources */,
 				1D6D587F145C377E00A2A3CA /* Scene4.mm in Sources */,
 				1DD8C5AD14619B320040CA90 /* Box2DHelpers.mm in Sources */,
+				1D49E215146239AF0023E91D /* Spikes.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

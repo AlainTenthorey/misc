@@ -1,4 +1,5 @@
 #import "Cart.h"
+#import "Box2DHelpers.h"
 
 #define HD_PTM_RATIO 100.0
 
@@ -231,6 +232,58 @@
     return self;
 }
 
+- (void)playJumpEffect {
+    int soundToPlay = random() % 4;
+    if (soundToPlay == 0) {
+        PLAYSOUNDEFFECT(VIKING_JUMPING_1);
+    } else if (soundToPlay == 1) {
+        PLAYSOUNDEFFECT(VIKING_JUMPING_2);
+    } else if (soundToPlay == 2) {
+        PLAYSOUNDEFFECT(VIKING_JUMPING_3);
+    } else {
+        PLAYSOUNDEFFECT(VIKING_JUMPING_4);
+    }
+}
+
+- (void)playHitEffect {
+    int soundToPlay = random() % 5;
+    if (soundToPlay == 0) {
+        PLAYSOUNDEFFECT(VIKING_HIT_1);
+    } else if (soundToPlay == 1) {
+        PLAYSOUNDEFFECT(VIKING_HIT_2);
+    } else if (soundToPlay == 2) {
+        PLAYSOUNDEFFECT(VIKING_HIT_3);
+    } else if (soundToPlay == 3) {
+        PLAYSOUNDEFFECT(VIKING_HIT_4);
+    } else {
+        PLAYSOUNDEFFECT(VIKING_HIT_5);
+    } 
+}
+
+-(void)changeState:(CharacterStates)newState {
+    if (characterState == newState) return;
+    [self stopAllActions];
+    [self setCharacterState:newState];
+    switch (newState) {
+        case kStateTakingDamage: {
+            [self playHitEffect];
+            characterHealth = characterHealth - 10;
+            CCAction *blink = [CCBlink actionWithDuration:1.0
+                                                   blinks:3.0];
+            [self runAction:blink];
+            [wheelL runAction:[blink copy]];
+            [wheelR runAction:[blink copy]];
+            [legs runAction:[blink copy]];
+            [trunk runAction:[blink copy]];
+            [head runAction:[blink copy]];
+            [helm runAction:[blink copy]];
+            [arm runAction:[blink copy]];
+            break;
+        } default:
+            break; 
+    }
+}
+
 - (void) updateStateWithDeltaTime:(ccTime)deltaTime
              andListOfGameObjects:(CCArray *)listOfGameObjects {
     float32 minAngle = CC_DEGREES_TO_RADIANS(-20);
@@ -250,18 +303,27 @@
         float angimp = self.body->GetInertia() * diff;
         self.body->ApplyAngularImpulse(angimp * 2);
     } 
-}
-
-- (void)playJumpEffect {
-    int soundToPlay = random() % 4;
-    if (soundToPlay == 0) {
-        PLAYSOUNDEFFECT(VIKING_JUMPING_1);
-    } else if (soundToPlay == 1) {
-        PLAYSOUNDEFFECT(VIKING_JUMPING_2);
-    } else if (soundToPlay == 2) {
-        PLAYSOUNDEFFECT(VIKING_JUMPING_3);
-    } else {
-        PLAYSOUNDEFFECT(VIKING_JUMPING_4);
+    
+    if (characterState == kStateDead)
+        return; // Nothing to do if the Viking is dead
+    
+    if ((characterState == kStateTakingDamage) &&
+        ([self numberOfRunningActions] > 0))
+        return; // Currently playing the taking damage animation
+    
+    if ([self numberOfRunningActions] == 0) {
+        // Not playing an animation
+        if (characterHealth <= 0) {
+            [self changeState:kStateDead];
+        } else {
+            [self changeState:kStateIdle];
+        }
+    }
+    
+    if (isBodyCollidingWithObjectType(wheelLBody, kSpikesType)) {
+        [self changeState:kStateTakingDamage];
+    } else if (isBodyCollidingWithObjectType(wheelRBody, kSpikesType)) {
+        [self changeState:kStateTakingDamage];
     }
 }
 

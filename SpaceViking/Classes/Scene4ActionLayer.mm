@@ -4,6 +4,7 @@
 #import "Cart.h"
 #import "SimpleQueryCallback.h"
 #import "Box2DHelpers.h"
+#import "Spikes.h"
 
 #ifndef HD_PTM_RATIO
     #define HD_PTM_RATIO 100.0
@@ -161,12 +162,93 @@
                      spriteFrameName:@"ground3.png"];
 }
 
+- (void)createBridge {
+    Box2DSprite *lastObject;
+    b2Body *lastBody = groundBody;
+    for(int i = 0; i < 15; i++) {
+        Box2DSprite *plank =
+        [Box2DSprite spriteWithSpriteFrameName:@"plank.png"];
+        plank.gameObjectType = kGroundType;
+        
+        b2BodyDef bodyDef;
+        bodyDef.type = b2_dynamicBody;
+        bodyDef.position = b2Vec2(groundMaxX/PTM_RATIO + plank.contentSize.width/2/PTM_RATIO,
+                                  80.0/100.0 - (plank.contentSize.height/2/PTM_RATIO));
+        b2Body *plankBody = world->CreateBody(&bodyDef);
+        plankBody->SetUserData(plank);
+        plank.body = plankBody;
+        [groundSpriteBatchNode addChild:plank];
+        
+        b2PolygonShape shape;
+        float32 diff;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            diff = 40.0-plank.contentSize.height;
+        } else {
+            diff = 20.0-plank.contentSize.height;
+        }
+        
+        shape.SetAsBox(plank.contentSize.width/2/PTM_RATIO, 40.0/100.0,
+                       b2Vec2(0, -plank.contentSize.height/2/
+                              PTM_RATIO-diff/PTM_RATIO), 0);
+        b2FixtureDef fixtureDef;
+        fixtureDef.shape = &shape;
+        fixtureDef.density = 2.0;
+        plankBody->CreateFixture(&fixtureDef);
+        
+        b2RevoluteJointDef jd;
+        jd.Initialize(lastBody, plankBody,
+                      plankBody->GetWorldPoint(b2Vec2(-plank.contentSize.width/2/PTM_RATIO, 0)));
+        jd.lowerAngle = CC_DEGREES_TO_RADIANS(-0.25);
+        jd.upperAngle = CC_DEGREES_TO_RADIANS(0.25);
+        jd.enableLimit = true;
+        b2Joint *joint = world->CreateJoint(&jd);
+        if (i == 0) { lastBridgeStartJoint = joint; }
+        
+        groundMaxX += (plank.contentSize.width * 0.8);
+        lastBody = plankBody;
+        lastObject = plank;
+    }
+    
+    b2RevoluteJointDef jd;
+    jd.Initialize(lastBody, groundBody,
+                  lastBody->GetWorldPoint(
+                                          b2Vec2(lastObject.contentSize.width/2/PTM_RATIO, 0)));
+    lastBridgeEndJoint = world->CreateJoint(&jd);
+}
+
+- (void)createSpikesWithOffset:(int)offset {
+    Spikes * spikes;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        spikes = [[[Spikes alloc] initWithWorld:world
+                                     atLocation:ccp(groundMaxX + offset, 100)] autorelease];
+    } else {
+        spikes = [[[Spikes alloc] initWithWorld:world
+                                     atLocation:ccp(groundMaxX + offset/2, 100/2)] autorelease];
+    }
+    [sceneSpriteBatchNode addChild:spikes];
+}
+    
 - (void)createLevel {
     [self createBackground];
     [self createGround3];
+    [self createSpikesWithOffset:-1200];
+    [self createSpikesWithOffset:-400];
+    [self createBridge];
     [self createGround1];
+    [self createSpikesWithOffset:-1050];
+    [self createSpikesWithOffset:-100];
+    [self createBridge];
     [self createGround3];
+    [self createSpikesWithOffset:-1700];
+    [self createSpikesWithOffset:-900];
+    [self createBridge];
     [self createGround2];
+    [self createSpikesWithOffset:-1300];
+    [self createSpikesWithOffset:-900];
+    [self createGround3];
+    [self createSpikesWithOffset:-1200];
+    [self createSpikesWithOffset:-400];
+    [self createBridge];
     [self createGround3];
 }
 

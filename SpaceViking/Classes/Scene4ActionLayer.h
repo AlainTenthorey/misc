@@ -18,6 +18,9 @@
     
     CCSpriteBatchNode * groundSpriteBatchNode;
     float32 groundMaxX;
+    
+    b2Joint * lastBridgeStartJoint;
+    b2Joint * lastBridgeEndJoint;
 }
 
 - (id)initWithScene4UILayer:(Scene4UILayer *)scene4UILayer;
