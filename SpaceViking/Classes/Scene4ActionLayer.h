@@ -5,6 +5,7 @@
 
 @class Scene4UILayer;
 @class Cart;
+@class Digger;
 
 @interface Scene4ActionLayer : CCLayer {
     b2World * world;
@@ -21,6 +22,10 @@
     
     b2Joint * lastBridgeStartJoint;
     b2Joint * lastBridgeEndJoint;
+    
+    Digger * digger;
+    bool gameOver;
+    b2Body *offscreenSensorBody;
 }
 
 - (id)initWithScene4UILayer:(Scene4UILayer *)scene4UILayer;

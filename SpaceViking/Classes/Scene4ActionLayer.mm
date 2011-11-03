@@ -5,6 +5,8 @@
 #import "SimpleQueryCallback.h"
 #import "Box2DHelpers.h"
 #import "Spikes.h"
+#import "Digger.h"
+#import "GameManager.h"
 
 #ifndef HD_PTM_RATIO
     #define HD_PTM_RATIO 100.0
@@ -48,6 +50,39 @@
     [parallax addChild:background z:-10 parallaxRatio:ccp(0.05f, 0.05f)
         positionOffset:ccp(0,0)];
     [self addChild:parallax z:-10];
+}
+
+- (void)createDigger {
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    digger = [[[Digger alloc] initWithWorld:world
+                                 atLocation:ccp(groundMaxX - winSize.width * 0.8,
+                                                winSize.height/2)] autorelease];
+    [sceneSpriteBatchNode addChild:digger];
+    [sceneSpriteBatchNode addChild:digger.wheelLSprite];
+    [sceneSpriteBatchNode addChild:digger.wheelRSprite];
+}
+
+- (void)createOffscreenSensorBody {
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    float32 sensorWidth = groundMaxX + winSize.width*4;
+    float32 sensorHeight = winSize.height * 0.25;
+    float32 sensorOffsetX = -winSize.width*2;
+    float32 sensorOffsetY = -winSize.height/2;
+    
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_staticBody;
+    bodyDef.position.Set(sensorOffsetX/PTM_RATIO + sensorWidth/2/PTM_RATIO,
+                         sensorOffsetY/PTM_RATIO + sensorHeight/2/PTM_RATIO);
+    offscreenSensorBody = world->CreateBody(&bodyDef);
+    
+    b2PolygonShape shape;
+    shape.SetAsBox(sensorWidth/2/PTM_RATIO, sensorHeight/2/PTM_RATIO);
+    
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &shape;
+    fixtureDef.isSensor = true;
+    fixtureDef.density = 0.0;
+    offscreenSensorBody->CreateFixture(&fixtureDef);
 }
 
 #pragma mark -
@@ -250,6 +285,10 @@
     [self createSpikesWithOffset:-400];
     [self createBridge];
     [self createGround3];
+    [self createDigger];
+    [self createGround3];
+    [self createGround3];
+    [self createOffscreenSensorBody];
 }
 
 - (void)followCart {
@@ -262,6 +301,10 @@
     
     CGPoint newPos = ccp(newX, self.position.y);
     [self setPosition:newPos];
+}
+
+-(void)gameOver:(id)sender {
+    [[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
 }
 
 #pragma mark -
@@ -381,6 +424,18 @@
     } 
     
     [self followCart];
+    
+    if (!gameOver) {
+        if (isBodyCollidingWithObjectType(offscreenSensorBody, kCartType)) {
+            gameOver = true;
+            [uiLayer displayText:@"You Lose" andOnCompleteCallTarget:self 
+                        selector:@selector(gameOver:)];
+        } else if (isBodyCollidingWithObjectType(offscreenSensorBody, kDiggerType)) {
+            gameOver = true;
+            [uiLayer displayText:@"You Win!" andOnCompleteCallTarget:self 
+                        selector:@selector(gameOver:)];
+        }
+    }
 }
 
 - (void)registerWithTouchDispatcher {
