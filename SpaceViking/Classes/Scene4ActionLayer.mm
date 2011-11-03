@@ -347,9 +347,22 @@
 #pragma mark -
 #pragma mark Event Handlers
 -(void)update:(ccTime)dt {
+    static double UPDATE_INTERVAL = 1.0f/60.0f;
+    static double MAX_CYCLES_PER_FRAME = 5;
+    static double timeAccumulator = 0;
+    
+    timeAccumulator += dt;
+    if (timeAccumulator > (MAX_CYCLES_PER_FRAME * UPDATE_INTERVAL)) {
+        timeAccumulator = UPDATE_INTERVAL;
+    }
+    
     int32 velocityIterations = 3;
     int32 positionIterations = 2;
-    world->Step(dt, velocityIterations, positionIterations);
+    while (timeAccumulator >= UPDATE_INTERVAL) {
+        timeAccumulator -= UPDATE_INTERVAL;
+        world->Step(UPDATE_INTERVAL,
+                    velocityIterations, positionIterations);
+    }
     
     for(b2Body *b=world->GetBodyList(); b!=NULL; b=b->GetNext()) {
         if (b->GetUserData() != NULL) {
