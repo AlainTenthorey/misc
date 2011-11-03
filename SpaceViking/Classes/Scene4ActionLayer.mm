@@ -58,8 +58,8 @@
                                  atLocation:ccp(groundMaxX - winSize.width * 0.8,
                                                 winSize.height/2)] autorelease];
     [sceneSpriteBatchNode addChild:digger];
-    [sceneSpriteBatchNode addChild:digger.wheelLSprite];
-    [sceneSpriteBatchNode addChild:digger.wheelRSprite];
+    //[sceneSpriteBatchNode addChild:digger.wheelLSprite];
+    //[sceneSpriteBatchNode addChild:digger.wheelRSprite];
 }
 
 - (void)createOffscreenSensorBody {

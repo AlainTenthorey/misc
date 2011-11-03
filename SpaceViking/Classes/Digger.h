@@ -11,12 +11,16 @@
     b2Fixture *drillLFixture;
     b2Fixture *drillRFixture;
     
-    Box2DSprite *wheelLSprite;
-    Box2DSprite *wheelRSprite;
+    //Box2DSprite *wheelLSprite;
+    //Box2DSprite *wheelRSprite;
+    
+    double movingStartTime;
+    CCAnimation *rotateAnim;
+    CCAnimation *drillAnim;
 }
 
-@property (assign) Box2DSprite *wheelLSprite;
-@property (assign) Box2DSprite *wheelRSprite;
+//@property (assign) Box2DSprite *wheelLSprite;
+//@property (assign) Box2DSprite *wheelRSprite;
 - (id)initWithWorld:(b2World *)world atLocation:(CGPoint)location;
 
 @end
