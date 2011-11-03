@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1D49E215146239AF0023E91D /* Spikes.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E214146239AF0023E91D /* Spikes.mm */; };
 		1D49E21914624E8D0023E91D /* Digger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E21814624E8D0023E91D /* Digger.mm */; };
+		1D49E221146307690023E91D /* Scene5UILayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E220146307680023E91D /* Scene5UILayer.m */; };
+		1D49E224146308CF0023E91D /* Scene5ActionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E223146308CF0023E91D /* Scene5ActionLayer.m */; };
+		1D49E2271463098B0023E91D /* Scene5.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2261463098A0023E91D /* Scene5.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D6D574F145333E300A2A3CA /* chap9_scrolling1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */; };
 		1D6D5750145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */; };
@@ -533,6 +536,12 @@
 		1D49E214146239AF0023E91D /* Spikes.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Spikes.mm; sourceTree = "<group>"; };
 		1D49E21714624E8D0023E91D /* Digger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Digger.h; sourceTree = "<group>"; };
 		1D49E21814624E8D0023E91D /* Digger.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Digger.mm; sourceTree = "<group>"; };
+		1D49E21F146307680023E91D /* Scene5UILayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene5UILayer.h; sourceTree = "<group>"; };
+		1D49E220146307680023E91D /* Scene5UILayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene5UILayer.m; sourceTree = "<group>"; };
+		1D49E222146308CF0023E91D /* Scene5ActionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene5ActionLayer.h; sourceTree = "<group>"; };
+		1D49E223146308CF0023E91D /* Scene5ActionLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene5ActionLayer.m; sourceTree = "<group>"; };
+		1D49E2251463098A0023E91D /* Scene5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene5.h; sourceTree = "<group>"; };
+		1D49E2261463098A0023E91D /* Scene5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene5.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* SpaceViking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceViking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling1.png; sourceTree = "<group>"; };
 		1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chap9_scrolling1iPhone-hd.png"; sourceTree = "<group>"; };
@@ -1175,6 +1184,19 @@
 				506EE05E10304ED200A389B3 /* libcocos2d libraries.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1D49E21E1462E5590023E91D /* Scene5 */ = {
+			isa = PBXGroup;
+			children = (
+				1D49E21F146307680023E91D /* Scene5UILayer.h */,
+				1D49E220146307680023E91D /* Scene5UILayer.m */,
+				1D49E222146308CF0023E91D /* Scene5ActionLayer.h */,
+				1D49E223146308CF0023E91D /* Scene5ActionLayer.m */,
+				1D49E2251463098A0023E91D /* Scene5.h */,
+				1D49E2261463098A0023E91D /* Scene5.m */,
+			);
+			name = Scene5;
 			sourceTree = "<group>";
 		};
 		1D6D57331452A05500A2A3CA /* Scene1 */ = {
@@ -1828,6 +1850,7 @@
 		DC532A8A131EEAA8002B5ABD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1D49E21E1462E5590023E91D /* Scene5 */,
 				1D6D5871145BFF1600A2A3CA /* Scene4 */,
 				1D6D578D14574CFF00A2A3CA /* Scene3 */,
 				1D6D577C14541B4900A2A3CA /* CutSceneForLevel2 */,
@@ -2846,6 +2869,9 @@
 				1DD8C5AD14619B320040CA90 /* Box2DHelpers.mm in Sources */,
 				1D49E215146239AF0023E91D /* Spikes.mm in Sources */,
 				1D49E21914624E8D0023E91D /* Digger.mm in Sources */,
+				1D49E221146307690023E91D /* Scene5UILayer.m in Sources */,
+				1D49E224146308CF0023E91D /* Scene5ActionLayer.m in Sources */,
+				1D49E2271463098B0023E91D /* Scene5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

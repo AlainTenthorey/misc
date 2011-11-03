@@ -12,6 +12,7 @@
 #import "PlatformScene.h"
 #import "PuzzleLayer.h"
 #import "Scene4.h"
+#import "Scene5.h"
 
 @implementation GameManager
 static GameManager* _sharedGameManager = nil;                      
@@ -364,7 +365,7 @@ static GameManager* _sharedGameManager = nil;
             sceneToRun = [Scene4 node];
             break;
         case kGameLevel5:
-            // Placeholder for Level 5
+            sceneToRun = [Scene5 node];
             break;
         case kCutSceneForLevel2:
             sceneToRun = [PlatformScene node];
