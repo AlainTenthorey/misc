@@ -140,6 +140,31 @@
     return self;
 }
 
+- (void)followPlayer:(ccTime)dt 
+{   
+    static double totalTime = 0;
+    totalTime += dt;
+    
+    double shakesPerSecond = 5;
+    double shakeOffset = 3;
+    double shakeX = sin(totalTime*M_PI*2*shakesPerSecond) * shakeOffset;
+    
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    float fixedPosition = winSize.height/4;
+    float newY = fixedPosition - viking.position.y;
+    float groundMaxY = 2048;
+    newY = MIN(newY, 50);
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        groundMaxY = 900;
+        newY = MIN(newY, 25);
+    }
+    
+    newY = MAX(newY, -groundMaxY-fixedPosition);
+    CGPoint newPos = ccp(shakeX, newY);
+    [self setPosition:newPos];
+}
+
 - (void)update:(ccTime)dt {
     static double MAX_TIME = 60;
     double timeSoFar = CACurrentMediaTime() - startTime;
@@ -163,6 +188,8 @@
         [tempChar updateStateWithDeltaTime:dt
                       andListOfGameObjects:listOfGameObjects];
     }
+    
+    [self followPlayer:dt];
 }
 
 - (void)draw {
