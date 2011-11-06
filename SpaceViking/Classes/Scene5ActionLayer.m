@@ -163,6 +163,8 @@
         [sceneSpriteBatchNode addChild:viking z:2];
         
         [self createLevel];
+        
+        [[GameManager sharedGameManager] playBackgroundTrack:BACKGROUND_TRACK_ESCAPE];
     }
     return self;
 }

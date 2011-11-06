@@ -31,6 +31,20 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 }
 
 #pragma mark -
+- (void)playJumpEffect {
+    int soundToPlay = random() % 4;
+    if (soundToPlay == 0) {
+        PLAYSOUNDEFFECT(VIKING_JUMPING_1);
+    } else if (soundToPlay == 1) {
+        PLAYSOUNDEFFECT(VIKING_JUMPING_2);
+    } else if (soundToPlay == 2) {
+        PLAYSOUNDEFFECT(VIKING_JUMPING_3);
+    } else {
+        PLAYSOUNDEFFECT(VIKING_JUMPING_4);
+    } 
+}
+
+#pragma mark -
 #pragma mark Update and Init
 -(void)updateStateWithDeltaTime:(ccTime)dt
            andListOfGameObjects:(CCArray*)listOfGameObjects {
@@ -131,6 +145,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         case kStateJumping:
             action = [CCAnimate actionWithAnimation:jumpingAnim
                                restoreOriginalFrame:NO];
+            [self playJumpEffect];
             break;
         case kStateAfterJumping:
             action = [CCAnimate actionWithAnimation:afterJumpingAnim
