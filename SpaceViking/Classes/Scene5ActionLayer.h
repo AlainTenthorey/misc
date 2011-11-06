@@ -1,7 +1,6 @@
 #import "cocos2d.h"
 #import "chipmunk.h"
 #import "cpMouse.h"
-//#import "drawSpace.h"
 
 @class Scene5UILayer;
 @class CPViking;

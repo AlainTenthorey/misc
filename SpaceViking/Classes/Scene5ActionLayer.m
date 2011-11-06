@@ -5,6 +5,7 @@
 #import "CPPivotPlatform.h"
 #import "CPSpringPlatform.h"
 #import "CPNormalPlatform.h"
+#import "GameManager.h"
 
 @implementation Scene5ActionLayer
 
@@ -258,6 +259,17 @@
     }
     
     [self followPlayer:dt];
+    
+    //Check if level has been completed (or time expired)
+    if (remainingTime <= 0) {
+        [[GameManager sharedGameManager] setHasPlayerDied:YES];
+        [[GameManager sharedGameManager]
+         runSceneWithID:kLevelCompleteScene];
+    } else if (viking.position.y > 2900) {
+        [[GameManager sharedGameManager] setHasPlayerDied:NO];
+        [[GameManager sharedGameManager]
+         runSceneWithID:kLevelCompleteScene];
+    }
 }
 
 - (void)registerWithTouchDispatcher {
