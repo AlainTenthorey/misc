@@ -119,7 +119,7 @@
     
     // Chapter 7
     //[[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
-    [[GameManager sharedGameManager] runSceneWithID:kGameLevel5];
+    [[GameManager sharedGameManager] runSceneWithID:kGameLevel1];
 }
 
 

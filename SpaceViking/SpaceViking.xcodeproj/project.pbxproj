@@ -161,6 +161,8 @@
 		1D6D587C145C31BF00A2A3CA /* Scene4ActionLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D587B145C31BF00A2A3CA /* Scene4ActionLayer.mm */; };
 		1D6D587F145C377E00A2A3CA /* Scene4.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D587E145C377E00A2A3CA /* Scene4.mm */; };
 		1DD8C5AD14619B320040CA90 /* Box2DHelpers.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DD8C5AC14619B320040CA90 /* Box2DHelpers.mm */; };
+		1DD91CEB1466F89E00619B63 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DD91CE91466F89E00619B63 /* fire.png */; };
+		1DD91CEC1466F89E00619B63 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DD91CEA1466F89E00619B63 /* snow.png */; };
 		1F3B9A2D0EF2145700286867 /* SpaceVikingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B9A2B0EF2145700286867 /* SpaceVikingAppDelegate.m */; };
 		504DFBCE10AF12E9006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFBC810AF12E9006D82FE /* CLScoreServerPost.h */; };
 		504DFBCF10AF12E9006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFBC910AF12E9006D82FE /* CLScoreServerPost.m */; };
@@ -831,6 +833,8 @@
 		1D6D587E145C377E00A2A3CA /* Scene4.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scene4.mm; sourceTree = "<group>"; };
 		1DD8C5AB14619B320040CA90 /* Box2DHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2DHelpers.h; sourceTree = "<group>"; };
 		1DD8C5AC14619B320040CA90 /* Box2DHelpers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Box2DHelpers.mm; sourceTree = "<group>"; };
+		1DD91CE91466F89E00619B63 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
+		1DD91CEA1466F89E00619B63 /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow.png; sourceTree = "<group>"; };
 		1F3B9A2B0EF2145700286867 /* SpaceVikingAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpaceVikingAppDelegate.m; path = Classes/SpaceVikingAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		1F3B9A2C0EF2145700286867 /* SpaceVikingAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpaceVikingAppDelegate.h; path = Classes/SpaceVikingAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		1F3B9A820EF2151B00286867 /* SpaceViking_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceViking_Prefix.pch; sourceTree = SOURCE_ROOT; };
@@ -1834,6 +1838,15 @@
 			name = Scene4;
 			sourceTree = "<group>";
 		};
+		1DD91CE81466F89E00619B63 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				1DD91CE91466F89E00619B63 /* fire.png */,
+				1DD91CEA1466F89E00619B63 /* snow.png */,
+			);
+			path = Particles;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
@@ -2171,6 +2184,7 @@
 		DC65EEFB131E5C910052C9AA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1DD91CE81466F89E00619B63 /* Particles */,
 				1D49E2CE14665B330023E91D /* Scene5 */,
 				1D6D5855145BFE1900A2A3CA /* Scene4 */,
 				1D6D582C14582D1900A2A3CA /* Scene3 */,
@@ -3074,6 +3088,8 @@
 				1D49E2EF1466AD2B0023E91D /* chipmunk_background.png in Resources */,
 				1D49E2F01466AD2B0023E91D /* chipmunk_ground-hd.png in Resources */,
 				1D49E2F11466AD2B0023E91D /* chipmunk_ground.png in Resources */,
+				1DD91CEB1466F89E00619B63 /* fire.png in Resources */,
+				1DD91CEC1466F89E00619B63 /* snow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

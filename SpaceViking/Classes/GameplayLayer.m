@@ -19,16 +19,16 @@
 }
 
 -(void)initJoystickAndButtons {
-    CGSize screenSize = [CCDirector sharedDirector].winSize;       // 1
-    // 2
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+
     CGRect joystickBaseDimensions = CGRectMake(0, 0, 128.0f, 128.0f);
     CGRect jumpButtonDimensions = CGRectMake(0, 0, 64.0f, 64.0f);
     CGRect attackButtonDimensions = CGRectMake(0, 0, 64.0f, 64.0f);
-    // 3
+
     CGPoint joystickBasePosition;
     CGPoint jumpButtonPosition;
     CGPoint attackButtonPosition;
-    // 4
+
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         // The device is an iPad running iPhone 3.2 or later.
         CCLOG(@"Positioning Joystick and Buttons for iPad");
@@ -55,71 +55,50 @@
     }
     
     SneakyJoystickSkinnedBase *joystickBase =
-    [[[SneakyJoystickSkinnedBase alloc] init] autorelease];        // 5
-    joystickBase.position = joystickBasePosition;                  // 6
+    [[[SneakyJoystickSkinnedBase alloc] init] autorelease];        
+    joystickBase.position = joystickBasePosition; 
     joystickBase.backgroundSprite = 
-    [CCSprite spriteWithFile:@"dpadDown.png"];                     // 7
+    [CCSprite spriteWithFile:@"dpadDown.png"]; 
     joystickBase.thumbSprite = 
-    [CCSprite spriteWithFile:@"joystickDown.png"];                 // 8
+    [CCSprite spriteWithFile:@"joystickDown.png"];
     joystickBase.joystick = [[SneakyJoystick alloc]
-                             initWithRect:joystickBaseDimensions]; // 9
-    leftJoystick = [joystickBase.joystick retain];                // 10
-    [self addChild:joystickBase];                                 // 11
+                             initWithRect:joystickBaseDimensions];
+    leftJoystick = [joystickBase.joystick retain];
+    [self addChild:joystickBase];
     
     SneakyButtonSkinnedBase *jumpButtonBase =
-    [[[SneakyButtonSkinnedBase alloc] init] autorelease];         // 12
-    jumpButtonBase.position = jumpButtonPosition;                 // 13
+    [[[SneakyButtonSkinnedBase alloc] init] autorelease]; 
+    jumpButtonBase.position = jumpButtonPosition; 
     jumpButtonBase.defaultSprite = 
-    [CCSprite spriteWithFile:@"jumpUp.png"];                      // 14
+    [CCSprite spriteWithFile:@"jumpUp.png"];   
     jumpButtonBase.activatedSprite = 
-    [CCSprite spriteWithFile:@"jumpDown.png"];                    // 15
+    [CCSprite spriteWithFile:@"jumpDown.png"]; 
     jumpButtonBase.pressSprite = 
-    [CCSprite spriteWithFile:@"jumpDown.png"];                    // 16
+    [CCSprite spriteWithFile:@"jumpDown.png"];  
     jumpButtonBase.button = [[SneakyButton alloc] 
-                             initWithRect:jumpButtonDimensions];  // 17
-    jumpButton = [jumpButtonBase.button retain];                  // 18
-    jumpButton.isToggleable = NO;                                 // 19
-    [self addChild:jumpButtonBase];                               // 20
+                             initWithRect:jumpButtonDimensions];
+    jumpButton = [jumpButtonBase.button retain];  
+    jumpButton.isToggleable = NO; 
+    [self addChild:jumpButtonBase]; 
     
-    SneakyButtonSkinnedBase *attackButtonBase = [[[SneakyButtonSkinnedBase alloc] init] autorelease];             // 21
-    attackButtonBase.position = attackButtonPosition;             // 22
-    attackButtonBase.defaultSprite = [CCSprite spriteWithFile:@"handUp.png"];                                    // 23
-    attackButtonBase.activatedSprite = [CCSprite spriteWithFile:@"handDown.png"];                                  // 24
-    attackButtonBase.pressSprite = [CCSprite spriteWithFile:@"handDown.png"];                                  // 25
-    attackButtonBase.button = [[SneakyButton alloc] initWithRect:attackButtonDimensions];                             // 26
-    attackButton = [attackButtonBase.button retain];              // 27
-    attackButton.isToggleable = NO;                               // 28
-    [self addChild:attackButtonBase];                             // 29
+    SneakyButtonSkinnedBase *attackButtonBase = [[[SneakyButtonSkinnedBase alloc] init] autorelease];
+    attackButtonBase.position = attackButtonPosition; 
+    attackButtonBase.defaultSprite = [CCSprite spriteWithFile:@"handUp.png"];
+    attackButtonBase.activatedSprite = [CCSprite spriteWithFile:@"handDown.png"];
+    attackButtonBase.pressSprite = [CCSprite spriteWithFile:@"handDown.png"];
+    attackButtonBase.button = [[SneakyButton alloc] initWithRect:attackButtonDimensions];
+    attackButton = [attackButtonBase.button retain];   
+    attackButton.isToggleable = NO;                   
+    [self addChild:attackButtonBase];                  
 }
-
-
-
-// Located in Viking.m from Chapter 4 on-wards
-//-(void)applyJoystick:(SneakyJoystick *)aJoystick toNode:(CCNode *)tempNode forTimeDelta:(float)deltaTime
-//{
-//    CGPoint scaledVelocity = ccpMult(aJoystick.velocity, 1024.0f); // 1
-//    
-//    CGPoint newPosition = 
-//    ccp(tempNode.position.x + scaledVelocity.x * deltaTime, 
-//        tempNode.position.y + scaledVelocity.y * deltaTime);       // 2
-//    
-//    [tempNode setPosition:newPosition];                            // 3
-//    
-//    if (jumpButton.active == YES) { 
-//        CCLOG(@"Jump button is pressed.");                         // 4
-//    }
-//    if (attackButton.active == YES) {
-//        CCLOG(@"Attack button is pressed.");                       // 5
-//    }
-//}
 
 #pragma mark –
 #pragma mark Update Method
 -(void) update:(ccTime)deltaTime {
     CCArray *listOfGameObjects = 
-    [sceneSpriteBatchNode children];                     // 1
-    for (GameCharacter *tempChar in listOfGameObjects) {         // 2
-        [tempChar updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects];                         // 3
+    [sceneSpriteBatchNode children]; 
+    for (GameCharacter *tempChar in listOfGameObjects) { 
+        [tempChar updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects]; 
     }
     
         // Chapter 7 Additions
@@ -221,30 +200,6 @@
     }
 } 
 
-// loadAudio was only used for teaching CocosDenshion
-// All audio loading and playback should be done in GameManager
-// See Chapter 8 in Learning Cocos2D
-//-(void)loadAudio {
-//    // Loading Sounds Synchronously
-//    [CDSoundEngine setMixerSampleRate:CD_SAMPLE_RATE_MID];    // 1
-//    
-//    [[CDAudioManager sharedManager] setResignBehavior:kAMRBStopPlay 
-//                                           autoHandle:YES];        // 2
-//    
-//    soundEngine = [SimpleAudioEngine sharedEngine];           // 3
-//    
-//    // 4
-//    [soundEngine preloadBackgroundMusic:BACKGROUND_TRACK_OLE_AWAKES];
-//    
-//    // 5
-//    [soundEngine playBackgroundMusic:BACKGROUND_TRACK_OLE_AWAKES];
-//    
-//    [soundEngine preloadEffect: @"22k_viking_cursingV1.wav"];
-//    [soundEngine playEffect: @"22k_viking_cursingV1.wav"];
-//
-//}
-
-
 -(id)init {
     self = [super init];
     if (self != nil) {
@@ -256,19 +211,19 @@
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {         
             [[CCSpriteFrameCache sharedSpriteFrameCache] 
-             addSpriteFramesWithFile:@"scene1atlas.plist"];          // 1
+             addSpriteFramesWithFile:@"scene1atlas.plist"]; 
             sceneSpriteBatchNode = 
-            [CCSpriteBatchNode batchNodeWithFile:@"scene1atlas.png"]; // 2
+            [CCSpriteBatchNode batchNodeWithFile:@"scene1atlas.png"];
         } else {
             [[CCSpriteFrameCache sharedSpriteFrameCache] 
-             addSpriteFramesWithFile:@"scene1atlasiPhone.plist"];          // 1
+             addSpriteFramesWithFile:@"scene1atlasiPhone.plist"];
             sceneSpriteBatchNode = 
-            [CCSpriteBatchNode batchNodeWithFile:@"scene1atlasiPhone.png"];// 2
+            [CCSpriteBatchNode batchNodeWithFile:@"scene1atlasiPhone.png"];
         }
 
         
-        [self addChild:sceneSpriteBatchNode z:0];                // 3
-        [self initJoystickAndButtons];                           // 4
+        [self addChild:sceneSpriteBatchNode z:0];
+        [self initJoystickAndButtons];  
         Viking *viking = [[Viking alloc] 
                           initWithSpriteFrame:[[CCSpriteFrameCache 
                                                 sharedSpriteFrameCache] 
@@ -283,16 +238,16 @@
         [sceneSpriteBatchNode 
          addChild:viking 
          z:kVikingSpriteZValue 
-         tag:kVikingSpriteTagValue];                     // 6
+         tag:kVikingSpriteTagValue];  
         
         [self createObjectOfType:kEnemyTypeRadarDish 
                       withHealth:100 
                       atLocation:ccp(screenSize.width * 0.878f,
                                      screenSize.height * 0.13f) 
-                      withZValue:10];                            // 7
+                      withZValue:10];    
         
         
-        [self scheduleUpdate];                                   // 8
+        [self scheduleUpdate]; 
         
         
         [self schedule:@selector(addEnemy) interval:10.0f];
@@ -310,12 +265,12 @@
         
         
         [gameBeginLabel setPosition:ccp(screenSize.width/2,screenSize.height/2)];          // 2
-        [self addChild:gameBeginLabel];                                    // 3
+        [self addChild:gameBeginLabel]; 
         id labelAction = [CCSpawn actions:
                           [CCScaleBy actionWithDuration:2.0f scale:4],
                           [CCFadeOut actionWithDuration:2.0f],
-                          nil];                                          // 4
-        [gameBeginLabel runAction:labelAction];                            // 5
+                          nil];   
+        [gameBeginLabel runAction:labelAction]; 
         
         
         
@@ -326,6 +281,9 @@
         
         [[GameManager sharedGameManager] playBackgroundTrack:BACKGROUND_TRACK_OLE_AWAKES];
         
+        // Add Snow Particle System
+        CCParticleSystem *snowParticleSystem = [CCParticleSnow node];
+        [self addChild:snowParticleSystem];
     }
     return self; 
 }
