@@ -100,6 +100,10 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         groundShapes = cpArrayNew(0);
         cpSpaceAddCollisionHandler(space, kCollisionTypeViking,
                                    kCollisionTypeGround, begin, preSolve, NULL, separate, NULL);
+        
+        cpConstraint *constraint = cpRotaryLimitJointNew(groundBody, body,
+                                                         CC_DEGREES_TO_RADIANS(-30),  CC_DEGREES_TO_RADIANS(30));
+        cpSpaceAddConstraint(space, constraint);
     }
     return self;
 }
