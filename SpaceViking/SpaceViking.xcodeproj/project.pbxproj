@@ -39,6 +39,8 @@
 		1D49E2BC1463145E0023E91D /* cpSpaceQuery.c in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2831463145E0023E91D /* cpSpaceQuery.c */; };
 		1D49E2BD1463145E0023E91D /* cpSpaceStep.c in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2841463145E0023E91D /* cpSpaceStep.c */; };
 		1D49E2BE1463145E0023E91D /* cpVect.c in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2851463145E0023E91D /* cpVect.c */; };
+		1D49E2C4146651990023E91D /* cpMouse.c in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2C0146651990023E91D /* cpMouse.c */; };
+		1D49E2C5146651990023E91D /* drawSpace.c in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2C1146651990023E91D /* drawSpace.c */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D6D574F145333E300A2A3CA /* chap9_scrolling1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */; };
 		1D6D5750145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */; };
@@ -625,6 +627,10 @@
 		1D49E2841463145E0023E91D /* cpSpaceStep.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpSpaceStep.c; sourceTree = "<group>"; };
 		1D49E2851463145E0023E91D /* cpVect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpVect.c; sourceTree = "<group>"; };
 		1D49E2861463145E0023E91D /* prime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prime.h; sourceTree = "<group>"; };
+		1D49E2C0146651990023E91D /* cpMouse.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = cpMouse.c; sourceTree = "<group>"; };
+		1D49E2C1146651990023E91D /* drawSpace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.c; sourceTree = "<group>"; };
+		1D49E2C2146651990023E91D /* cpMouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpMouse.h; sourceTree = "<group>"; };
+		1D49E2C3146651990023E91D /* drawSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawSpace.h; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* SpaceViking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceViking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling1.png; sourceTree = "<group>"; };
 		1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chap9_scrolling1iPhone-hd.png"; sourceTree = "<group>"; };
@@ -1386,6 +1392,17 @@
 			path = constraints;
 			sourceTree = "<group>";
 		};
+		1D49E2BF146651560023E91D /* Chipmunk */ = {
+			isa = PBXGroup;
+			children = (
+				1D49E2C2146651990023E91D /* cpMouse.h */,
+				1D49E2C0146651990023E91D /* cpMouse.c */,
+				1D49E2C3146651990023E91D /* drawSpace.h */,
+				1D49E2C1146651990023E91D /* drawSpace.c */,
+			);
+			name = Chipmunk;
+			sourceTree = "<group>";
+		};
 		1D6D57331452A05500A2A3CA /* Scene1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1778,6 +1795,7 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1D49E2BF146651560023E91D /* Chipmunk */,
 				1D6D58081457D08D00A2A3CA /* Box2D */,
 				DC532A8B131EEAAF002B5ABD /* Constants */,
 				DC532A8A131EEAA8002B5ABD /* Scenes */,
@@ -3087,6 +3105,8 @@
 				1D49E2BC1463145E0023E91D /* cpSpaceQuery.c in Sources */,
 				1D49E2BD1463145E0023E91D /* cpSpaceStep.c in Sources */,
 				1D49E2BE1463145E0023E91D /* cpVect.c in Sources */,
+				1D49E2C4146651990023E91D /* cpMouse.c in Sources */,
+				1D49E2C5146651990023E91D /* drawSpace.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 #import "PuzzleLayer.h"
 #import "Scene4.h"
 #import "Scene5.h"
+#import "chipmunk.h"
 
 @implementation GameManager
 static GameManager* _sharedGameManager = nil;                      
@@ -329,6 +330,7 @@ static GameManager* _sharedGameManager = nil;
         soundEngine = nil;
         managerSoundState = kAudioManagerUninitialized;
         
+        cpInitChipmunk();
     }
     return self;
 }
