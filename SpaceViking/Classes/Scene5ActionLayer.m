@@ -18,16 +18,26 @@
 }
 
 - (void)createBoxAtLocation:(CGPoint)location {
-    float boxSize = 60.0;
-    float mass = 1.0;
-    cpBody *body = cpBodyNew(mass, cpMomentForBox(mass, boxSize, boxSize));                   // 1
-    body->p = location;
+    cpFloat hw, hh;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        hw = 100.0/2.0f;
+        hh = 10.0/2.0f;
+    } else {
+        hw = 50.0/2.0f;
+        hh = 5.0/2.0f;
+    }
     
-    cpSpaceAddBody(space, body);
-    cpShape *shape =
-    cpBoxShapeNew(body, boxSize, boxSize);
-    shape->e = 0.0;
-    shape->u = 0.5;
+    cpVect verts[] = {
+        cpv(-hw,-hh),
+        cpv(-hw, hh),
+        cpv( hw, hh),
+        cpv( hw,-hh),
+    };
+    
+    cpShape *shape = cpPolyShapeNew(groundBody, 4, verts, location);
+    shape->e = 1.0;
+    shape->u = 1.0;
+    shape->collision_type = kCollisionTypeGround;
     cpSpaceAddShape(space, shape);
 }
 
@@ -49,6 +59,7 @@
     shape->e = 1.0f;
     shape->u = 1.0f;
     shape->layers ^= GRABABLE_MASK_BIT;
+    shape->collision_type = kCollisionTypeGround;
     cpSpaceAddShape(space, shape);
 }
 
@@ -62,6 +73,7 @@
         [self createGround];
         mouse = cpMouseNew(space);
         self.isTouchEnabled = YES;
+        self.isAccelerometerEnabled = YES;
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             [[CCSpriteFrameCache sharedSpriteFrameCache]
@@ -130,18 +142,17 @@
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-    CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
-    cpMouseGrab(mouse, touchLocation, false);
+    [viking ccTouchBegan:touch withEvent:event];
     return YES;
 }
 
-- (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
-    CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
-    cpMouseMove(mouse, touchLocation);
+- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    [viking ccTouchEnded:touch withEvent:event];
 }
 
-- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-    cpMouseRelease(mouse);
+- (void)accelerometer:(UIAccelerometer *)accelerometer
+        didAccelerate:(UIAcceleration *)acceleration {
+    [viking accelerometer:accelerometer didAccelerate:acceleration];
 }
 
 @end

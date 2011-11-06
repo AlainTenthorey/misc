@@ -82,3 +82,8 @@ typedef enum {
 #define kMinCloudMoveDuration 1
 
 #define PTM_RATIO ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 100.0 : 50.0)
+
+typedef enum {
+    kCollisionTypeGround = 0x1,
+    kCollisionTypeViking
+} CollisionType;
