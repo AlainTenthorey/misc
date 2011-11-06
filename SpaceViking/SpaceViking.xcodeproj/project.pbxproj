@@ -47,6 +47,7 @@
 		1D49E2D414665B6A0023E91D /* scene5atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2D014665B6A0023E91D /* scene5atlas.plist */; };
 		1D49E2D514665B6A0023E91D /* scene5atlas-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2D114665B6A0023E91D /* scene5atlas-hd.png */; };
 		1D49E2D614665B6A0023E91D /* scene5atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2D214665B6A0023E91D /* scene5atlas.png */; };
+		1D49E2D914668B370023E91D /* CPRevolvePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2D814668B370023E91D /* CPRevolvePlatform.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D6D574F145333E300A2A3CA /* chap9_scrolling1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */; };
 		1D6D5750145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */; };
@@ -645,6 +646,8 @@
 		1D49E2D014665B6A0023E91D /* scene5atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene5atlas.plist; sourceTree = "<group>"; };
 		1D49E2D114665B6A0023E91D /* scene5atlas-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene5atlas-hd.png"; sourceTree = "<group>"; };
 		1D49E2D214665B6A0023E91D /* scene5atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene5atlas.png; sourceTree = "<group>"; };
+		1D49E2D714668B360023E91D /* CPRevolvePlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPRevolvePlatform.h; sourceTree = "<group>"; };
+		1D49E2D814668B370023E91D /* CPRevolvePlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPRevolvePlatform.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* SpaceViking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceViking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling1.png; sourceTree = "<group>"; };
 		1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chap9_scrolling1iPhone-hd.png"; sourceTree = "<group>"; };
@@ -1432,6 +1435,8 @@
 			children = (
 				1D49E2CB1466570A0023E91D /* CPViking.h */,
 				1D49E2CC1466570A0023E91D /* CPViking.m */,
+				1D49E2D714668B360023E91D /* CPRevolvePlatform.h */,
+				1D49E2D814668B370023E91D /* CPRevolvePlatform.m */,
 			);
 			name = Scene5;
 			sourceTree = "<group>";
@@ -3159,6 +3164,7 @@
 				1D49E2C5146651990023E91D /* drawSpace.c in Sources */,
 				1D49E2C9146655420023E91D /* CPSprite.m in Sources */,
 				1D49E2CD1466570A0023E91D /* CPViking.m in Sources */,
+				1D49E2D914668B370023E91D /* CPRevolvePlatform.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

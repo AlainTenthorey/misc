@@ -1,6 +1,7 @@
 #import "Scene5ActionLayer.h"
 #import "Scene5UILayer.h"
 #import "CPViking.h"
+#import "CPRevolvePlatform.h"
 
 @implementation Scene5ActionLayer
 
@@ -41,10 +42,17 @@
     cpSpaceAddShape(space, shape);
 }
 
+- (void)createRevolvePlatformAtLocation:(CGPoint)location {
+    CPRevolvePlatform *revolvePlatform =
+    [[[CPRevolvePlatform alloc] initWithLocation:location
+                                           space:space groundBody:groundBody] autorelease];
+    [sceneSpriteBatchNode addChild:revolvePlatform];
+}
+
 - (void)createLevel {
     CGSize winSize = [CCDirector sharedDirector].winSize;
-    [self createBoxAtLocation:ccp(winSize.width * 0.5, winSize.height *
-                                  0.15)];
+    [self createRevolvePlatformAtLocation:
+     ccp(winSize.width * 0.5, winSize.height * 0.25)];
 }
 
 - (void)createGround {
