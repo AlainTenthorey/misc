@@ -51,7 +51,11 @@
 		1D49E2DC14668D390023E91D /* CPPivotPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2DB14668D390023E91D /* CPPivotPlatform.m */; };
 		1D49E2DF14668D510023E91D /* CPSpringPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2DE14668D510023E91D /* CPSpringPlatform.m */; };
 		1D49E2E214668D630023E91D /* CPNormalPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2E114668D620023E91D /* CPNormalPlatform.m */; };
-		1D49E2E5146699EC0023E91D /* scene5atlas-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2E4146699EC0023E91D /* scene5atlas-hd.plist */; };
+		1D49E2E71466A2C20023E91D /* CPViking.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2E61466A2C20023E91D /* CPViking.plist */; };
+		1D49E2EE1466AD2B0023E91D /* chipmunk_background-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2E91466AD2B0023E91D /* chipmunk_background-ipad.png */; };
+		1D49E2EF1466AD2B0023E91D /* chipmunk_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2EA1466AD2B0023E91D /* chipmunk_background.png */; };
+		1D49E2F01466AD2B0023E91D /* chipmunk_ground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2EB1466AD2B0023E91D /* chipmunk_ground-hd.png */; };
+		1D49E2F11466AD2B0023E91D /* chipmunk_ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2EC1466AD2B0023E91D /* chipmunk_ground.png */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D6D574F145333E300A2A3CA /* chap9_scrolling1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */; };
 		1D6D5750145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */; };
@@ -658,7 +662,11 @@
 		1D49E2DE14668D510023E91D /* CPSpringPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSpringPlatform.m; sourceTree = "<group>"; };
 		1D49E2E014668D620023E91D /* CPNormalPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPNormalPlatform.h; sourceTree = "<group>"; };
 		1D49E2E114668D620023E91D /* CPNormalPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPNormalPlatform.m; sourceTree = "<group>"; };
-		1D49E2E4146699EC0023E91D /* scene5atlas-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "scene5atlas-hd.plist"; sourceTree = "<group>"; };
+		1D49E2E61466A2C20023E91D /* CPViking.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CPViking.plist; sourceTree = "<group>"; };
+		1D49E2E91466AD2B0023E91D /* chipmunk_background-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chipmunk_background-ipad.png"; sourceTree = "<group>"; };
+		1D49E2EA1466AD2B0023E91D /* chipmunk_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chipmunk_background.png; sourceTree = "<group>"; };
+		1D49E2EB1466AD2B0023E91D /* chipmunk_ground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chipmunk_ground-hd.png"; sourceTree = "<group>"; };
+		1D49E2EC1466AD2B0023E91D /* chipmunk_ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chipmunk_ground.png; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* SpaceViking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceViking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling1.png; sourceTree = "<group>"; };
 		1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chap9_scrolling1iPhone-hd.png"; sourceTree = "<group>"; };
@@ -1465,6 +1473,10 @@
 				1D49E2D014665B6A0023E91D /* scene5atlas.plist */,
 				1D49E2D114665B6A0023E91D /* scene5atlas-hd.png */,
 				1D49E2D214665B6A0023E91D /* scene5atlas.png */,
+				1D49E2E91466AD2B0023E91D /* chipmunk_background-ipad.png */,
+				1D49E2EA1466AD2B0023E91D /* chipmunk_background.png */,
+				1D49E2EB1466AD2B0023E91D /* chipmunk_ground-hd.png */,
+				1D49E2EC1466AD2B0023E91D /* chipmunk_ground.png */,
 			);
 			name = Scene5;
 			sourceTree = "<group>";
@@ -1472,7 +1484,7 @@
 		1D49E2E3146699BD0023E91D /* Scene5 */ = {
 			isa = PBXGroup;
 			children = (
-				1D49E2E4146699EC0023E91D /* scene5atlas-hd.plist */,
+				1D49E2E61466A2C20023E91D /* CPViking.plist */,
 			);
 			name = Scene5;
 			sourceTree = "<group>";
@@ -3057,7 +3069,11 @@
 				1D49E2D414665B6A0023E91D /* scene5atlas.plist in Resources */,
 				1D49E2D514665B6A0023E91D /* scene5atlas-hd.png in Resources */,
 				1D49E2D614665B6A0023E91D /* scene5atlas.png in Resources */,
-				1D49E2E5146699EC0023E91D /* scene5atlas-hd.plist in Resources */,
+				1D49E2E71466A2C20023E91D /* CPViking.plist in Resources */,
+				1D49E2EE1466AD2B0023E91D /* chipmunk_background-ipad.png in Resources */,
+				1D49E2EF1466AD2B0023E91D /* chipmunk_background.png in Resources */,
+				1D49E2F01466AD2B0023E91D /* chipmunk_ground-hd.png in Resources */,
+				1D49E2F11466AD2B0023E91D /* chipmunk_ground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

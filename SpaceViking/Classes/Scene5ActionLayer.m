@@ -131,6 +131,44 @@
     cpSpaceAddShape(space, shape);
 }
 
+- (void)createBackground 
+{
+    CCParallaxNode * parallax = [CCParallaxNode node];
+    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
+    
+    CCSprite *background;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        background = [CCSprite spriteWithFile:@"chipmunk_background-ipad.png"];
+    } else {
+        background = [CCSprite spriteWithFile:@"chipmunk_background.png"];
+    }
+    background.anchorPoint = ccp(0,0);
+    
+    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_Default];
+    [parallax addChild:background z:-10 parallaxRatio:ccp(0.1f, 0.1f)
+        positionOffset:ccp(0,0)];
+    [self addChild:parallax z:-10];
+    
+    //Adding ground sprite at bottom
+    CCSprite *groundSprite;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        groundSprite = [CCSprite spriteWithFile:@"chipmunk_ground-hd.png"];
+    } else {
+        groundSprite = [CCSprite spriteWithFile:@"chipmunk_ground.png"];
+    }
+    groundSprite.anchorPoint = ccp(0,0);
+    groundSprite.position = ccp(0,0);
+    [self addChild:groundSprite z:-10];
+    
+    //pulse glow effect on background
+    [background runAction:
+     [CCRepeatForever actionWithAction:
+      [CCSequence actions:
+       [CCTintTo actionWithDuration:0.5 red:200 green:0 blue:0],
+       [CCTintTo actionWithDuration:0.5 red:255 green:255 blue:255],
+       nil]]];
+}
+
 - (id)initWithScene5UILayer:(Scene5UILayer *)scene5UILayer {
     if ((self = [super init])) {
         uiLayer = scene5UILayer;
@@ -165,6 +203,7 @@
         [self createLevel];
         
         [[GameManager sharedGameManager] playBackgroundTrack:BACKGROUND_TRACK_ESCAPE];
+        [self createBackground];
     }
     return self;
 }
@@ -219,18 +258,6 @@
     }
     
     [self followPlayer:dt];
-}
-
-- (void)draw {
-    drawSpaceOptions options = {
-        0,      // drawHash
-        0,      // drawBBs
-        1,      // drawShapes
-        4.0f,   // collisionPointSize
-        0.0f,   // bodyPointSize
-        1.5f,   // lineThickness
-    };
-    drawSpace(space, &options);
 }
 
 - (void)registerWithTouchDispatcher {
