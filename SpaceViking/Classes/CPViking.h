@@ -5,6 +5,11 @@
     
     double jumpStartTime;
     float accelerationFraction;
+    
+    CCAnimation * walkingAnim;
+    CCAnimation * jumpingAnim;
+    CCAnimation * afterJumpingAnim;
+    float lastFlip;
 }
 @property (readonly) cpArray *groundShapes;
 

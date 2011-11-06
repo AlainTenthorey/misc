@@ -78,16 +78,43 @@
 #pragma mark -
 - (void)createLevel {
     CGSize winSize = [CCDirector sharedDirector].winSize;
-    //[self createRevolvePlatformAtLocation:
-    // ccp(winSize.width * 0.5, winSize.height * 0.25)];
-    [self createPivotPlatformAtLocation:
-     ccp(winSize.width * 0.7, winSize.height * 0.45)];
-    [self createSpringPlatformAtLocation:
-     ccp(winSize.width * 0.4, winSize.height * 0.25)];
+    [self createNormalPlatformAtLocation:ccp(200, 100)];
     [self createNormalPlatformAtLocation:
-     ccp(winSize.width * 0.2, winSize.height * 0.35)];
+     ccp(winSize.width * 0.2, winSize.height * 0.15)];
+    [self createNormalPlatformAtLocation:
+     ccp(winSize.width * 0.4, winSize.height * 0.30)];
+    [self createNormalPlatformAtLocation:
+     ccp(winSize.width * 0.6, winSize.height * 0.45)];
+    [self createNormalPlatformAtLocation:
+     ccp(winSize.width * 0.8, winSize.height * 0.75)];
+    [self createNormalPlatformAtLocation:
+     ccp(winSize.width * 0.6, winSize.height * 0.90)];
+    [self createNormalPlatformAtLocation:
+     ccp(winSize.width * 0.4, winSize.height * 1.15)];
+    [self createNormalPlatformAtLocation:
+     ccp(winSize.width * 0.2, winSize.height * 1.30)];
+    [self createPivotPlatformAtLocation:
+     ccp(winSize.width * 0.4, winSize.height * 1.60)];
+    [self createNormalPlatformAtLocation:
+     ccp(winSize.width * 0.7, winSize.height * 1.90)];
+    [self createNormalPlatformAtLocation:
+     ccp(winSize.width * 0.4, winSize.height * 2.15)];
+    [self createSpringPlatformAtLocation:
+     ccp(winSize.width * 0.45, winSize.height * 2.60)];
+    [self createSpringPlatformAtLocation:
+     ccp(winSize.width * 0.75, winSize.height * 2.80)];
+    [self createSpringPlatformAtLocation:
+     ccp(winSize.width * 0.55, winSize.height * 3.05)];
+    [self createNormalPlatformAtLocation:
+     ccp(winSize.width * 0.4, winSize.height * 3.15)];
+    [self createNormalPlatformAtLocation:
+     ccp(winSize.width * 0.2, winSize.height * 3.35)];
+    [self createRevolvePlatformAtLocation:
+     ccp(winSize.width * 0.5, winSize.height * 3.50)];
+    [self createNormalPlatformAtLocation:
+     ccp(winSize.width * 0.8, winSize.height * 3.65)];
 }
-
+    
 - (void)createGround {
     CGSize winSize = [CCDirector sharedDirector].winSize;
     CGPoint lowerLeft = ccp(0, 0);

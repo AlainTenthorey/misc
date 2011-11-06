@@ -34,6 +34,8 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 #pragma mark Update and Init
 -(void)updateStateWithDeltaTime:(ccTime)dt
            andListOfGameObjects:(CCArray*)listOfGameObjects {
+    CGPoint oldPosition = self.position;
+    
     [super updateStateWithDeltaTime:dt
                andListOfGameObjects:listOfGameObjects];
     
@@ -78,6 +80,85 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     if (body->p.x > winSize.width - margin) {
         cpBodySetPos(body, ccp(winSize.width - margin, body->p.y));
     }
+    
+    if(ABS(accelerationFraction) > 0.05) {
+        double diff = CACurrentMediaTime() - lastFlip;
+        if (diff > 0.1) {
+            lastFlip = CACurrentMediaTime();
+            if (oldPosition.x > self.position.x) {
+                self.flipX = YES;
+            } else {
+                self.flipX = NO;
+            }
+        }
+    }
+    
+    if (characterState != kStateJumping && jumpStartTime != 0) {
+        [self changeState:kStateJumping];
+    }
+
+    if (characterState == kStateIdle && accelerationFraction != 0) {
+        [self changeState:kStateWalking];
+    }
+
+    if ([self numberOfRunningActions] == 0) {
+        if (characterState == kStateJumping) {
+            if (groundShapes->num > 0) {
+                [self changeState:kStateAfterJumping];
+            }
+        } else if (characterState != kStateIdle) {
+            [self changeState:kStateIdle];
+        } 
+    }
+}
+
+-(void)changeState:(CharacterStates)newState {
+    [self stopAllActions];
+    
+    id action = nil;
+    [self setCharacterState:newState];
+    
+    switch (newState) {
+        case kStateIdle:
+            [self setDisplayFrame:
+             [[CCSpriteFrameCache sharedSpriteFrameCache]
+              spriteFrameByName:@"sv_anim_1.png"]];
+            break;
+        case kStateWalking:
+            action = [CCAnimate actionWithAnimation:walkingAnim
+                               restoreOriginalFrame:NO];
+            break;
+        case kStateJumping:
+            action = [CCAnimate actionWithAnimation:jumpingAnim
+                               restoreOriginalFrame:NO];
+            break;
+        case kStateAfterJumping:
+            action = [CCAnimate actionWithAnimation:afterJumpingAnim
+                               restoreOriginalFrame:NO];
+            break;
+        default:
+            break;
+    }
+    if (action != nil) {
+        [self runAction:action];
+    }
+}
+
+-(void)initAnimations {
+    walkingAnim = [self loadPlistForAnimationWithName:@"walkingAnim"
+                                         andClassName:NSStringFromClass([self class])];
+    [[CCAnimationCache sharedAnimationCache]
+     addAnimation:walkingAnim name:@"walkingAnim"];
+    
+    jumpingAnim = [self loadPlistForAnimationWithName:@"jumpingAnim"
+                                         andClassName:NSStringFromClass([self class])];
+    [[CCAnimationCache sharedAnimationCache]
+     addAnimation:jumpingAnim name:@"jumpingAnim"];
+    
+    afterJumpingAnim = [self loadPlistForAnimationWithName:@"afterJumpingAnim"
+                                              andClassName:NSStringFromClass([self class])];
+    [[CCAnimationCache sharedAnimationCache]
+     addAnimation:afterJumpingAnim name:@"afterJumpingAnim"];
 }
 
 - (id)initWithLocation:(CGPoint)location space:(cpSpace *)theSpace
@@ -104,6 +185,8 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         cpConstraint *constraint = cpRotaryLimitJointNew(groundBody, body,
                                                          CC_DEGREES_TO_RADIANS(-30),  CC_DEGREES_TO_RADIANS(30));
         cpSpaceAddConstraint(space, constraint);
+        
+        [self initAnimations];
     }
     return self;
 }
