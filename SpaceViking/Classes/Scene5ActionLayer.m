@@ -1,5 +1,6 @@
 #import "Scene5ActionLayer.h"
 #import "Scene5UILayer.h"
+#import "CPViking.h"
 
 @implementation Scene5ActionLayer
 
@@ -61,6 +62,26 @@
         [self createGround];
         mouse = cpMouseNew(space);
         self.isTouchEnabled = YES;
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            [[CCSpriteFrameCache sharedSpriteFrameCache]
+             addSpriteFramesWithFile:@"scene5atlas-hd.plist"];
+            sceneSpriteBatchNode = [CCSpriteBatchNode
+                                    batchNodeWithFile:@"scene5atlas-hd.png"];
+            
+            viking = [[[CPViking alloc] initWithLocation:ccp(200,200)
+                                                   space:space groundBody:groundBody] autorelease];
+        } else {
+            [[CCSpriteFrameCache sharedSpriteFrameCache]
+             addSpriteFramesWithFile:@"scene5atlas.plist"];
+            sceneSpriteBatchNode = [CCSpriteBatchNode
+                                    batchNodeWithFile:@"scene5atlas.png"];
+            viking = [[[CPViking alloc] initWithLocation:ccp(100,100)
+                                                   space:space groundBody:groundBody] autorelease];
+        }
+        [self addChild:sceneSpriteBatchNode z:0];
+        [sceneSpriteBatchNode addChild:viking z:2];
+        
         [self createLevel];
     }
     return self;
@@ -82,6 +103,12 @@
     while (timeAccumulator >= UPDATE_INTERVAL) {
         timeAccumulator -= UPDATE_INTERVAL;
         cpSpaceStep(space, UPDATE_INTERVAL);
+    }
+    
+    CCArray *listOfGameObjects = [sceneSpriteBatchNode children];
+    for (GameCharacter *tempChar in listOfGameObjects) {
+        [tempChar updateStateWithDeltaTime:dt
+                      andListOfGameObjects:listOfGameObjects];
     }
 }
 

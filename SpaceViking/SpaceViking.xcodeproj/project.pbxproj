@@ -41,6 +41,12 @@
 		1D49E2BE1463145E0023E91D /* cpVect.c in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2851463145E0023E91D /* cpVect.c */; };
 		1D49E2C4146651990023E91D /* cpMouse.c in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2C0146651990023E91D /* cpMouse.c */; };
 		1D49E2C5146651990023E91D /* drawSpace.c in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2C1146651990023E91D /* drawSpace.c */; };
+		1D49E2C9146655420023E91D /* CPSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2C8146655420023E91D /* CPSprite.m */; };
+		1D49E2CD1466570A0023E91D /* CPViking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2CC1466570A0023E91D /* CPViking.m */; };
+		1D49E2D314665B6A0023E91D /* scene5atlas-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2CF14665B6A0023E91D /* scene5atlas-hd.plist */; };
+		1D49E2D414665B6A0023E91D /* scene5atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2D014665B6A0023E91D /* scene5atlas.plist */; };
+		1D49E2D514665B6A0023E91D /* scene5atlas-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2D114665B6A0023E91D /* scene5atlas-hd.png */; };
+		1D49E2D614665B6A0023E91D /* scene5atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2D214665B6A0023E91D /* scene5atlas.png */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D6D574F145333E300A2A3CA /* chap9_scrolling1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */; };
 		1D6D5750145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */; };
@@ -631,6 +637,14 @@
 		1D49E2C1146651990023E91D /* drawSpace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.c; sourceTree = "<group>"; };
 		1D49E2C2146651990023E91D /* cpMouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpMouse.h; sourceTree = "<group>"; };
 		1D49E2C3146651990023E91D /* drawSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawSpace.h; sourceTree = "<group>"; };
+		1D49E2C7146655420023E91D /* CPSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSprite.h; sourceTree = "<group>"; };
+		1D49E2C8146655420023E91D /* CPSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSprite.m; sourceTree = "<group>"; };
+		1D49E2CB1466570A0023E91D /* CPViking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPViking.h; sourceTree = "<group>"; };
+		1D49E2CC1466570A0023E91D /* CPViking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPViking.m; sourceTree = "<group>"; };
+		1D49E2CF14665B6A0023E91D /* scene5atlas-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "scene5atlas-hd.plist"; sourceTree = "<group>"; };
+		1D49E2D014665B6A0023E91D /* scene5atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene5atlas.plist; sourceTree = "<group>"; };
+		1D49E2D114665B6A0023E91D /* scene5atlas-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene5atlas-hd.png"; sourceTree = "<group>"; };
+		1D49E2D214665B6A0023E91D /* scene5atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene5atlas.png; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* SpaceViking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceViking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling1.png; sourceTree = "<group>"; };
 		1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chap9_scrolling1iPhone-hd.png"; sourceTree = "<group>"; };
@@ -1403,6 +1417,36 @@
 			name = Chipmunk;
 			sourceTree = "<group>";
 		};
+		1D49E2C6146654E90023E91D /* Chipmunk */ = {
+			isa = PBXGroup;
+			children = (
+				1D49E2CA146656E90023E91D /* Scene5 */,
+				1D49E2C7146655420023E91D /* CPSprite.h */,
+				1D49E2C8146655420023E91D /* CPSprite.m */,
+			);
+			name = Chipmunk;
+			sourceTree = "<group>";
+		};
+		1D49E2CA146656E90023E91D /* Scene5 */ = {
+			isa = PBXGroup;
+			children = (
+				1D49E2CB1466570A0023E91D /* CPViking.h */,
+				1D49E2CC1466570A0023E91D /* CPViking.m */,
+			);
+			name = Scene5;
+			sourceTree = "<group>";
+		};
+		1D49E2CE14665B330023E91D /* Scene5 */ = {
+			isa = PBXGroup;
+			children = (
+				1D49E2CF14665B6A0023E91D /* scene5atlas-hd.plist */,
+				1D49E2D014665B6A0023E91D /* scene5atlas.plist */,
+				1D49E2D114665B6A0023E91D /* scene5atlas-hd.png */,
+				1D49E2D214665B6A0023E91D /* scene5atlas.png */,
+			);
+			name = Scene5;
+			sourceTree = "<group>";
+		};
 		1D6D57331452A05500A2A3CA /* Scene1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2029,6 +2073,7 @@
 		DC532A88131EEA9A002B5ABD /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				1D49E2C6146654E90023E91D /* Chipmunk */,
 				1D6D583F145830CC00A2A3CA /* Box2D */,
 				DC532A8E131EEC9F002B5ABD /* GameObject.h */,
 				DC532A8F131EEC9F002B5ABD /* GameObject.m */,
@@ -2083,6 +2128,7 @@
 		DC65EEFB131E5C910052C9AA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1D49E2CE14665B330023E91D /* Scene5 */,
 				1D6D5855145BFE1900A2A3CA /* Scene4 */,
 				1D6D582C14582D1900A2A3CA /* Scene3 */,
 				1D6D57841457446000A2A3CA /* TileMaps */,
@@ -2976,6 +3022,10 @@
 				1D6D586F145BFE5600A2A3CA /* Digger.plist in Resources */,
 				1D6D5870145BFE5600A2A3CA /* fire.plist in Resources */,
 				1D49E2A51463145E0023E91D /* CMakeLists.txt in Resources */,
+				1D49E2D314665B6A0023E91D /* scene5atlas-hd.plist in Resources */,
+				1D49E2D414665B6A0023E91D /* scene5atlas.plist in Resources */,
+				1D49E2D514665B6A0023E91D /* scene5atlas-hd.png in Resources */,
+				1D49E2D614665B6A0023E91D /* scene5atlas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3107,6 +3157,8 @@
 				1D49E2BE1463145E0023E91D /* cpVect.c in Sources */,
 				1D49E2C4146651990023E91D /* cpMouse.c in Sources */,
 				1D49E2C5146651990023E91D /* drawSpace.c in Sources */,
+				1D49E2C9146655420023E91D /* CPSprite.m in Sources */,
+				1D49E2CD1466570A0023E91D /* CPViking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

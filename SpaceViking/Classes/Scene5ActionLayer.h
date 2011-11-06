@@ -4,6 +4,7 @@
 #import "drawSpace.h"
 
 @class Scene5UILayer;
+@class CPViking;
 
 @interface Scene5ActionLayer : CCLayer {
     Scene5UILayer * uiLayer;
@@ -12,6 +13,9 @@
     cpSpace *space;
     cpBody *groundBody;
     cpMouse *mouse;
+    
+    CPViking *viking;
+    CCSpriteBatchNode *sceneSpriteBatchNode;
 }
 
 - (id)initWithScene5UILayer:(Scene5UILayer *)scene5UILayer;
