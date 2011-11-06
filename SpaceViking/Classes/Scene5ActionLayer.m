@@ -2,6 +2,9 @@
 #import "Scene5UILayer.h"
 #import "CPViking.h"
 #import "CPRevolvePlatform.h"
+#import "CPPivotPlatform.h"
+#import "CPSpringPlatform.h"
+#import "CPNormalPlatform.h"
 
 @implementation Scene5ActionLayer
 
@@ -42,6 +45,8 @@
     cpSpaceAddShape(space, shape);
 }
 
+#pragma mark -
+#pragma mark Create Platforms
 - (void)createRevolvePlatformAtLocation:(CGPoint)location {
     CPRevolvePlatform *revolvePlatform =
     [[[CPRevolvePlatform alloc] initWithLocation:location
@@ -49,10 +54,38 @@
     [sceneSpriteBatchNode addChild:revolvePlatform];
 }
 
+- (void)createPivotPlatformAtLocation:(CGPoint)location {
+    CPPivotPlatform *pivotPlatform = [[[CPPivotPlatform alloc]
+                                       initWithLocation:location space:space groundBody:groundBody]
+                                      autorelease];
+    [sceneSpriteBatchNode addChild:pivotPlatform];
+}
+
+- (void)createSpringPlatformAtLocation:(CGPoint)location {
+    CPSpringPlatform *springPlatform = [[[CPSpringPlatform alloc]
+                                         initWithLocation:location space:space groundBody:groundBody]
+                                        autorelease];
+    [sceneSpriteBatchNode addChild:springPlatform];
+}
+
+- (void)createNormalPlatformAtLocation:(CGPoint)location {
+    CPNormalPlatform *normPlatform = [[[CPNormalPlatform alloc]
+                                       initWithLocation:location space:space groundBody:groundBody]
+                                      autorelease];
+    [sceneSpriteBatchNode addChild:normPlatform];
+}
+
+#pragma mark -
 - (void)createLevel {
     CGSize winSize = [CCDirector sharedDirector].winSize;
-    [self createRevolvePlatformAtLocation:
-     ccp(winSize.width * 0.5, winSize.height * 0.25)];
+    //[self createRevolvePlatformAtLocation:
+    // ccp(winSize.width * 0.5, winSize.height * 0.25)];
+    [self createPivotPlatformAtLocation:
+     ccp(winSize.width * 0.7, winSize.height * 0.45)];
+    [self createSpringPlatformAtLocation:
+     ccp(winSize.width * 0.4, winSize.height * 0.25)];
+    [self createNormalPlatformAtLocation:
+     ccp(winSize.width * 0.2, winSize.height * 0.35)];
 }
 
 - (void)createGround {

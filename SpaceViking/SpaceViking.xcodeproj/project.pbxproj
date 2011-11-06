@@ -48,6 +48,9 @@
 		1D49E2D514665B6A0023E91D /* scene5atlas-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2D114665B6A0023E91D /* scene5atlas-hd.png */; };
 		1D49E2D614665B6A0023E91D /* scene5atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D49E2D214665B6A0023E91D /* scene5atlas.png */; };
 		1D49E2D914668B370023E91D /* CPRevolvePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2D814668B370023E91D /* CPRevolvePlatform.m */; };
+		1D49E2DC14668D390023E91D /* CPPivotPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2DB14668D390023E91D /* CPPivotPlatform.m */; };
+		1D49E2DF14668D510023E91D /* CPSpringPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2DE14668D510023E91D /* CPSpringPlatform.m */; };
+		1D49E2E214668D630023E91D /* CPNormalPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D49E2E114668D620023E91D /* CPNormalPlatform.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D6D574F145333E300A2A3CA /* chap9_scrolling1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */; };
 		1D6D5750145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */; };
@@ -648,6 +651,12 @@
 		1D49E2D214665B6A0023E91D /* scene5atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene5atlas.png; sourceTree = "<group>"; };
 		1D49E2D714668B360023E91D /* CPRevolvePlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPRevolvePlatform.h; sourceTree = "<group>"; };
 		1D49E2D814668B370023E91D /* CPRevolvePlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPRevolvePlatform.m; sourceTree = "<group>"; };
+		1D49E2DA14668D380023E91D /* CPPivotPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPPivotPlatform.h; sourceTree = "<group>"; };
+		1D49E2DB14668D390023E91D /* CPPivotPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPPivotPlatform.m; sourceTree = "<group>"; };
+		1D49E2DD14668D510023E91D /* CPSpringPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSpringPlatform.h; sourceTree = "<group>"; };
+		1D49E2DE14668D510023E91D /* CPSpringPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSpringPlatform.m; sourceTree = "<group>"; };
+		1D49E2E014668D620023E91D /* CPNormalPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPNormalPlatform.h; sourceTree = "<group>"; };
+		1D49E2E114668D620023E91D /* CPNormalPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPNormalPlatform.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* SpaceViking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceViking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6D5735145333E300A2A3CA /* chap9_scrolling1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chap9_scrolling1.png; sourceTree = "<group>"; };
 		1D6D5736145333E300A2A3CA /* chap9_scrolling1iPhone-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chap9_scrolling1iPhone-hd.png"; sourceTree = "<group>"; };
@@ -1437,6 +1446,12 @@
 				1D49E2CC1466570A0023E91D /* CPViking.m */,
 				1D49E2D714668B360023E91D /* CPRevolvePlatform.h */,
 				1D49E2D814668B370023E91D /* CPRevolvePlatform.m */,
+				1D49E2DA14668D380023E91D /* CPPivotPlatform.h */,
+				1D49E2DB14668D390023E91D /* CPPivotPlatform.m */,
+				1D49E2DD14668D510023E91D /* CPSpringPlatform.h */,
+				1D49E2DE14668D510023E91D /* CPSpringPlatform.m */,
+				1D49E2E014668D620023E91D /* CPNormalPlatform.h */,
+				1D49E2E114668D620023E91D /* CPNormalPlatform.m */,
 			);
 			name = Scene5;
 			sourceTree = "<group>";
@@ -3165,6 +3180,9 @@
 				1D49E2C9146655420023E91D /* CPSprite.m in Sources */,
 				1D49E2CD1466570A0023E91D /* CPViking.m in Sources */,
 				1D49E2D914668B370023E91D /* CPRevolvePlatform.m in Sources */,
+				1D49E2DC14668D390023E91D /* CPPivotPlatform.m in Sources */,
+				1D49E2DF14668D510023E91D /* CPSpringPlatform.m in Sources */,
+				1D49E2E214668D630023E91D /* CPNormalPlatform.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
