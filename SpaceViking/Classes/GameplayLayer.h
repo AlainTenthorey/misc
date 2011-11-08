@@ -21,6 +21,10 @@
     SneakyButton *attackButton; 
     CCSpriteBatchNode *sceneSpriteBatchNode;
     SimpleAudioEngine *soundEngine;
+    
+    //for particle system - cargoship exhaust
+    CCParticleSystem    *emitter;
+    CCParticleSystem    *smokeEmitter;   
 }
 
 @end

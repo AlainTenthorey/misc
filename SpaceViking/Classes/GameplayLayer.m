@@ -100,28 +100,44 @@
     for (GameCharacter *tempChar in listOfGameObjects) { 
         [tempChar updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects]; 
     }
+
+    // Chapter 7 Additions
+    // Check to see if the Viking is dead
+    GameCharacter *tempChar = (GameCharacter*)
+    [sceneSpriteBatchNode 
+     getChildByTag:kVikingSpriteTagValue];
+    if (([tempChar characterState] == kStateDead) &&
+        ([tempChar numberOfRunningActions] == 0)) {
+        [[GameManager sharedGameManager] setHasPlayerDied:YES];
+        [[GameManager sharedGameManager] 
+         runSceneWithID:kLevelCompleteScene];
+    } 
     
-        // Chapter 7 Additions
-        // Check to see if the Viking is dead
-        GameCharacter *tempChar = (GameCharacter*)
-        [sceneSpriteBatchNode 
-         getChildByTag:kVikingSpriteTagValue];
-        if (([tempChar characterState] == kStateDead) &&
-            ([tempChar numberOfRunningActions] == 0)) {
-            [[GameManager sharedGameManager] setHasPlayerDied:YES];
-            [[GameManager sharedGameManager] 
-             runSceneWithID:kLevelCompleteScene];
-        } 
-        
-        // Check to see if the RadarDish is dead
-        tempChar = (GameCharacter*)[sceneSpriteBatchNode 
-                                    getChildByTag:kRadarDishTagValue];
-        if (([tempChar characterState] == kStateDead) &&
-            ([tempChar numberOfRunningActions] == 0)) {
-            [[GameManager sharedGameManager] 
-             runSceneWithID:kLevelCompleteScene];
+    // Check to see if the RadarDish is dead
+    tempChar = (GameCharacter*)[sceneSpriteBatchNode 
+                                getChildByTag:kRadarDishTagValue];
+    if (([tempChar characterState] == kStateDead) &&
+        ([tempChar numberOfRunningActions] == 0)) {
+        [[GameManager sharedGameManager] 
+         runSceneWithID:kLevelCompleteScene];
+    }
+
+    // Chapter 14 Updates for Particle System
+    GameCharacter *spaceCargoShip = (GameCharacter*)
+                    [sceneSpriteBatchNode getChildByTag:kEnemyTypeSpaceCargoShip];
+    if (spaceCargoShip != nil) {
+        CGRect cargoShipBoundingBox = [spaceCargoShip boundingBox];
+        float xOffset = 0.0f;
+        if ([spaceCargoShip flipX] == NO) {
+            // Ship facing to the left
+            xOffset = cargoShipBoundingBox.size.width;
         }
-    
+        CGPoint newPosition = ccp(cargoShipBoundingBox.origin.x + xOffset,
+                                  cargoShipBoundingBox.origin.y +
+                                    (cargoShipBoundingBox.size.height*0.6f));
+        [emitter setPosition:newPosition];
+        [smokeEmitter setPosition:newPosition];
+    }
 }
 
 #pragma mark -
@@ -159,8 +175,16 @@
         SpaceCargoShip *spaceCargoShip = [[SpaceCargoShip alloc] initWithSpriteFrameName:@"ship_2.png"];
         [spaceCargoShip setDelegate:self];
         [spaceCargoShip setPosition:spawnLocation];
-        [sceneSpriteBatchNode addChild:spaceCargoShip z:ZValue];
+        [sceneSpriteBatchNode addChild:spaceCargoShip
+                                     z:ZValue
+                                   tag:kEnemyTypeSpaceCargoShip];
         [spaceCargoShip release];
+        
+        // Add the flaming particle system 
+        emitter = [ARCH_OPTIMAL_PARTICLE_SYSTEM particleWithFile:@"EngineExhaust.plist"];
+        smokeEmitter = [CCParticleSmoke node];
+        [self addChild:emitter];
+        [self addChild:smokeEmitter];
     } else if (kPowerUpTypeMallet == objectType) {
         CCLOG(@"GameplayLayer -> Creating mallet powerup");
         Mallet *mallet = [[Mallet alloc] initWithSpriteFrameName:@"mallet_1.png"];
