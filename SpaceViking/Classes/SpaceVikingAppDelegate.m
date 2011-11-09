@@ -13,6 +13,7 @@
 #import "RootViewController.h"
 #import "GameScene.h"
 #import "GameManager.h"
+//#import "GCHelper.h"
 
 @implementation SpaceVikingAppDelegate
 
@@ -41,6 +42,9 @@
 }
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
+    // Game center auth
+    //[[GCHelper sharedInstance] authenticateLocalUser];
+    
 	// Init the window
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	

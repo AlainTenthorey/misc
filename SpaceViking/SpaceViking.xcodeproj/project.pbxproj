@@ -160,6 +160,8 @@
 		1D6D5879145C30B000A2A3CA /* Cart.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D5878145C30B000A2A3CA /* Cart.mm */; };
 		1D6D587C145C31BF00A2A3CA /* Scene4ActionLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D587B145C31BF00A2A3CA /* Scene4ActionLayer.mm */; };
 		1D6D587F145C377E00A2A3CA /* Scene4.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D587E145C377E00A2A3CA /* Scene4.mm */; };
+		1D9068DA146AFF3F00778B19 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9068D9146AFF3F00778B19 /* GameKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1D9068DE146AFF8D00778B19 /* GCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9068DD146AFF8D00778B19 /* GCHelper.m */; };
 		1DD8C5AD14619B320040CA90 /* Box2DHelpers.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DD8C5AC14619B320040CA90 /* Box2DHelpers.mm */; };
 		1DD91CEB1466F89E00619B63 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DD91CE91466F89E00619B63 /* fire.png */; };
 		1DD91CEC1466F89E00619B63 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DD91CEA1466F89E00619B63 /* snow.png */; };
@@ -832,6 +834,9 @@
 		1D6D587B145C31BF00A2A3CA /* Scene4ActionLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scene4ActionLayer.mm; sourceTree = "<group>"; };
 		1D6D587D145C377D00A2A3CA /* Scene4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene4.h; sourceTree = "<group>"; };
 		1D6D587E145C377E00A2A3CA /* Scene4.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scene4.mm; sourceTree = "<group>"; };
+		1D9068D9146AFF3F00778B19 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		1D9068DC146AFF8D00778B19 /* GCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHelper.h; sourceTree = "<group>"; };
+		1D9068DD146AFF8D00778B19 /* GCHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHelper.m; sourceTree = "<group>"; };
 		1DD8C5AB14619B320040CA90 /* Box2DHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2DHelpers.h; sourceTree = "<group>"; };
 		1DD8C5AC14619B320040CA90 /* Box2DHelpers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Box2DHelpers.mm; sourceTree = "<group>"; };
 		1DD91CE91466F89E00619B63 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
@@ -1278,6 +1283,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D9068DA146AFF3F00778B19 /* GameKit.framework in Frameworks */,
 				DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */,
 				DCCBF1B90F6022AE0040855A /* Foundation.framework in Frameworks */,
 				DCCBF1BB0F6022AE0040855A /* OpenGLES.framework in Frameworks */,
@@ -1852,6 +1858,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				1D9068D9146AFF3F00778B19 /* GameKit.framework */,
 				DC99C371132128BE00DBBBCB /* Sounds */,
 				DC532A7B131EEA7A002B5ABD /* Plists */,
 				DC65EEFB131E5C910052C9AA /* Images */,
@@ -2114,6 +2121,8 @@
 				1F3B9A2B0EF2145700286867 /* SpaceVikingAppDelegate.m */,
 				DC0FB3C3131F7769001B6142 /* GameManager.h */,
 				DC0FB3C4131F7769001B6142 /* GameManager.mm */,
+				1D9068DC146AFF8D00778B19 /* GCHelper.h */,
+				1D9068DD146AFF8D00778B19 /* GCHelper.m */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -3231,6 +3240,7 @@
 				1D49E2DC14668D390023E91D /* CPPivotPlatform.m in Sources */,
 				1D49E2DF14668D510023E91D /* CPSpringPlatform.m in Sources */,
 				1D49E2E214668D630023E91D /* CPNormalPlatform.m in Sources */,
+				1D9068DE146AFF8D00778B19 /* GCHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
