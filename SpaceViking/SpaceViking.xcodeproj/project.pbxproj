@@ -162,6 +162,8 @@
 		1D6D587F145C377E00A2A3CA /* Scene4.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D6D587E145C377E00A2A3CA /* Scene4.mm */; };
 		1D9068DA146AFF3F00778B19 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9068D9146AFF3F00778B19 /* GameKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1D9068DE146AFF8D00778B19 /* GCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9068DD146AFF8D00778B19 /* GCHelper.m */; };
+		1D9068E1146B40F400778B19 /* GameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9068E0146B40F400778B19 /* GameState.m */; };
+		1D9068E4146B47AB00778B19 /* GCDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9068E3146B47AB00778B19 /* GCDatabase.m */; };
 		1DD8C5AD14619B320040CA90 /* Box2DHelpers.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DD8C5AC14619B320040CA90 /* Box2DHelpers.mm */; };
 		1DD91CEB1466F89E00619B63 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DD91CE91466F89E00619B63 /* fire.png */; };
 		1DD91CEC1466F89E00619B63 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DD91CEA1466F89E00619B63 /* snow.png */; };
@@ -837,6 +839,10 @@
 		1D9068D9146AFF3F00778B19 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		1D9068DC146AFF8D00778B19 /* GCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHelper.h; sourceTree = "<group>"; };
 		1D9068DD146AFF8D00778B19 /* GCHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHelper.m; sourceTree = "<group>"; };
+		1D9068DF146B40F400778B19 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
+		1D9068E0146B40F400778B19 /* GameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameState.m; sourceTree = "<group>"; };
+		1D9068E2146B47AB00778B19 /* GCDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDatabase.h; sourceTree = "<group>"; };
+		1D9068E3146B47AB00778B19 /* GCDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDatabase.m; sourceTree = "<group>"; };
 		1DD8C5AB14619B320040CA90 /* Box2DHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2DHelpers.h; sourceTree = "<group>"; };
 		1DD8C5AC14619B320040CA90 /* Box2DHelpers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Box2DHelpers.mm; sourceTree = "<group>"; };
 		1DD91CE91466F89E00619B63 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
@@ -2123,6 +2129,10 @@
 				DC0FB3C4131F7769001B6142 /* GameManager.mm */,
 				1D9068DC146AFF8D00778B19 /* GCHelper.h */,
 				1D9068DD146AFF8D00778B19 /* GCHelper.m */,
+				1D9068DF146B40F400778B19 /* GameState.h */,
+				1D9068E0146B40F400778B19 /* GameState.m */,
+				1D9068E2146B47AB00778B19 /* GCDatabase.h */,
+				1D9068E3146B47AB00778B19 /* GCDatabase.m */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -3241,6 +3251,8 @@
 				1D49E2DF14668D510023E91D /* CPSpringPlatform.m in Sources */,
 				1D49E2E214668D630023E91D /* CPNormalPlatform.m in Sources */,
 				1D9068DE146AFF8D00778B19 /* GCHelper.m in Sources */,
+				1D9068E1146B40F400778B19 /* GameState.m in Sources */,
+				1D9068E4146B47AB00778B19 /* GCDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

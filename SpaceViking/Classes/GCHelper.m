@@ -1,5 +1,10 @@
 #import "GCHelper.h"
+#import "GCDatabase.h"
+
 @implementation GCHelper
+
+@synthesize scoresToReport;
+@synthesize achievementsToReport;
 
 #pragma mark Loading/Saving
 static GCHelper *sharedHelper = nil;
@@ -8,9 +13,12 @@ static GCHelper *sharedHelper = nil;
     @synchronized([GCHelper class])
     {
         if (!sharedHelper) {
-            [[self alloc] init];
+            sharedHelper = [loadData(@"GameCenterData") retain];
+            if (!sharedHelper) {
+                [[self alloc] initWithScoresToReport:[NSMutableArray array]
+                                achievementsToReport:[NSMutableArray array]];
+            } 
         }
-        return sharedHelper;
     }
     return nil; 
 }
@@ -26,6 +34,10 @@ static GCHelper *sharedHelper = nil;
     return nil; 
 }
 
+- (void)save {
+    saveData(self, @"GameCenterData");
+}
+
 - (BOOL)isGameCenterAvailable {
     // check for presence of GKLocalPlayer API
     Class gcClass = (NSClassFromString(@"GKLocalPlayer"));
@@ -37,8 +49,12 @@ static GCHelper *sharedHelper = nil;
     return (gcClass && osVersionSupported);
 }
 
-- (id)init {
+- (id)initWithScoresToReport:(NSMutableArray *)theScoresToReport 
+        achievementsToReport:(NSMutableArray *)theAchievementsToReport {
     if ((self = [super init])) {
+        self.scoresToReport = theScoresToReport; 
+        self.achievementsToReport = theAchievementsToReport;
+        
         gameCenterAvailable = [self isGameCenterAvailable];
         if (gameCenterAvailable) {
             NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -52,6 +68,28 @@ static GCHelper *sharedHelper = nil;
 }
 
 #pragma mark Internal functions
+- (void)sendAchievement:(GKAchievement *)achievement {
+    [achievement reportAchievementWithCompletionHandler:
+     ^(NSError *error) {
+         dispatch_async(dispatch_get_main_queue(), ^(void)
+        {
+            if (error == NULL) {
+                NSLog(@"Successfully sent achievement!");
+                [achievementsToReport removeObject:achievement];
+            } else {
+                NSLog(@"Achievement failed to send... will try again \
+                      later. Reason: %@", error.localizedDescription);
+            } 
+        });
+     }]; 
+}
+
+- (void)resendData {
+    for (GKAchievement *achievement in achievementsToReport) {
+        [self sendAchievement:achievement];
+    }
+}
+
 - (void)authenticationChanged {
     dispatch_async(dispatch_get_main_queue(), ^(void)
     {
@@ -59,6 +97,7 @@ static GCHelper *sharedHelper = nil;
            !userAuthenticated) {
            NSLog(@"Authentication changed: player authenticated.");
            userAuthenticated = TRUE;
+           [self resendData];
        } else if (![GKLocalPlayer localPlayer].isAuthenticated &&
                   userAuthenticated) {
            NSLog(@"Authentication changed: player not authenticated");
@@ -78,6 +117,36 @@ static GCHelper *sharedHelper = nil;
     } else {
         NSLog(@"Already authenticated!");
     } 
+}
+
+- (void)reportScore:(NSString *)identifier score:(int)rawScore {
+    // TODO...
+}
+
+- (void)reportAchievement:(NSString *)identifier
+          percentComplete:(double)percentComplete {
+    GKAchievement* achievement = [[[GKAchievement alloc]
+                                   initWithIdentifier:identifier] autorelease];
+    
+    achievement.percentComplete = percentComplete;
+    [achievementsToReport addObject:achievement];
+    [self save];
+    
+    if (!gameCenterAvailable || !userAuthenticated) return;
+    [self sendAchievement:achievement];
+}
+
+#pragma mark NSCoding
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:scoresToReport forKey:@"ScoresToReport"];
+    [encoder encodeObject:achievementsToReport forKey:@"AchievementsToReport"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    NSMutableArray * theScoresToReport = [decoder decodeObjectForKey:@"ScoresToReport"];
+    NSMutableArray * theAchievementsToReport = [decoder decodeObjectForKey:@"AchievementsToReport"];
+    return [self initWithScoresToReport:theScoresToReport
+                   achievementsToReport:theAchievementsToReport];
 }
 
 @end
