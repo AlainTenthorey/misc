@@ -18,6 +18,7 @@
 @implementation SpaceVikingAppDelegate
 
 @synthesize window;
+@synthesize viewController;
 
 - (void) removeStartupFlicker
 {

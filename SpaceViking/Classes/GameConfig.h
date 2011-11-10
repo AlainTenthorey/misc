@@ -26,8 +26,8 @@
 //#define GAME_AUTOROTATION kGameAutorotationUIViewController
 
 // For iPhone 3G and older (runs better)
-#define GAME_AUTOROTATION kGameAutorotationCCDirector
-
+//#define GAME_AUTOROTATION kGameAutorotationCCDirector
+#define GAME_AUTOROTATION kGameAutorotationUIViewController
 
 
 #endif // __GAME_CONFIG_H

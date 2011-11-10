@@ -4,7 +4,8 @@
 //
 
 #import "OptionsLayer.h"
-
+#import <GameKit/GameKit.h>
+#import "SpaceVikingAppDelegate.h"
 
 @implementation OptionsLayer
 -(void)returnToMainMenu {
@@ -32,6 +33,24 @@
 		CCLOG(@"OptionsLayer-> Turning Sound Effects ON");
 		[[GameManager sharedGameManager] setIsSoundEffectsON:YES];
 	}
+}
+
+- (void)showAchievements {
+    CCLOG(@"Show achievements!");
+    SpaceVikingAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    GKAchievementViewController *achievements = [[GKAchievementViewController alloc] init];
+    if (achievements != NULL){
+        achievements.achievementDelegate = self;
+        [delegate.viewController
+         presentModalViewController: achievements animated: YES];
+    }
+}
+
+- (void)achievementViewControllerDidFinish:(GKAchievementViewController *)viewController 
+{
+    SpaceVikingAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    [delegate.viewController dismissModalViewControllerAnimated: YES];
+    [viewController release];
 }
 
 -(id)init {
@@ -70,11 +89,15 @@
 		CCLabelBMFont *backButtonLabel = [CCLabelBMFont labelWithString:@"Back" fntFile:@"VikingSpeechFont64.fnt"];
 		CCMenuItemLabel	*backButton = [CCMenuItemLabel itemWithLabel:backButtonLabel target:self selector:@selector(returnToMainMenu)];
 			
-		CCMenu *optionsMenu = [CCMenu menuWithItems:musicToggle,
-							   SFXToggle,
-							   creditsButton,
-							   backButton,nil];
-		[optionsMenu alignItemsVerticallyWithPadding:60.0f];
+        CCLabelBMFont *achievementsButtonLabel = [CCLabelBMFont labelWithString:@"Achievements" fntFile:@"VikingSpeechFont64.fnt"];
+        CCMenuItemLabel    *achievementsButton = [CCMenuItemLabel itemWithLabel:achievementsButtonLabel target:self selector:@selector(showAchievements)];
+        
+        CCMenu *optionsMenu = [CCMenu menuWithItems:achievementsButton,
+                               musicToggle,
+                               SFXToggle,
+                               creditsButton,
+                               backButton,nil];
+        [optionsMenu alignItemsVerticallyWithPadding:40.0f];
 		[optionsMenu setPosition:ccp(screenSize.width * 0.75f, screenSize.height/2)];
 		[self addChild:optionsMenu];
         
