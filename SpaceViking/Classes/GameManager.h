@@ -18,6 +18,10 @@
     NSMutableDictionary *listOfSoundEffectFiles;
     NSMutableDictionary *soundEffectsState;
     
+    //Added for game center level tracking
+    SceneTypes curLevel;
+    SceneTypes lastLevel;
+    
 }
 @property (readwrite) BOOL isMusicON;
 @property (readwrite) BOOL isSoundEffectsON;
@@ -26,6 +30,8 @@
 //@property (readonly) SimpleAudioEngine *soundEngine;
 @property (nonatomic, retain) NSMutableDictionary *listOfSoundEffectFiles;
 @property (nonatomic, retain) NSMutableDictionary *soundEffectsState;
+@property (assign) SceneTypes curLevel;
+@property (assign) SceneTypes lastLevel;
 
 +(GameManager*)sharedGameManager;                                  
 -(void)runSceneWithID:(SceneTypes)sceneID;                         

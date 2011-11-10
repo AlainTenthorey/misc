@@ -23,6 +23,8 @@ static GameManager* _sharedGameManager = nil;
 @synthesize managerSoundState;
 @synthesize listOfSoundEffectFiles;
 @synthesize soundEffectsState;
+@synthesize curLevel;
+@synthesize lastLevel;
 
 +(GameManager*)sharedGameManager {
     @synchronized([GameManager class])                            
@@ -335,8 +337,12 @@ static GameManager* _sharedGameManager = nil;
     return self;
 }
 -(void)runSceneWithID:(SceneTypes)sceneID {
+    lastLevel = curLevel;
+    curLevel = sceneID;
+
     SceneTypes oldScene = currentScene;
     currentScene = sceneID;
+        
     id sceneToRun = nil;
     switch (sceneID) {
         case kMainMenuScene: 
