@@ -6,6 +6,7 @@
 #import "CPSpringPlatform.h"
 #import "CPNormalPlatform.h"
 #import "GameManager.h"
+#import "GCHelper.h"
 
 @implementation Scene5ActionLayer
 
@@ -266,6 +267,7 @@
         [[GameManager sharedGameManager]
          runSceneWithID:kLevelCompleteScene];
     } else if (viking.position.y > 2900) {
+        //[[GCHelper sharedInstance] reportScore:kLeaderboardEscape score:(int)timeSoFar];
         [[GameManager sharedGameManager] setHasPlayerDied:NO];
         [[GameManager sharedGameManager]
          runSceneWithID:kLevelCompleteScene];

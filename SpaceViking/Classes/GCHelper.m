@@ -68,6 +68,20 @@ static GCHelper *sharedHelper = nil;
 }
 
 #pragma mark Internal functions
+- (void)sendScore:(GKScore *)score {
+    [score reportScoreWithCompletionHandler:^(NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^(void)
+       {
+           if (error == NULL) {
+               NSLog(@"Successfully sent score!");
+               [scoresToReport removeObject:score];
+           } else {
+               NSLog(@"Score failed to send... will try again later. Reason: %@", error.localizedDescription);
+           }
+        });
+    }];
+}
+
 - (void)sendAchievement:(GKAchievement *)achievement {
     [achievement reportAchievementWithCompletionHandler:
      ^(NSError *error) {
@@ -87,6 +101,9 @@ static GCHelper *sharedHelper = nil;
 - (void)resendData {
     for (GKAchievement *achievement in achievementsToReport) {
         [self sendAchievement:achievement];
+        for (GKScore *score in scoresToReport) {
+            [self sendScore:score];
+        }
     }
 }
 
@@ -120,7 +137,13 @@ static GCHelper *sharedHelper = nil;
 }
 
 - (void)reportScore:(NSString *)identifier score:(int)rawScore {
-    // TODO...
+    GKScore *score = [[[GKScore alloc] initWithCategory:identifier] autorelease];
+    score.value = rawScore;
+    [scoresToReport addObject:score];
+    [self save];
+    
+    if (!gameCenterAvailable || !userAuthenticated) return;
+    [self sendScore:score];
 }
 
 - (void)reportAchievement:(NSString *)identifier
