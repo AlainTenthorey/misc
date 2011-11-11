@@ -557,7 +557,7 @@
 				<integer>56</integer>
 			</dict>
 		</dict>
-		<string>Scene5ActionLayer.m</string>
+		<string>LevelCompleteLayer.m</string>
 		<dict>
 			<key>$classes</key>
 			<array>
@@ -579,7 +579,7 @@
 				<integer>59</integer>
 			</dict>
 		</dict>
-		<string>Scene5</string>
+		<string>LevelComplete</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -653,7 +653,7 @@
 				<integer>70</integer>
 			</dict>
 			<key>NS.string</key>
-			<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/Scene5ActionLayer.m</string>
+			<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/LevelCompleteLayer.m</string>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -732,9 +732,9 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>342717373.36723202</real>
-		<string>{8440, 1686}</string>
-		<string>{9781, 0}</string>
+		<real>342719213.98828697</real>
+		<string>{44, 1849}</string>
+		<string>{1121, 0}</string>
 		<dict>
 			<key>$classes</key>
 			<array>
@@ -744,7 +744,7 @@
 			<key>$classname</key>
 			<string>NSDictionary</string>
 		</dict>
-		<string>-update:</string>
+		<string>-ccTouchesBegan:withEvent:</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -763,7 +763,7 @@
 				<integer>85</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/Scene5ActionLayer.m</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/LevelCompleteLayer.m</string>
 		<dict>
 			<key>$classes</key>
 			<array>
@@ -2929,15 +2929,19 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>275</integer>
+					<integer>274</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>277</integer>
+					<integer>276</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>279</integer>
+					<integer>278</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
+					<integer>280</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -2945,11 +2949,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>282</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
-					<integer>284</integer>
+					<integer>283</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -3043,11 +3043,10 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>274</integer>
+					<integer>59</integer>
 				</dict>
 			</array>
 		</dict>
-		<string>LevelComplete</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -3070,7 +3069,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>276</integer>
+					<integer>275</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3097,7 +3096,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>278</integer>
+					<integer>277</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3116,7 +3115,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>280</integer>
+					<integer>279</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3153,7 +3152,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>283</integer>
+					<integer>282</integer>
 				</dict>
 			</array>
 		</dict>
@@ -3180,10 +3179,11 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>59</integer>
+					<integer>284</integer>
 				</dict>
 			</array>
 		</dict>
+		<string>Scene5</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -3206,7 +3206,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>276</integer>
+					<integer>275</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -4047,7 +4047,7 @@
 		</dict>
 		<string>IDEUtilitiesArea</string>
 		<real>260</real>
-		<string>Scene5ActionLayer.m</string>
+		<string>LevelCompleteLayer.m</string>
 		<string>{{0, 67}, {900, 711}}</string>
 		<dict>
 			<key>$class</key>
@@ -9917,7 +9917,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>342717373.36498398</real>
+		<real>342717555.42407501</real>
 		<string>{8440, 1686}</string>
 		<string>{9781, 0}</string>
 		<dict>
@@ -13117,9 +13117,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>342655202.98878998</real>
-		<string>{936, 2516}</string>
-		<string>{1547, 0}</string>
+		<real>342719213.98615599</real>
+		<string>{44, 1849}</string>
+		<string>{1121, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -18142,7 +18142,7 @@
 				<integer>1401</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>342655849.41386598</real>
+			<real>342719208.98222202</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -18153,7 +18153,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 6:10 AM</string>
+		<string>Today at 11:46 PM</string>
 		<integer>234</integer>
 		<string>cocos2d libraries</string>
 		<dict>
@@ -18878,7 +18878,7 @@
 				<integer>1465</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/Scene5ActionLayer.m</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/LevelCompleteLayer.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -18896,7 +18896,7 @@
 				<integer>1467</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/GCHelper.m</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/Scene5ActionLayer.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -18914,7 +18914,7 @@
 				<integer>1469</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/OptionsLayer.m</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/GCHelper.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -18932,7 +18932,7 @@
 				<integer>1471</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/OptionsLayer.h</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/OptionsLayer.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -18950,7 +18950,7 @@
 				<integer>1473</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/SpaceVikingAppDelegate.m</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/OptionsLayer.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -18968,7 +18968,7 @@
 				<integer>1475</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/SpaceVikingAppDelegate.h</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/SpaceVikingAppDelegate.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -18986,7 +18986,7 @@
 				<integer>1477</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/GameConfig.h</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/SpaceVikingAppDelegate.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -19004,7 +19004,7 @@
 				<integer>1479</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/LevelCompleteLayer.m</string>
+		<string>file://localhost/Users/naveed/Desktop/dev/git/misc/SpaceViking/Classes/GameConfig.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>

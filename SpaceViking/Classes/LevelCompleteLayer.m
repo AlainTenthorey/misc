@@ -7,19 +7,41 @@
 //
 
 #import "LevelCompleteLayer.h"
-//#import "GameState.h"
-//#import "GCHelper.h"
+#import "GameState.h"
+#import "GCHelper.h"
+#import "SpaceVikingAppDelegate.h"
 
 @implementation LevelCompleteLayer
 
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	CCLOG(@"Touches received, returning to the Main Menu");
-	[[GameManager sharedGameManager] setHasPlayerDied:NO]; // Reset this for the next level
-	[[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
+    if ([GameManager sharedGameManager].lastLevel == kGameLevel5) {
+/*        GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
+        if (leaderboardController != NULL)
+        {
+            leaderboardController.category = kLeaderboardEscape;
+            leaderboardController.timeScope = GKLeaderboardTimeScopeAllTime;
+            leaderboardController.leaderboardDelegate = self;
+            SpaceVikingAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            [delegate.viewController presentModalViewController:leaderboardController
+                                                       animated:YES];
+        }*/
+    } else {
+        [[GameManager sharedGameManager] setHasPlayerDied:NO]; // Reset this for the next level
+        [[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
+    }
 }
 
-
+- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+    SpaceVikingAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    [delegate.viewController dismissModalViewControllerAnimated: YES];
+    [viewController release];
+    
+    [[GameManager sharedGameManager] setHasPlayerDied:NO];
+    [[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
+}
 
 -(id)init {
 	self = [super init];
